@@ -1,0 +1,16 @@
+platform :ios, '13.0'
+
+target 'JustHeroes' do
+  use_frameworks!
+
+  pod 'SnapKit', '5.0.1'
+
+  target 'JustHeroesTests' do
+    inherit! :search_paths
+  end
+
+  target 'JustHeroesUITests' do
+    inherit! :search_paths
+  end
+
+end
