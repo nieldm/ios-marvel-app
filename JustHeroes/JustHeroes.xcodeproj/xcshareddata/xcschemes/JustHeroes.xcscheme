@@ -51,6 +51,16 @@
                ReferencedContainer = "container:JustHeroes.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B123A34424EDDDA7008EABC3"
+               BuildableName = "JustHerosSnapshotTests.xctest"
+               BlueprintName = "JustHerosSnapshotTests"
+               ReferencedContainer = "container:JustHeroes.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

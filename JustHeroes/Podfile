@@ -13,4 +13,9 @@ target 'JustHeroes' do
     inherit! :search_paths
   end
 
+  target 'JustHerosSnapshotTests' do
+    inherit! :search_paths
+    pod "SnapshotTesting"
+  end
+
 end

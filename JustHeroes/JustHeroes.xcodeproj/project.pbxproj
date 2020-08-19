@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3FBD8A7986880A5C639D3FC2 /* Pods_JustHerosSnapshotTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 858519037E8FF7AD7C95D8FF /* Pods_JustHerosSnapshotTests.framework */; };
 		43D794A75A877813E3C84157 /* Pods_JustHeroesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4016DECDE6C890D5A0D8D81C /* Pods_JustHeroesUITests.framework */; };
 		80A200674A9081C9B7921D0E /* Pods_JustHeroes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 414EA569CA05828550CE1288 /* Pods_JustHeroes.framework */; };
 		9651AE076B1F4ADAB0849B17 /* Pods_JustHeroesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B80BF8A04E004274FE9E75E /* Pods_JustHeroesTests.framework */; };
@@ -19,6 +20,7 @@
 		B123A33B24EDD8ED008EABC3 /* CardCollectionSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B123A33A24EDD8ED008EABC3 /* CardCollectionSection.swift */; };
 		B123A33D24EDD97C008EABC3 /* CardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B123A33C24EDD97C008EABC3 /* CardListViewController.swift */; };
 		B123A34024EDDA85008EABC3 /* Assembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B123A33F24EDDA85008EABC3 /* Assembler.swift */; };
+		B123A34824EDDDA7008EABC3 /* JustHerosSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B123A34724EDDDA7008EABC3 /* JustHerosSnapshotTests.swift */; };
 		B146698A24EC4FEB0009FF15 /* CollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B146698924EC4FEB0009FF15 /* CollectionViewDataSource.swift */; };
 		B17F51E324EC4D0B00ECEAA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17F51E224EC4D0B00ECEAA6 /* AppDelegate.swift */; };
 		B17F51E524EC4D0B00ECEAA6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17F51E424EC4D0B00ECEAA6 /* SceneDelegate.swift */; };
@@ -31,6 +33,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		B123A34A24EDDDA7008EABC3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B17F51D724EC4D0B00ECEAA6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B17F51DE24EC4D0B00ECEAA6;
+			remoteInfo = JustHeroes;
+		};
 		B17F51F624EC4D0C00ECEAA6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B17F51D724EC4D0B00ECEAA6 /* Project object */;
@@ -54,6 +63,9 @@
 		43E5A243D1075B20C01D55A7 /* Pods-JustHeroes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustHeroes.debug.xcconfig"; path = "Target Support Files/Pods-JustHeroes/Pods-JustHeroes.debug.xcconfig"; sourceTree = "<group>"; };
 		488469E0400614BD07219B59 /* Pods-JustHeroes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustHeroes.release.xcconfig"; path = "Target Support Files/Pods-JustHeroes/Pods-JustHeroes.release.xcconfig"; sourceTree = "<group>"; };
 		4B80BF8A04E004274FE9E75E /* Pods_JustHeroesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JustHeroesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		775220359E02D876F89BB666 /* Pods-JustHerosSnapshotTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustHerosSnapshotTests.release.xcconfig"; path = "Target Support Files/Pods-JustHerosSnapshotTests/Pods-JustHerosSnapshotTests.release.xcconfig"; sourceTree = "<group>"; };
+		7E45CB9FEBE24384DC06C561 /* Pods-JustHerosSnapshotTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustHerosSnapshotTests.debug.xcconfig"; path = "Target Support Files/Pods-JustHerosSnapshotTests/Pods-JustHerosSnapshotTests.debug.xcconfig"; sourceTree = "<group>"; };
+		858519037E8FF7AD7C95D8FF /* Pods_JustHerosSnapshotTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JustHerosSnapshotTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B123A14624ED87F2008EABC3 /* CollectionViewSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewSection.swift; sourceTree = "<group>"; };
 		B123A32D24EDD5DA008EABC3 /* CollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewItem.swift; sourceTree = "<group>"; };
 		B123A33024EDD74B008EABC3 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -63,6 +75,9 @@
 		B123A33A24EDD8ED008EABC3 /* CardCollectionSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionSection.swift; sourceTree = "<group>"; };
 		B123A33C24EDD97C008EABC3 /* CardListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListViewController.swift; sourceTree = "<group>"; };
 		B123A33F24EDDA85008EABC3 /* Assembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembler.swift; sourceTree = "<group>"; };
+		B123A34524EDDDA7008EABC3 /* JustHerosSnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JustHerosSnapshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B123A34724EDDDA7008EABC3 /* JustHerosSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JustHerosSnapshotTests.swift; sourceTree = "<group>"; };
+		B123A34924EDDDA7008EABC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B146698924EC4FEB0009FF15 /* CollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewDataSource.swift; sourceTree = "<group>"; };
 		B17F51DF24EC4D0B00ECEAA6 /* JustHeroes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustHeroes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B17F51E224EC4D0B00ECEAA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +99,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B123A34224EDDDA7008EABC3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FBD8A7986880A5C639D3FC2 /* Pods_JustHerosSnapshotTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B17F51DC24EC4D0B00ECEAA6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -149,12 +172,22 @@
 			path = CardList;
 			sourceTree = "<group>";
 		};
+		B123A34624EDDDA7008EABC3 /* JustHerosSnapshotTests */ = {
+			isa = PBXGroup;
+			children = (
+				B123A34724EDDDA7008EABC3 /* JustHerosSnapshotTests.swift */,
+				B123A34924EDDDA7008EABC3 /* Info.plist */,
+			);
+			path = JustHerosSnapshotTests;
+			sourceTree = "<group>";
+		};
 		B17F51D624EC4D0B00ECEAA6 = {
 			isa = PBXGroup;
 			children = (
 				B17F51E124EC4D0B00ECEAA6 /* JustHeroes */,
 				B17F51F824EC4D0C00ECEAA6 /* JustHeroesTests */,
 				B17F520324EC4D0C00ECEAA6 /* JustHeroesUITests */,
+				B123A34624EDDDA7008EABC3 /* JustHerosSnapshotTests */,
 				B17F51E024EC4D0B00ECEAA6 /* Products */,
 				E2841960DCDC68ABB49EB279 /* Pods */,
 				D14F5198151D77715DE3BE82 /* Frameworks */,
@@ -167,6 +200,7 @@
 				B17F51DF24EC4D0B00ECEAA6 /* JustHeroes.app */,
 				B17F51F524EC4D0C00ECEAA6 /* JustHeroesTests.xctest */,
 				B17F520024EC4D0C00ECEAA6 /* JustHeroesUITests.xctest */,
+				B123A34524EDDDA7008EABC3 /* JustHerosSnapshotTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -221,6 +255,7 @@
 				414EA569CA05828550CE1288 /* Pods_JustHeroes.framework */,
 				4B80BF8A04E004274FE9E75E /* Pods_JustHeroesTests.framework */,
 				4016DECDE6C890D5A0D8D81C /* Pods_JustHeroesUITests.framework */,
+				858519037E8FF7AD7C95D8FF /* Pods_JustHerosSnapshotTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -234,6 +269,8 @@
 				F2784812CD5483FC1DD1192D /* Pods-JustHeroesTests.release.xcconfig */,
 				EA846486557CBF5A71B0B89B /* Pods-JustHeroesUITests.debug.xcconfig */,
 				B7F89263EC855665A5827AD2 /* Pods-JustHeroesUITests.release.xcconfig */,
+				7E45CB9FEBE24384DC06C561 /* Pods-JustHerosSnapshotTests.debug.xcconfig */,
+				775220359E02D876F89BB666 /* Pods-JustHerosSnapshotTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -241,6 +278,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B123A34424EDDDA7008EABC3 /* JustHerosSnapshotTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B123A34C24EDDDA7008EABC3 /* Build configuration list for PBXNativeTarget "JustHerosSnapshotTests" */;
+			buildPhases = (
+				50072CA780A9F12F8BBA5AEF /* [CP] Check Pods Manifest.lock */,
+				B123A34124EDDDA7008EABC3 /* Sources */,
+				B123A34224EDDDA7008EABC3 /* Frameworks */,
+				B123A34324EDDDA7008EABC3 /* Resources */,
+				3BD24B2B0A77B6AD62C3499C /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B123A34B24EDDDA7008EABC3 /* PBXTargetDependency */,
+			);
+			name = JustHerosSnapshotTests;
+			productName = JustHerosSnapshotTests;
+			productReference = B123A34524EDDDA7008EABC3 /* JustHerosSnapshotTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		B17F51DE24EC4D0B00ECEAA6 /* JustHeroes */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B17F520924EC4D0C00ECEAA6 /* Build configuration list for PBXNativeTarget "JustHeroes" */;
@@ -308,6 +365,10 @@
 				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = "Daniel Mendez";
 				TargetAttributes = {
+					B123A34424EDDDA7008EABC3 = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = B17F51DE24EC4D0B00ECEAA6;
+					};
 					B17F51DE24EC4D0B00ECEAA6 = {
 						CreatedOnToolsVersion = 11.5;
 					};
@@ -337,11 +398,19 @@
 				B17F51DE24EC4D0B00ECEAA6 /* JustHeroes */,
 				B17F51F424EC4D0C00ECEAA6 /* JustHeroesTests */,
 				B17F51FF24EC4D0C00ECEAA6 /* JustHeroesUITests */,
+				B123A34424EDDDA7008EABC3 /* JustHerosSnapshotTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B123A34324EDDDA7008EABC3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B17F51DD24EC4D0B00ECEAA6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -369,6 +438,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3BD24B2B0A77B6AD62C3499C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JustHerosSnapshotTests/Pods-JustHerosSnapshotTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JustHerosSnapshotTests/Pods-JustHerosSnapshotTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JustHerosSnapshotTests/Pods-JustHerosSnapshotTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		47D05E3C91013556F4413F36 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -385,6 +471,28 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-JustHeroes-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		50072CA780A9F12F8BBA5AEF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JustHerosSnapshotTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -455,6 +563,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B123A34124EDDDA7008EABC3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B123A34824EDDDA7008EABC3 /* JustHerosSnapshotTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B17F51DB24EC4D0B00ECEAA6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -494,6 +610,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		B123A34B24EDDDA7008EABC3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B17F51DE24EC4D0B00ECEAA6 /* JustHeroes */;
+			targetProxy = B123A34A24EDDDA7008EABC3 /* PBXContainerItemProxy */;
+		};
 		B17F51F724EC4D0C00ECEAA6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B17F51DE24EC4D0B00ECEAA6 /* JustHeroes */;
@@ -518,6 +639,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		B123A34D24EDDDA7008EABC3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7E45CB9FEBE24384DC06C561 /* Pods-JustHerosSnapshotTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XCD7YJUC25;
+				INFOPLIST_FILE = JustHerosSnapshotTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nieldm.JustHerosSnapshotTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JustHeroes.app/JustHeroes";
+			};
+			name = Debug;
+		};
+		B123A34E24EDDDA7008EABC3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 775220359E02D876F89BB666 /* Pods-JustHerosSnapshotTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XCD7YJUC25;
+				INFOPLIST_FILE = JustHerosSnapshotTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nieldm.JustHerosSnapshotTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JustHeroes.app/JustHeroes";
+			};
+			name = Release;
+		};
 		B17F520724EC4D0C00ECEAA6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -765,6 +928,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B123A34C24EDDDA7008EABC3 /* Build configuration list for PBXNativeTarget "JustHerosSnapshotTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B123A34D24EDDDA7008EABC3 /* Debug */,
+				B123A34E24EDDDA7008EABC3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B17F51DA24EC4D0B00ECEAA6 /* Build configuration list for PBXProject "JustHeroes" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
