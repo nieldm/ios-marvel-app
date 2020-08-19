@@ -3,20 +3,23 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		43D794A75A877813E3C84157 /* Pods_JustHeroesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4016DECDE6C890D5A0D8D81C /* Pods_JustHeroesUITests.framework */; };
 		80A200674A9081C9B7921D0E /* Pods_JustHeroes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 414EA569CA05828550CE1288 /* Pods_JustHeroes.framework */; };
 		9651AE076B1F4ADAB0849B17 /* Pods_JustHeroesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B80BF8A04E004274FE9E75E /* Pods_JustHeroesTests.framework */; };
+		B123A14724ED87F2008EABC3 /* CollectionViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B123A14624ED87F2008EABC3 /* CollectionViewSection.swift */; };
+		B123A32E24EDD5DA008EABC3 /* CollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B123A32D24EDD5DA008EABC3 /* CollectionViewItem.swift */; };
+		B146698A24EC4FEB0009FF15 /* CollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B146698924EC4FEB0009FF15 /* CollectionViewDataSource.swift */; };
 		B17F51E324EC4D0B00ECEAA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17F51E224EC4D0B00ECEAA6 /* AppDelegate.swift */; };
 		B17F51E524EC4D0B00ECEAA6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17F51E424EC4D0B00ECEAA6 /* SceneDelegate.swift */; };
 		B17F51E724EC4D0B00ECEAA6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17F51E624EC4D0B00ECEAA6 /* ContentView.swift */; };
 		B17F51E924EC4D0C00ECEAA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B17F51E824EC4D0C00ECEAA6 /* Assets.xcassets */; };
 		B17F51EC24EC4D0C00ECEAA6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B17F51EB24EC4D0C00ECEAA6 /* Preview Assets.xcassets */; };
 		B17F51EF24EC4D0C00ECEAA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B17F51ED24EC4D0C00ECEAA6 /* LaunchScreen.storyboard */; };
-		B17F51FA24EC4D0C00ECEAA6 /* JustHeroesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17F51F924EC4D0C00ECEAA6 /* JustHeroesTests.swift */; };
+		B17F51FA24EC4D0C00ECEAA6 /* CollectionViewDataSourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17F51F924EC4D0C00ECEAA6 /* CollectionViewDataSourceTest.swift */; };
 		B17F520524EC4D0C00ECEAA6 /* JustHeroesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17F520424EC4D0C00ECEAA6 /* JustHeroesUITests.swift */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +47,9 @@
 		43E5A243D1075B20C01D55A7 /* Pods-JustHeroes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustHeroes.debug.xcconfig"; path = "Target Support Files/Pods-JustHeroes/Pods-JustHeroes.debug.xcconfig"; sourceTree = "<group>"; };
 		488469E0400614BD07219B59 /* Pods-JustHeroes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustHeroes.release.xcconfig"; path = "Target Support Files/Pods-JustHeroes/Pods-JustHeroes.release.xcconfig"; sourceTree = "<group>"; };
 		4B80BF8A04E004274FE9E75E /* Pods_JustHeroesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JustHeroesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B123A14624ED87F2008EABC3 /* CollectionViewSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewSection.swift; sourceTree = "<group>"; };
+		B123A32D24EDD5DA008EABC3 /* CollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewItem.swift; sourceTree = "<group>"; };
+		B146698924EC4FEB0009FF15 /* CollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewDataSource.swift; sourceTree = "<group>"; };
 		B17F51DF24EC4D0B00ECEAA6 /* JustHeroes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustHeroes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B17F51E224EC4D0B00ECEAA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B17F51E424EC4D0B00ECEAA6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,7 +59,7 @@
 		B17F51EE24EC4D0C00ECEAA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B17F51F024EC4D0C00ECEAA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B17F51F524EC4D0C00ECEAA6 /* JustHeroesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JustHeroesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B17F51F924EC4D0C00ECEAA6 /* JustHeroesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JustHeroesTests.swift; sourceTree = "<group>"; };
+		B17F51F924EC4D0C00ECEAA6 /* CollectionViewDataSourceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewDataSourceTest.swift; sourceTree = "<group>"; };
 		B17F51FB24EC4D0C00ECEAA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B17F520024EC4D0C00ECEAA6 /* JustHeroesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JustHeroesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B17F520424EC4D0C00ECEAA6 /* JustHeroesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JustHeroesUITests.swift; sourceTree = "<group>"; };
@@ -122,6 +128,9 @@
 				B17F51E824EC4D0C00ECEAA6 /* Assets.xcassets */,
 				B17F51ED24EC4D0C00ECEAA6 /* LaunchScreen.storyboard */,
 				B17F51F024EC4D0C00ECEAA6 /* Info.plist */,
+				B146698924EC4FEB0009FF15 /* CollectionViewDataSource.swift */,
+				B123A14624ED87F2008EABC3 /* CollectionViewSection.swift */,
+				B123A32D24EDD5DA008EABC3 /* CollectionViewItem.swift */,
 				B17F51EA24EC4D0C00ECEAA6 /* Preview Content */,
 			);
 			path = JustHeroes;
@@ -138,7 +147,7 @@
 		B17F51F824EC4D0C00ECEAA6 /* JustHeroesTests */ = {
 			isa = PBXGroup;
 			children = (
-				B17F51F924EC4D0C00ECEAA6 /* JustHeroesTests.swift */,
+				B17F51F924EC4D0C00ECEAA6 /* CollectionViewDataSourceTest.swift */,
 				B17F51FB24EC4D0C00ECEAA6 /* Info.plist */,
 			);
 			path = JustHeroesTests;
@@ -173,7 +182,6 @@
 				EA846486557CBF5A71B0B89B /* Pods-JustHeroesUITests.debug.xcconfig */,
 				B7F89263EC855665A5827AD2 /* Pods-JustHeroesUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -398,9 +406,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B146698A24EC4FEB0009FF15 /* CollectionViewDataSource.swift in Sources */,
+				B123A32E24EDD5DA008EABC3 /* CollectionViewItem.swift in Sources */,
 				B17F51E324EC4D0B00ECEAA6 /* AppDelegate.swift in Sources */,
 				B17F51E524EC4D0B00ECEAA6 /* SceneDelegate.swift in Sources */,
 				B17F51E724EC4D0B00ECEAA6 /* ContentView.swift in Sources */,
+				B123A14724ED87F2008EABC3 /* CollectionViewSection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,7 +419,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B17F51FA24EC4D0C00ECEAA6 /* JustHeroesTests.swift in Sources */,
+				B17F51FA24EC4D0C00ECEAA6 /* CollectionViewDataSourceTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
