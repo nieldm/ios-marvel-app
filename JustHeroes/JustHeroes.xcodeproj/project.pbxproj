@@ -12,6 +12,13 @@
 		9651AE076B1F4ADAB0849B17 /* Pods_JustHeroesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B80BF8A04E004274FE9E75E /* Pods_JustHeroesTests.framework */; };
 		B123A14724ED87F2008EABC3 /* CollectionViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B123A14624ED87F2008EABC3 /* CollectionViewSection.swift */; };
 		B123A32E24EDD5DA008EABC3 /* CollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B123A32D24EDD5DA008EABC3 /* CollectionViewItem.swift */; };
+		B123A33124EDD74B008EABC3 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B123A33024EDD74B008EABC3 /* CardCollectionViewCell.swift */; };
+		B123A33424EDD7BE008EABC3 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B123A33324EDD7BE008EABC3 /* UIColor.swift */; };
+		B123A33724EDD805008EABC3 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B123A33624EDD805008EABC3 /* UILabel.swift */; };
+		B123A33924EDD897008EABC3 /* CardCollectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B123A33824EDD897008EABC3 /* CardCollectionItem.swift */; };
+		B123A33B24EDD8ED008EABC3 /* CardCollectionSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B123A33A24EDD8ED008EABC3 /* CardCollectionSection.swift */; };
+		B123A33D24EDD97C008EABC3 /* CardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B123A33C24EDD97C008EABC3 /* CardListViewController.swift */; };
+		B123A34024EDDA85008EABC3 /* Assembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B123A33F24EDDA85008EABC3 /* Assembler.swift */; };
 		B146698A24EC4FEB0009FF15 /* CollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B146698924EC4FEB0009FF15 /* CollectionViewDataSource.swift */; };
 		B17F51E324EC4D0B00ECEAA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17F51E224EC4D0B00ECEAA6 /* AppDelegate.swift */; };
 		B17F51E524EC4D0B00ECEAA6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17F51E424EC4D0B00ECEAA6 /* SceneDelegate.swift */; };
@@ -49,6 +56,13 @@
 		4B80BF8A04E004274FE9E75E /* Pods_JustHeroesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JustHeroesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B123A14624ED87F2008EABC3 /* CollectionViewSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewSection.swift; sourceTree = "<group>"; };
 		B123A32D24EDD5DA008EABC3 /* CollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewItem.swift; sourceTree = "<group>"; };
+		B123A33024EDD74B008EABC3 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
+		B123A33324EDD7BE008EABC3 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		B123A33624EDD805008EABC3 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
+		B123A33824EDD897008EABC3 /* CardCollectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionItem.swift; sourceTree = "<group>"; };
+		B123A33A24EDD8ED008EABC3 /* CardCollectionSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionSection.swift; sourceTree = "<group>"; };
+		B123A33C24EDD97C008EABC3 /* CardListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListViewController.swift; sourceTree = "<group>"; };
+		B123A33F24EDDA85008EABC3 /* Assembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembler.swift; sourceTree = "<group>"; };
 		B146698924EC4FEB0009FF15 /* CollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewDataSource.swift; sourceTree = "<group>"; };
 		B17F51DF24EC4D0B00ECEAA6 /* JustHeroes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustHeroes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B17F51E224EC4D0B00ECEAA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +111,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B123A32F24EDD720008EABC3 /* CollectionViewKit */ = {
+			isa = PBXGroup;
+			children = (
+				B146698924EC4FEB0009FF15 /* CollectionViewDataSource.swift */,
+				B123A14624ED87F2008EABC3 /* CollectionViewSection.swift */,
+				B123A32D24EDD5DA008EABC3 /* CollectionViewItem.swift */,
+			);
+			path = CollectionViewKit;
+			sourceTree = "<group>";
+		};
+		B123A33224EDD74F008EABC3 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B123A33E24EDD983008EABC3 /* CardList */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		B123A33524EDD7CD008EABC3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B123A33324EDD7BE008EABC3 /* UIColor.swift */,
+				B123A33624EDD805008EABC3 /* UILabel.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B123A33E24EDD983008EABC3 /* CardList */ = {
+			isa = PBXGroup;
+			children = (
+				B123A33024EDD74B008EABC3 /* CardCollectionViewCell.swift */,
+				B123A33C24EDD97C008EABC3 /* CardListViewController.swift */,
+				B123A33824EDD897008EABC3 /* CardCollectionItem.swift */,
+				B123A33A24EDD8ED008EABC3 /* CardCollectionSection.swift */,
+			);
+			path = CardList;
+			sourceTree = "<group>";
+		};
 		B17F51D624EC4D0B00ECEAA6 = {
 			isa = PBXGroup;
 			children = (
@@ -128,9 +180,10 @@
 				B17F51E824EC4D0C00ECEAA6 /* Assets.xcassets */,
 				B17F51ED24EC4D0C00ECEAA6 /* LaunchScreen.storyboard */,
 				B17F51F024EC4D0C00ECEAA6 /* Info.plist */,
-				B146698924EC4FEB0009FF15 /* CollectionViewDataSource.swift */,
-				B123A14624ED87F2008EABC3 /* CollectionViewSection.swift */,
-				B123A32D24EDD5DA008EABC3 /* CollectionViewItem.swift */,
+				B123A33F24EDDA85008EABC3 /* Assembler.swift */,
+				B123A33524EDD7CD008EABC3 /* Extensions */,
+				B123A33224EDD74F008EABC3 /* Components */,
+				B123A32F24EDD720008EABC3 /* CollectionViewKit */,
 				B17F51EA24EC4D0C00ECEAA6 /* Preview Content */,
 			);
 			path = JustHeroes;
@@ -406,11 +459,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B123A33D24EDD97C008EABC3 /* CardListViewController.swift in Sources */,
+				B123A33924EDD897008EABC3 /* CardCollectionItem.swift in Sources */,
 				B146698A24EC4FEB0009FF15 /* CollectionViewDataSource.swift in Sources */,
 				B123A32E24EDD5DA008EABC3 /* CollectionViewItem.swift in Sources */,
 				B17F51E324EC4D0B00ECEAA6 /* AppDelegate.swift in Sources */,
+				B123A34024EDDA85008EABC3 /* Assembler.swift in Sources */,
 				B17F51E524EC4D0B00ECEAA6 /* SceneDelegate.swift in Sources */,
+				B123A33724EDD805008EABC3 /* UILabel.swift in Sources */,
+				B123A33124EDD74B008EABC3 /* CardCollectionViewCell.swift in Sources */,
+				B123A33424EDD7BE008EABC3 /* UIColor.swift in Sources */,
 				B17F51E724EC4D0B00ECEAA6 /* ContentView.swift in Sources */,
+				B123A33B24EDD8ED008EABC3 /* CardCollectionSection.swift in Sources */,
 				B123A14724ED87F2008EABC3 /* CollectionViewSection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

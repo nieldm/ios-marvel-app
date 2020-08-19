@@ -2,9 +2,11 @@ import XCTest
 @testable import JustHeroes
 
 class CollectionViewItemMock: CollectionViewItem {
+    typealias Cell = UICollectionViewCell
+    
     var getCellCalled = false
     
-    func getCell() -> UICollectionViewCell {
+    func prepare(cell: UICollectionViewCell) -> UICollectionViewCell {
         getCellCalled = true
         return UICollectionViewCell()
     }
@@ -93,6 +95,7 @@ class CollectionViewDataSourceTests: XCTestCase {
 
     func testCellForItemAt() throws {
         let indexPath = IndexPath(row: 0, section: 0)
+        fakeCollection.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "UICollectionViewCell")
         
         _ = sut.collectionView(
             fakeCollection,

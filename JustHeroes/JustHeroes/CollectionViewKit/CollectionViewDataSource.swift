@@ -27,7 +27,13 @@ class CollectionViewDataSource<SectionItem: CollectionViewSection>
     func collectionView(
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        sections[indexPath.section].items[indexPath.row].getCell()
+        let identifier = String(describing: SectionItem.Item.Cell.self)
+        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? SectionItem.Item.Cell else {
+            fatalError("Missing Cell")
+        }
+        
+        return sections[indexPath.section].items[indexPath.row].prepare(cell: cell)
     }
     
     func collectionView(
