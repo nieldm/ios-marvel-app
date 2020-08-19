@@ -20,7 +20,7 @@
 		B123A33B24EDD8ED008EABC3 /* CardCollectionSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B123A33A24EDD8ED008EABC3 /* CardCollectionSection.swift */; };
 		B123A33D24EDD97C008EABC3 /* CardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B123A33C24EDD97C008EABC3 /* CardListViewController.swift */; };
 		B123A34024EDDA85008EABC3 /* Assembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B123A33F24EDDA85008EABC3 /* Assembler.swift */; };
-		B123A34824EDDDA7008EABC3 /* JustHerosSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B123A34724EDDDA7008EABC3 /* JustHerosSnapshotTests.swift */; };
+		B123A34824EDDDA7008EABC3 /* CardListViewControllerSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B123A34724EDDDA7008EABC3 /* CardListViewControllerSnapshotTest.swift */; };
 		B146698A24EC4FEB0009FF15 /* CollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B146698924EC4FEB0009FF15 /* CollectionViewDataSource.swift */; };
 		B17F51E324EC4D0B00ECEAA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17F51E224EC4D0B00ECEAA6 /* AppDelegate.swift */; };
 		B17F51E524EC4D0B00ECEAA6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17F51E424EC4D0B00ECEAA6 /* SceneDelegate.swift */; };
@@ -76,7 +76,7 @@
 		B123A33C24EDD97C008EABC3 /* CardListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListViewController.swift; sourceTree = "<group>"; };
 		B123A33F24EDDA85008EABC3 /* Assembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembler.swift; sourceTree = "<group>"; };
 		B123A34524EDDDA7008EABC3 /* JustHerosSnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JustHerosSnapshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B123A34724EDDDA7008EABC3 /* JustHerosSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JustHerosSnapshotTests.swift; sourceTree = "<group>"; };
+		B123A34724EDDDA7008EABC3 /* CardListViewControllerSnapshotTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListViewControllerSnapshotTest.swift; sourceTree = "<group>"; };
 		B123A34924EDDDA7008EABC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B146698924EC4FEB0009FF15 /* CollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewDataSource.swift; sourceTree = "<group>"; };
 		B17F51DF24EC4D0B00ECEAA6 /* JustHeroes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustHeroes.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -175,7 +175,7 @@
 		B123A34624EDDDA7008EABC3 /* JustHerosSnapshotTests */ = {
 			isa = PBXGroup;
 			children = (
-				B123A34724EDDDA7008EABC3 /* JustHerosSnapshotTests.swift */,
+				B123A34724EDDDA7008EABC3 /* CardListViewControllerSnapshotTest.swift */,
 				B123A34924EDDDA7008EABC3 /* Info.plist */,
 			);
 			path = JustHerosSnapshotTests;
@@ -567,7 +567,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B123A34824EDDDA7008EABC3 /* JustHerosSnapshotTests.swift in Sources */,
+				B123A34824EDDDA7008EABC3 /* CardListViewControllerSnapshotTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
