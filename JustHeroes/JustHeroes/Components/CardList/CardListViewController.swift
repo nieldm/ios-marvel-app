@@ -4,6 +4,7 @@ class CardListViewController: UIViewController {
     
     private var collectionView: UICollectionView!
     private var dataSource: CollectionViewDataSource<CardCollectionSection>
+    private var delegate: CollectionViewDelegate<CardCollectionSection>
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,8 +17,10 @@ class CardListViewController: UIViewController {
         prepareCollectionView()
     }
     
-    init(dataSource: CollectionViewDataSource<CardCollectionSection>) {
+    init(dataSource: CollectionViewDataSource<CardCollectionSection>,
+         delegate: CollectionViewDelegate<CardCollectionSection>) {
         self.dataSource = dataSource
+        self.delegate = delegate
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -34,7 +37,7 @@ class CardListViewController: UIViewController {
     private func prepareCollectionView() {
         collectionView.dataSource = dataSource
         collectionView.prefetchDataSource = dataSource
-        collectionView.delegate = self
+        collectionView.delegate = delegate
         collectionView.register(
             CardCollectionViewCell.self,
             forCellWithReuseIdentifier: "CardCollectionViewCell"
@@ -47,19 +50,4 @@ class CardListViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-}
-
-//TODO: Move this to CollectionViewKit
-extension CardListViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 250, height: 265)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 24
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
-    }
 }

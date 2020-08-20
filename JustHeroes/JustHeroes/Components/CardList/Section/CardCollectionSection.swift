@@ -2,9 +2,10 @@ import Foundation
 import UIKit
 
 struct CardCollectionSection: CollectionViewSection {
-    var items: [CardCollectionItem]
-
     typealias Item = CardCollectionItem
+    
+    var items: [CardCollectionItem]
+    var spacing: CGFloat = 24.0
     
     func getFooter() -> UICollectionReusableView {
         UICollectionReusableView()
@@ -12,7 +13,6 @@ struct CardCollectionSection: CollectionViewSection {
     func getHeader() -> UICollectionReusableView {
         UICollectionReusableView()
     }
-    
     
     //TODO: when downloading images or more info
     func preload(itemAt index: Int) {
