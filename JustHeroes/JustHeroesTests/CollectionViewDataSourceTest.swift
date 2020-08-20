@@ -10,6 +10,10 @@ class CollectionViewItemMock: CollectionViewItem {
         getCellCalled = true
         return UICollectionViewCell()
     }
+    
+    func getSize() -> CGSize {
+        CGSize(width: 250, height: 265)
+    }
 }
 
 class CollectionViewSectionMock: CollectionViewSection {
@@ -31,6 +35,7 @@ class CollectionViewSectionMock: CollectionViewSection {
     }
     
     var items: [CollectionViewItemMock]
+    var spacing: CGFloat = 24.0
     
     init(items: [CollectionViewItemMock]) {
         self.items = items

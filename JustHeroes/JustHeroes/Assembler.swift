@@ -21,7 +21,12 @@ class Assembler {
             ]
         )
         
-        return CardListViewController(dataSource: .init(sections: [section1, section2]))
+        let sections = [section1, section2]
+        
+        return CardListViewController(
+            dataSource: .init(sections: sections),
+            delegate: .init(sections: sections)
+        )
     }
     
 }
