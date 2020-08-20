@@ -7,24 +7,24 @@ protocol CollectionViewDelegateOutput {
 
 class CollectionViewDelegate<SectionItem: CollectionViewSection>: NSObject, UICollectionViewDelegateFlowLayout {
     
-    private var sections: [SectionItem]
+    private var dataSource: CollectionViewDataSource<SectionItem>
     var delegate: CollectionViewDelegateOutput?
     
-    init(sections: [SectionItem], delegate: CollectionViewDelegateOutput? = nil) {
-        self.sections = sections
+    init(dataSource: CollectionViewDataSource<SectionItem>, delegate: CollectionViewDelegateOutput? = nil) {
+        self.dataSource = dataSource
         self.delegate = delegate
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        sections[indexPath.section].items[indexPath.row].getSize()
+        dataSource.getSections()[indexPath.section].items[indexPath.row].getSize()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        sections[section].spacing
+        dataSource.getSections()[section].spacing
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let item = sections[indexPath.section].items[indexPath.row]
+        let item = dataSource.getSections()[indexPath.section].items[indexPath.row]
         delegate?.didSelect(item)
     }
 }

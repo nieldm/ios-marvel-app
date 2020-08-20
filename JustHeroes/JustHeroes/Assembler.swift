@@ -22,11 +22,22 @@ class Assembler {
         )
         
         let sections = [section1, section2]
+        let dataSource = resolveCardListDataSource(sections: sections)
+        let delegate = resolveCardListDelegate(dataSource: dataSource)
         
         return CardListViewController(
-            dataSource: .init(sections: sections),
-            delegate: .init(sections: sections)
+            style: .horizontal(paginated: false),
+            delegate: delegate,
+            dataSource: dataSource
         )
+    }
+    
+    func resolveCardListDataSource<Section: CollectionViewSection>(sections: [Section]) -> CollectionViewDataSource<Section> {
+        CollectionViewDataSource(sections: sections)
+    }
+    
+    func resolveCardListDelegate<Section: CollectionViewSection>(dataSource: CollectionViewDataSource<Section>) -> CollectionViewDelegate<Section> {
+        CollectionViewDelegate(dataSource: dataSource)
     }
     
 }

@@ -14,6 +14,10 @@ class CollectionViewDataSource<SectionItem: CollectionViewSection>
         self.sections = sections
     }
     
+    func getSections() -> [SectionItem] {
+        sections
+    }
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         sections.count
     }
