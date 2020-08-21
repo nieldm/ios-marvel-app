@@ -83,6 +83,18 @@
             ReferencedContainer = "container:JustHeroes.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "MARVEL_PRIVATE_KEY"
+            value = "08b5e01b1697c99d25d7f59b0b2f2d252f109edd"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "MARVEL_API_KEY"
+            value = "885d2218c82dce59c8159ef7d42823fe"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
