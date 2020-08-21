@@ -1,8 +1,6 @@
 import Foundation
 
-struct JHCharacter {}
-
-typealias CharacterResult = Result<[JHCharacter], Error>
+typealias CharacterResult = Result<[CharacterModel], Error>
 
 protocol CharactersRepositoryProtocol {
     func fetchCharacters(
@@ -22,21 +20,23 @@ protocol CharactersRepositoryDataSource {
 }
 
 protocol CharactersRepositoryMapper {
-    func map<T: Codable>(fromObject object: T) -> [JHCharacter]
+    associatedtype DTO: Codable
+    
+    func map(fromObject object: DTO) -> [CharacterModel]
 }
 
 enum RepositoryError: Error {
     case loseContext
 }
 
-class CharactersRepository<DataSource: CharactersRepositoryDataSource>: CharactersRepositoryProtocol {
+class CharactersRepository<DataSource: CharactersRepositoryDataSource, Mapper: CharactersRepositoryMapper>: CharactersRepositoryProtocol where DataSource.DTO == Mapper.DTO {
     let pageSize: Int
     let dataSource: DataSource
-    let mapper: CharactersRepositoryMapper
+    let mapper: Mapper
     
     init(pageSize: Int,
          dataSource: DataSource,
-         mapper: CharactersRepositoryMapper) {
+         mapper: Mapper) {
         self.pageSize = pageSize
         self.dataSource = dataSource
         self.mapper = mapper

@@ -17,6 +17,7 @@ struct MarvelCharacterDTO: Codable {
     let thumbnail: MarvelImageDTO
     let resourceURI: String
     let urls: [MarvelUrlDTO]
+//    let comics: [MarvelComicSummaryDTO]
 }
 
 struct MarvelImageDTO: Codable {
@@ -27,4 +28,9 @@ struct MarvelImageDTO: Codable {
 struct MarvelUrlDTO: Codable {
     let type: String
     let url: String
+}
+
+struct MarvelComicSummaryDTO: Codable {
+    let resourceURI: String
+    let name: String
 }

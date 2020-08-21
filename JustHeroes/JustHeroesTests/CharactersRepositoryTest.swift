@@ -9,20 +9,15 @@
 import XCTest
 @testable import JustHeroes
 
-struct CharactersRepositoryMapperMock: CharactersRepositoryMapper {
-    func map<T>(fromObject object: T) -> [JHCharacter] where T : Decodable, T : Encodable {
-        return []
-    }
-}
-
 class CharactersRepositoryTest: XCTestCase {
 
-    var sut: CharactersRepository<MarvelDataSource>!
+    var sut: CharactersRepository<MarvelDataSource, MarvelCharacterMapper>!
     
     override func setUpWithError() throws {
         let api = try! BaseAPI(baseURL: MarvelDataSource.baseURL, session: .init(configuration: .default))
         let dataSource = MarvelDataSource(api: api)
-        sut = CharactersRepository(pageSize: 20, dataSource: dataSource, mapper: CharactersRepositoryMapperMock())
+        let mapper = MarvelCharacterMapper()
+        sut = CharactersRepository(pageSize: 20, dataSource: dataSource, mapper: mapper)
     }
 
     func testExample() throws {
@@ -30,6 +25,10 @@ class CharactersRepositoryTest: XCTestCase {
 
         self.measure {
             sut.fetchCharacters(atPage: 1) { (result) in
+                let characters = try! result.get()
+                let first = characters.first!
+                XCTAssertEqual(characters.count, 20)
+                XCTAssertNotNil(first.imageURL)
                 expect.fulfill()
             }
         }
