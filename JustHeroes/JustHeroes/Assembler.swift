@@ -7,17 +7,17 @@ class Assembler {
     func resolveCardListViewController_Test() -> CardListViewController {
         let section1 = CardCollectionSection(
             items: [
-                CardCollectionItem(),
-                CardCollectionItem(),
-                CardCollectionItem(),
-                CardCollectionItem(),
-                CardCollectionItem()
+                CardCollectionItem(model: ""),
+                CardCollectionItem(model: ""),
+                CardCollectionItem(model: ""),
+                CardCollectionItem(model: ""),
+                CardCollectionItem(model: "")
             ]
         )
         
         let section2 = CardCollectionSection(
             items: [
-                CardCollectionItem()
+                CardCollectionItem(model: "")
             ]
         )
         

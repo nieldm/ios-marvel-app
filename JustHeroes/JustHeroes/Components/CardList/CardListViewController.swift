@@ -1,6 +1,6 @@
 import UIKit
 
-class CardListViewController: CollectionViewController {
+class CardListViewController: CollectionViewController<CardCollectionSection> {
     
     override func prepareView(_ view: UIView) {
         view.backgroundColor = .primary

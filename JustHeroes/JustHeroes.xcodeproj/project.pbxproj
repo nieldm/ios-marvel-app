@@ -38,6 +38,8 @@
 		B1C2BA2B24EFCF7E005C036B /* BaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C2BA2A24EFCF7E005C036B /* BaseAPI.swift */; };
 		B1C2BA2F24EFE35A005C036B /* CharacterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C2BA2E24EFE35A005C036B /* CharacterModel.swift */; };
 		B1C2BA3224EFE3F6005C036B /* MarvelCharacterMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C2BA3124EFE3F6005C036B /* MarvelCharacterMapper.swift */; };
+		B1C2BA3424EFEB57005C036B /* CharacterListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C2BA3324EFEB57005C036B /* CharacterListViewModel.swift */; };
+		B1C2BA3724EFEF72005C036B /* CharacterListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C2BA3624EFEF72005C036B /* CharacterListSection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +111,8 @@
 		B1C2BA2A24EFCF7E005C036B /* BaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPI.swift; sourceTree = "<group>"; };
 		B1C2BA2E24EFE35A005C036B /* CharacterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModel.swift; sourceTree = "<group>"; };
 		B1C2BA3124EFE3F6005C036B /* MarvelCharacterMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelCharacterMapper.swift; sourceTree = "<group>"; };
+		B1C2BA3324EFEB57005C036B /* CharacterListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewModel.swift; sourceTree = "<group>"; };
+		B1C2BA3624EFEF72005C036B /* CharacterListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListSection.swift; sourceTree = "<group>"; };
 		B7F89263EC855665A5827AD2 /* Pods-JustHeroesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustHeroesUITests.release.xcconfig"; path = "Target Support Files/Pods-JustHeroesUITests/Pods-JustHeroesUITests.release.xcconfig"; sourceTree = "<group>"; };
 		EA846486557CBF5A71B0B89B /* Pods-JustHeroesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustHeroesUITests.debug.xcconfig"; path = "Target Support Files/Pods-JustHeroesUITests/Pods-JustHeroesUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F2784812CD5483FC1DD1192D /* Pods-JustHeroesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustHeroesTests.release.xcconfig"; path = "Target Support Files/Pods-JustHeroesTests/Pods-JustHeroesTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -165,6 +169,7 @@
 		B123A33224EDD74F008EABC3 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				B1C2BA3524EFEF5B005C036B /* CharacterList */,
 				B123A33E24EDD983008EABC3 /* CardList */,
 			);
 			path = Components;
@@ -319,6 +324,15 @@
 				B1C2BA2E24EFE35A005C036B /* CharacterModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		B1C2BA3524EFEF5B005C036B /* CharacterList */ = {
+			isa = PBXGroup;
+			children = (
+				B1C2BA3324EFEB57005C036B /* CharacterListViewModel.swift */,
+				B1C2BA3624EFEF72005C036B /* CharacterListSection.swift */,
+			);
+			path = CharacterList;
 			sourceTree = "<group>";
 		};
 		D14F5198151D77715DE3BE82 /* Frameworks */ = {
@@ -660,6 +674,7 @@
 				B17F51E324EC4D0B00ECEAA6 /* AppDelegate.swift in Sources */,
 				B123A34024EDDA85008EABC3 /* Assembler.swift in Sources */,
 				B17F51E524EC4D0B00ECEAA6 /* SceneDelegate.swift in Sources */,
+				B1C2BA3424EFEB57005C036B /* CharacterListViewModel.swift in Sources */,
 				B123A33724EDD805008EABC3 /* UILabel.swift in Sources */,
 				B123A33124EDD74B008EABC3 /* CardCollectionViewCell.swift in Sources */,
 				B1814BE624EF20F6008840DB /* CharactersRepository.swift in Sources */,
@@ -667,6 +682,7 @@
 				B1B298FF24EEC55600921709 /* CollectionViewDelegate.swift in Sources */,
 				B123A33B24EDD8ED008EABC3 /* CardCollectionSection.swift in Sources */,
 				B123A14724ED87F2008EABC3 /* CollectionViewSection.swift in Sources */,
+				B1C2BA3724EFEF72005C036B /* CharacterListSection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

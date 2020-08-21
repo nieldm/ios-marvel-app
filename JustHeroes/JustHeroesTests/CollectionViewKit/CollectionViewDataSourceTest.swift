@@ -2,6 +2,9 @@ import XCTest
 @testable import JustHeroes
 
 class CollectionViewItemMock: CollectionViewItem {
+    var model: String = ""
+    
+    typealias Model = String
     typealias Cell = UICollectionViewCell
     
     var getCellCalled = false
