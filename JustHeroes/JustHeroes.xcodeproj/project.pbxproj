@@ -30,6 +30,9 @@
 		B17F51FA24EC4D0C00ECEAA6 /* CollectionViewDataSourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17F51F924EC4D0C00ECEAA6 /* CollectionViewDataSourceTest.swift */; };
 		B17F520524EC4D0C00ECEAA6 /* JustHeroesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17F520424EC4D0C00ECEAA6 /* JustHeroesUITests.swift */; };
 		B1814BE424EED36F008840DB /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1814BE324EED36F008840DB /* CollectionViewController.swift */; };
+		B1814BE624EF20F6008840DB /* CharactersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1814BE524EF20F6008840DB /* CharactersRepository.swift */; };
+		B1814BE824EF2F36008840DB /* MarvelDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1814BE724EF2F36008840DB /* MarvelDataSource.swift */; };
+		B1814DC724EF3FAD008840DB /* CharactersRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1814DC624EF3FAD008840DB /* CharactersRepositoryTest.swift */; };
 		B1B298FF24EEC55600921709 /* CollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B298FE24EEC55600921709 /* CollectionViewDelegate.swift */; };
 /* End PBXBuildFile section */
 
@@ -94,6 +97,9 @@
 		B17F520424EC4D0C00ECEAA6 /* JustHeroesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JustHeroesUITests.swift; sourceTree = "<group>"; };
 		B17F520624EC4D0C00ECEAA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1814BE324EED36F008840DB /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		B1814BE524EF20F6008840DB /* CharactersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersRepository.swift; sourceTree = "<group>"; };
+		B1814BE724EF2F36008840DB /* MarvelDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelDataSource.swift; sourceTree = "<group>"; };
+		B1814DC624EF3FAD008840DB /* CharactersRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersRepositoryTest.swift; sourceTree = "<group>"; };
 		B1B298FE24EEC55600921709 /* CollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewDelegate.swift; sourceTree = "<group>"; };
 		B7F89263EC855665A5827AD2 /* Pods-JustHeroesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustHeroesUITests.release.xcconfig"; path = "Target Support Files/Pods-JustHeroesUITests/Pods-JustHeroesUITests.release.xcconfig"; sourceTree = "<group>"; };
 		EA846486557CBF5A71B0B89B /* Pods-JustHeroesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustHeroesUITests.debug.xcconfig"; path = "Target Support Files/Pods-JustHeroesUITests/Pods-JustHeroesUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -221,6 +227,8 @@
 				B123A33224EDD74F008EABC3 /* Components */,
 				B123A32F24EDD720008EABC3 /* CollectionViewKit */,
 				B17F51EA24EC4D0C00ECEAA6 /* Preview Content */,
+				B1814BE524EF20F6008840DB /* CharactersRepository.swift */,
+				B1814BE724EF2F36008840DB /* MarvelDataSource.swift */,
 			);
 			path = JustHeroes;
 			sourceTree = "<group>";
@@ -236,8 +244,9 @@
 		B17F51F824EC4D0C00ECEAA6 /* JustHeroesTests */ = {
 			isa = PBXGroup;
 			children = (
-				B17F51F924EC4D0C00ECEAA6 /* CollectionViewDataSourceTest.swift */,
+				B1814DC524EF3F94008840DB /* CollectionViewKit */,
 				B17F51FB24EC4D0C00ECEAA6 /* Info.plist */,
+				B1814DC624EF3FAD008840DB /* CharactersRepositoryTest.swift */,
 			);
 			path = JustHeroesTests;
 			sourceTree = "<group>";
@@ -249,6 +258,14 @@
 				B17F520624EC4D0C00ECEAA6 /* Info.plist */,
 			);
 			path = JustHeroesUITests;
+			sourceTree = "<group>";
+		};
+		B1814DC524EF3F94008840DB /* CollectionViewKit */ = {
+			isa = PBXGroup;
+			children = (
+				B17F51F924EC4D0C00ECEAA6 /* CollectionViewDataSourceTest.swift */,
+			);
+			path = CollectionViewKit;
 			sourceTree = "<group>";
 		};
 		B1B2990024EECFAF00921709 /* Item */ = {
@@ -597,6 +614,7 @@
 				B123A33D24EDD97C008EABC3 /* CardListViewController.swift in Sources */,
 				B123A33924EDD897008EABC3 /* CardCollectionItem.swift in Sources */,
 				B146698A24EC4FEB0009FF15 /* CollectionViewDataSource.swift in Sources */,
+				B1814BE824EF2F36008840DB /* MarvelDataSource.swift in Sources */,
 				B123A32E24EDD5DA008EABC3 /* CollectionViewItem.swift in Sources */,
 				B1814BE424EED36F008840DB /* CollectionViewController.swift in Sources */,
 				B17F51E324EC4D0B00ECEAA6 /* AppDelegate.swift in Sources */,
@@ -604,6 +622,7 @@
 				B17F51E524EC4D0B00ECEAA6 /* SceneDelegate.swift in Sources */,
 				B123A33724EDD805008EABC3 /* UILabel.swift in Sources */,
 				B123A33124EDD74B008EABC3 /* CardCollectionViewCell.swift in Sources */,
+				B1814BE624EF20F6008840DB /* CharactersRepository.swift in Sources */,
 				B123A33424EDD7BE008EABC3 /* UIColor.swift in Sources */,
 				B1B298FF24EEC55600921709 /* CollectionViewDelegate.swift in Sources */,
 				B123A33B24EDD8ED008EABC3 /* CardCollectionSection.swift in Sources */,
@@ -616,6 +635,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B17F51FA24EC4D0C00ECEAA6 /* CollectionViewDataSourceTest.swift in Sources */,
+				B1814DC724EF3FAD008840DB /* CharactersRepositoryTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
