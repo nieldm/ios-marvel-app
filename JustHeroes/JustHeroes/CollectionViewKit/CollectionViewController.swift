@@ -69,6 +69,12 @@ class CollectionViewController<SectionItem: CollectionViewSection>: UIViewContro
         collectionView.reloadData()
     }
     
+    func reload() {
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
+    }
+    
     func prepareCollectionView(_ collectionView: UICollectionView) {}
     func prepareView(_ view: UIView) {}
 
