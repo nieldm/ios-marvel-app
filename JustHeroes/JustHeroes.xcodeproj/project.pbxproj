@@ -34,6 +34,8 @@
 		B1814BE824EF2F36008840DB /* MarvelDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1814BE724EF2F36008840DB /* MarvelDataSource.swift */; };
 		B1814DC724EF3FAD008840DB /* CharactersRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1814DC624EF3FAD008840DB /* CharactersRepositoryTest.swift */; };
 		B1B298FF24EEC55600921709 /* CollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B298FE24EEC55600921709 /* CollectionViewDelegate.swift */; };
+		B1C2BA2924EFCF59005C036B /* MarvelDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C2BA2824EFCF59005C036B /* MarvelDTO.swift */; };
+		B1C2BA2B24EFCF7E005C036B /* BaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C2BA2A24EFCF7E005C036B /* BaseAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +103,8 @@
 		B1814BE724EF2F36008840DB /* MarvelDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelDataSource.swift; sourceTree = "<group>"; };
 		B1814DC624EF3FAD008840DB /* CharactersRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersRepositoryTest.swift; sourceTree = "<group>"; };
 		B1B298FE24EEC55600921709 /* CollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewDelegate.swift; sourceTree = "<group>"; };
+		B1C2BA2824EFCF59005C036B /* MarvelDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelDTO.swift; sourceTree = "<group>"; };
+		B1C2BA2A24EFCF7E005C036B /* BaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPI.swift; sourceTree = "<group>"; };
 		B7F89263EC855665A5827AD2 /* Pods-JustHeroesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustHeroesUITests.release.xcconfig"; path = "Target Support Files/Pods-JustHeroesUITests/Pods-JustHeroesUITests.release.xcconfig"; sourceTree = "<group>"; };
 		EA846486557CBF5A71B0B89B /* Pods-JustHeroesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustHeroesUITests.debug.xcconfig"; path = "Target Support Files/Pods-JustHeroesUITests/Pods-JustHeroesUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F2784812CD5483FC1DD1192D /* Pods-JustHeroesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustHeroesTests.release.xcconfig"; path = "Target Support Files/Pods-JustHeroesTests/Pods-JustHeroesTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -223,12 +227,12 @@
 				B17F51ED24EC4D0C00ECEAA6 /* LaunchScreen.storyboard */,
 				B17F51F024EC4D0C00ECEAA6 /* Info.plist */,
 				B123A33F24EDDA85008EABC3 /* Assembler.swift */,
+				B1C2BA2A24EFCF7E005C036B /* BaseAPI.swift */,
 				B123A33524EDD7CD008EABC3 /* Extensions */,
 				B123A33224EDD74F008EABC3 /* Components */,
 				B123A32F24EDD720008EABC3 /* CollectionViewKit */,
+				B1C2BA2C24EFCFC7005C036B /* Repositories */,
 				B17F51EA24EC4D0C00ECEAA6 /* Preview Content */,
-				B1814BE524EF20F6008840DB /* CharactersRepository.swift */,
-				B1814BE724EF2F36008840DB /* MarvelDataSource.swift */,
 			);
 			path = JustHeroes;
 			sourceTree = "<group>";
@@ -283,6 +287,24 @@
 				B123A33A24EDD8ED008EABC3 /* CardCollectionSection.swift */,
 			);
 			path = Section;
+			sourceTree = "<group>";
+		};
+		B1C2BA2724EFCF4C005C036B /* Marvel */ = {
+			isa = PBXGroup;
+			children = (
+				B1814BE724EF2F36008840DB /* MarvelDataSource.swift */,
+				B1C2BA2824EFCF59005C036B /* MarvelDTO.swift */,
+			);
+			path = Marvel;
+			sourceTree = "<group>";
+		};
+		B1C2BA2C24EFCFC7005C036B /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				B1814BE524EF20F6008840DB /* CharactersRepository.swift */,
+				B1C2BA2724EFCF4C005C036B /* Marvel */,
+			);
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 		D14F5198151D77715DE3BE82 /* Frameworks */ = {
@@ -614,9 +636,11 @@
 				B123A33D24EDD97C008EABC3 /* CardListViewController.swift in Sources */,
 				B123A33924EDD897008EABC3 /* CardCollectionItem.swift in Sources */,
 				B146698A24EC4FEB0009FF15 /* CollectionViewDataSource.swift in Sources */,
+				B1C2BA2B24EFCF7E005C036B /* BaseAPI.swift in Sources */,
 				B1814BE824EF2F36008840DB /* MarvelDataSource.swift in Sources */,
 				B123A32E24EDD5DA008EABC3 /* CollectionViewItem.swift in Sources */,
 				B1814BE424EED36F008840DB /* CollectionViewController.swift in Sources */,
+				B1C2BA2924EFCF59005C036B /* MarvelDTO.swift in Sources */,
 				B17F51E324EC4D0B00ECEAA6 /* AppDelegate.swift in Sources */,
 				B123A34024EDDA85008EABC3 /* Assembler.swift in Sources */,
 				B17F51E524EC4D0B00ECEAA6 /* SceneDelegate.swift in Sources */,
