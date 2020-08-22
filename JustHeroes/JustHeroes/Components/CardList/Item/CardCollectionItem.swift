@@ -15,6 +15,6 @@ struct CardCollectionItem: CollectionViewItem {
     }
     
     func getSize() -> CGSize {
-        CGSize(width: 250, height: 265)
+        CGSize(width: 120, height: 250)
     }
 }

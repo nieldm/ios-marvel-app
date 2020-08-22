@@ -23,7 +23,7 @@ class CharacterListViewController: CollectionViewController<CharacterListSection
             forCellWithReuseIdentifier: "CardCollectionViewCell"
         )
         collectionView.backgroundColor = .primary
-        collectionView.contentInset = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
+        collectionView.contentInset = UIEdgeInsets(top: 50, left: 12, bottom: 0, right: 12)
     }
     
     override func viewDidLoad() {

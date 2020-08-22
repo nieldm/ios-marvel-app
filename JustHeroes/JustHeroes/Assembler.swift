@@ -43,7 +43,7 @@ class Assembler {
         let delegate = resolveCardListDelegate(dataSource: dataSource)
         
         return CardListViewController(
-            style: .horizontal(paginated: false),
+            style: .vertical(paginated: false),
             delegate: delegate,
             dataSource: dataSource
         )

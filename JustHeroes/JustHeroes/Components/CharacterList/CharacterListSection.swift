@@ -16,7 +16,7 @@ class CharacterListSection: CollectionViewSection {
     typealias Item = CharacterListItem
     
     var items: [CharacterListItem]
-    var spacing: CGFloat = 24.0
+    var spacing: CGFloat = 12.0
     
     init(items: [CharacterListItem]) {
         self.items = items
@@ -73,7 +73,6 @@ class CharacterListItem: CollectionViewItem {
     
     func prepare(cell: CardCollectionViewCell) -> UICollectionViewCell {
         self.cell = cell
-        cell.authorLabel.text = model.description
         cell.titleLabel.text = model.name
         if let image = self.image {
             cell.imageView.image = image
@@ -89,7 +88,7 @@ class CharacterListItem: CollectionViewItem {
     }
     
     func getSize() -> CGSize {
-        CGSize(width: 100, height: 150)
+        CGSize(width: 120, height: 250)
     }
     
     typealias Cell = CardCollectionViewCell

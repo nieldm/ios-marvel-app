@@ -334,8 +334,8 @@
 		B1C2BA3524EFEF5B005C036B /* CharacterList */ = {
 			isa = PBXGroup;
 			children = (
-				B1C2BA3324EFEB57005C036B /* CharacterListViewModel.swift */,
 				B1C2BA3824EFF3C5005C036B /* CharacterListViewController.swift */,
+				B1C2BA3324EFEB57005C036B /* CharacterListViewModel.swift */,
 				B1C2BA3624EFEF72005C036B /* CharacterListSection.swift */,
 			);
 			path = CharacterList;
