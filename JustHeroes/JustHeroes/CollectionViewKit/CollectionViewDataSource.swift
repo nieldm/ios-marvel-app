@@ -36,8 +36,10 @@ class CollectionViewDataSource<SectionItem: CollectionViewSection>
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? SectionItem.Item.Cell else {
             fatalError("Missing Cell")
         }
+        let section = sections[indexPath.section]
+        section.preload(itemAt: indexPath.row)
         
-        return sections[indexPath.section].items[indexPath.row].prepare(cell: cell)
+        return section.items[indexPath.row].prepare(cell: cell)
     }
     
     func collectionView(

@@ -84,6 +84,7 @@ class CardCollectionViewCell: UICollectionViewCell {
     private func prepareImageView() {
         imageView.backgroundColor = .secondary
         imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFill
     }
     
     private func prepareViewLabel() {

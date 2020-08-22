@@ -5,7 +5,6 @@ class CharacterModel {
     let description: String
     
     var imageURL: URL?
-    var imageData: Data?
     
     init(name: String, description: String) {
         self.name = name
