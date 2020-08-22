@@ -24,17 +24,17 @@ enum CollectionViewControllerStyle {
     }
 }
 
-class CollectionViewController: UIViewController {
+class CollectionViewController<SectionItem: CollectionViewSection>: UIViewController {
     
-    let style: CollectionViewControllerStyle
+    let dataSource: CollectionViewDataSource<SectionItem>
     
+    private let style: CollectionViewControllerStyle
     private var collectionView: UICollectionView
     private let delegate: UICollectionViewDelegate
-    private let dataSource: UICollectionViewDataSource & UICollectionViewDataSourcePrefetching
 
     init(style: CollectionViewControllerStyle,
          delegate: UICollectionViewDelegate,
-         dataSource: UICollectionViewDataSource & UICollectionViewDataSourcePrefetching) {
+         dataSource: CollectionViewDataSource<SectionItem>) {
         self.delegate = delegate
         self.dataSource = dataSource
         
@@ -67,6 +67,12 @@ class CollectionViewController: UIViewController {
         prepareCollectionView(collectionView)
         
         collectionView.reloadData()
+    }
+    
+    func reload() {
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
     }
     
     func prepareCollectionView(_ collectionView: UICollectionView) {}

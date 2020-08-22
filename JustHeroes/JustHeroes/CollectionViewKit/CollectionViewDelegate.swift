@@ -27,4 +27,12 @@ class CollectionViewDelegate<SectionItem: CollectionViewSection>: NSObject, UICo
         let item = dataSource.getSections()[indexPath.section].items[indexPath.row]
         delegate?.didSelect(item)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        dataSource.getSections()[section].getHeaderSize(collectionView)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        dataSource.getSections()[section].getFooterSize(collectionView)
+    }
 }

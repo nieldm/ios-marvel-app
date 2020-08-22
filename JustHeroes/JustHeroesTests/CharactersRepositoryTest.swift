@@ -23,14 +23,12 @@ class CharactersRepositoryTest: XCTestCase {
     func testExample() throws {
         let expect = expectation(description: "api call")
 
-        self.measure {
-            sut.fetchCharacters(atPage: 1) { (result) in
-                let characters = try! result.get()
-                let first = characters.first!
-                XCTAssertEqual(characters.count, 20)
-                XCTAssertNotNil(first.imageURL)
-                expect.fulfill()
-            }
+        sut.fetchCharacters(atPage: 1) { (result) in
+            let characters = try! result.get()
+            let first = characters.first!
+            XCTAssertEqual(characters.count, 20)
+            XCTAssertNotNil(first.imageURL)
+            expect.fulfill()
         }
 
         wait(for: [expect], timeout: .pi)

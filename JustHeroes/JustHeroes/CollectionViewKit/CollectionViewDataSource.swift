@@ -36,8 +36,10 @@ class CollectionViewDataSource<SectionItem: CollectionViewSection>
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? SectionItem.Item.Cell else {
             fatalError("Missing Cell")
         }
+        let section = sections[indexPath.section]
+        section.preload(itemAt: indexPath.row)
         
-        return sections[indexPath.section].items[indexPath.row].prepare(cell: cell)
+        return section.items[indexPath.row].prepare(cell: cell)
     }
     
     func collectionView(
@@ -47,9 +49,19 @@ class CollectionViewDataSource<SectionItem: CollectionViewSection>
         let section = sections[indexPath.section]
         switch kind {
         case UICollectionView.elementKindSectionHeader:
-            return section.getHeader()
+            let identifier = String(describing: SectionItem.Header.self)
+            let reusableView =  collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: identifier, for: indexPath)
+            guard let headerView = reusableView as? SectionItem.Header else {
+                fatalError("Missing Header")
+            }
+            return section.getHeader(header: headerView)
         case UICollectionView.elementKindSectionFooter:
-            return section.getFooter()
+            let identifier = String(describing: SectionItem.Footer.self)
+            let reusableView =  collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: identifier, for: indexPath)
+            guard let headerView = reusableView as? SectionItem.Footer else {
+                fatalError("Missing Footer")
+            }
+            return section.getFooter(footer: headerView)
         default:
             return UICollectionReusableView()
         }

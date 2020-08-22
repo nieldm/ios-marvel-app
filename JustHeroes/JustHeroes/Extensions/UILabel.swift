@@ -2,7 +2,16 @@ import Foundation
 import UIKit
 
 extension UILabel {
-    func titleStyle() {
+    
+    func largeTitleStyle() {
+        self.numberOfLines = 2
+        self.adjustsFontSizeToFitWidth = true
+        self.font = UIFont.preferredFont(forTextStyle: .largeTitle)
+        self.textColor = .secondary
+        self.textAlignment = .left
+    }
+    
+    func subheadlineStyle() {
         self.numberOfLines = 2
         self.adjustsFontSizeToFitWidth = true
         self.font = UIFont.preferredFont(forTextStyle: .subheadline)
@@ -10,8 +19,9 @@ extension UILabel {
         self.textAlignment = .left
     }
     
-    func descriptionStyle() {
+    func subheadlineThinStyle() {
         let baseFont = UIFont.preferredFont(forTextStyle: .subheadline)
+        self.numberOfLines = 2
         self.adjustsFontSizeToFitWidth = true
         self.font = UIFont.systemFont(
             ofSize: baseFont.pointSize,
