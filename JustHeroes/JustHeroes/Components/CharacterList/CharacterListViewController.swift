@@ -18,12 +18,18 @@ class CharacterListViewController: CollectionViewController<CharacterListSection
     }
     
     override func prepareCollectionView(_ collectionView: UICollectionView) {
+        //TODO: build a helper to register
         collectionView.register(
             CardCollectionViewCell.self,
             forCellWithReuseIdentifier: "CardCollectionViewCell"
         )
+        collectionView.register(
+            FullTitleCollectionReusableView.self,
+            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: "FullTitleCollectionReusableView"
+        )
         collectionView.backgroundColor = .primary
-        collectionView.contentInset = UIEdgeInsets(top: 50, left: 12, bottom: 0, right: 12)
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 12, bottom: 24, right: 12)
     }
     
     override func viewDidLoad() {

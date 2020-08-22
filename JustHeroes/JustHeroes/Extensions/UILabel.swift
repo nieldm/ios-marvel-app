@@ -2,6 +2,15 @@ import Foundation
 import UIKit
 
 extension UILabel {
+    
+    func largeTitleStyle() {
+        self.numberOfLines = 2
+        self.adjustsFontSizeToFitWidth = true
+        self.font = UIFont.preferredFont(forTextStyle: .largeTitle)
+        self.textColor = .secondary
+        self.textAlignment = .left
+    }
+    
     func subheadlineStyle() {
         self.numberOfLines = 2
         self.adjustsFontSizeToFitWidth = true

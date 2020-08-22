@@ -13,6 +13,8 @@ extension URLSessionTask {
 }
 
 class CharacterListSection: CollectionViewSection {
+    typealias Header = FullTitleCollectionReusableView
+    typealias Footer = UICollectionReusableView
     typealias Item = CharacterListItem
     
     var items: [CharacterListItem]
@@ -48,12 +50,21 @@ class CharacterListSection: CollectionViewSection {
         items[index].imageDownloadTask?.cancel()
     }
     
-    func getHeader() -> UICollectionReusableView {
-        UICollectionReusableView()
+    func getHeaderSize(_ collectionView: UICollectionView) -> CGSize {
+        .init(width: collectionView.frame.width, height: 100)
     }
     
-    func getFooter() -> UICollectionReusableView {
-        UICollectionReusableView()
+    func getFooterSize(_ collectionView: UICollectionView) -> CGSize {
+        .zero
+    }
+    
+    func getHeader(header: FullTitleCollectionReusableView) -> FullTitleCollectionReusableView {
+        header.titleLabel.text = "Characters"
+        return header
+    }
+    
+    func getFooter(footer: UICollectionReusableView) -> UICollectionReusableView {
+        footer
     }
     
 }

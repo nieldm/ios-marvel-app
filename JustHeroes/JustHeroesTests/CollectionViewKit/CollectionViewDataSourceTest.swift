@@ -20,6 +20,8 @@ class CollectionViewItemMock: CollectionViewItem {
 }
 
 class CollectionViewSectionMock: CollectionViewSection {
+    typealias Header = UICollectionReusableView
+    typealias Footer = UICollectionReusableView
     typealias Item = CollectionViewItemMock
     
     var headerCalled = false
@@ -27,14 +29,22 @@ class CollectionViewSectionMock: CollectionViewSection {
     var preloadCalled = false
     var cancelPreloadCalled = false
     
-    func getHeader() -> UICollectionReusableView {
-        headerCalled = true
-        return UICollectionReusableView()
+    func getHeaderSize(_ collectionView: UICollectionView) -> CGSize {
+        .zero
     }
     
-    func getFooter() -> UICollectionReusableView {
+    func getFooterSize(_ collectionView: UICollectionView) -> CGSize {
+        .zero
+    }
+    
+    func getHeader(header: UICollectionReusableView) -> UICollectionReusableView {
+        headerCalled = true
+        return header
+    }
+    
+    func getFooter(footer: UICollectionReusableView) -> UICollectionReusableView {
         footerCalled = true
-        return UICollectionReusableView()
+        return footer
     }
     
     var items: [CollectionViewItemMock]
@@ -57,7 +67,7 @@ class CollectionViewDataSourceTests: XCTestCase {
     
     var sut: CollectionViewDataSource<CollectionViewSectionMock>!
     var fakeCollection = UICollectionView(
-        frame: .zero,
+        frame: CGRect(x: 0, y: 0, width: 42, height: 42),
         collectionViewLayout: UICollectionViewLayout()
     )
     var itemMock: CollectionViewItemMock!
@@ -111,32 +121,6 @@ class CollectionViewDataSourceTests: XCTestCase {
         )
         
         XCTAssertTrue(itemMock.getCellCalled)
-    }
-    
-    func testViewForSupplementaryElementOfKindHeader() throws {
-        let indexPath = IndexPath(row: 0, section: 0)
-        
-        _ = sut.collectionView(
-            fakeCollection,
-            viewForSupplementaryElementOfKind: UICollectionView.elementKindSectionHeader,
-            at: indexPath
-        )
-        
-        XCTAssertTrue(sectionMock.headerCalled)
-        XCTAssertFalse(sectionMock.footerCalled)
-    }
-    
-    func testViewForSupplementaryElementOfKindFooter() throws {
-        let indexPath = IndexPath(row: 0, section: 0)
-        
-        _ = sut.collectionView(
-            fakeCollection,
-            viewForSupplementaryElementOfKind: UICollectionView.elementKindSectionFooter,
-            at: indexPath
-        )
-        
-        XCTAssertFalse(sectionMock.headerCalled)
-        XCTAssertTrue(sectionMock.footerCalled)
     }
     
     func testViewForSupplementaryElementOfKind42() throws {
