@@ -22,6 +22,7 @@
 		B123A34024EDDA85008EABC3 /* Assembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B123A33F24EDDA85008EABC3 /* Assembler.swift */; };
 		B123A34824EDDDA7008EABC3 /* CardListViewControllerSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B123A34724EDDDA7008EABC3 /* CardListViewControllerSnapshotTest.swift */; };
 		B1347CB124F28DBC00F71946 /* SortAndFilterViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1347CB024F28DBC00F71946 /* SortAndFilterViewControllerTest.swift */; };
+		B1347E8D24F2A93300F71946 /* CGRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1347E8C24F2A93300F71946 /* CGRect.swift */; };
 		B146698A24EC4FEB0009FF15 /* CollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B146698924EC4FEB0009FF15 /* CollectionViewDataSource.swift */; };
 		B17F51E324EC4D0B00ECEAA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17F51E224EC4D0B00ECEAA6 /* AppDelegate.swift */; };
 		B17F51E524EC4D0B00ECEAA6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17F51E424EC4D0B00ECEAA6 /* SceneDelegate.swift */; };
@@ -104,6 +105,7 @@
 		B123A34724EDDDA7008EABC3 /* CardListViewControllerSnapshotTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListViewControllerSnapshotTest.swift; sourceTree = "<group>"; };
 		B123A34924EDDDA7008EABC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1347CB024F28DBC00F71946 /* SortAndFilterViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortAndFilterViewControllerTest.swift; sourceTree = "<group>"; };
+		B1347E8C24F2A93300F71946 /* CGRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGRect.swift; sourceTree = "<group>"; };
 		B146698924EC4FEB0009FF15 /* CollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewDataSource.swift; sourceTree = "<group>"; };
 		B17F51DF24EC4D0B00ECEAA6 /* JustHeroes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustHeroes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B17F51E224EC4D0B00ECEAA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				B123A33624EDD805008EABC3 /* UILabel.swift */,
 				B1C6AACC24F25E440085D5C6 /* URLSessionTask.swift */,
 				B1C6AAD524F2736A0085D5C6 /* UICollectionViewCell.swift */,
+				B1347E8C24F2A93300F71946 /* CGRect.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -742,6 +745,7 @@
 				B1C6AADE24F27EF00085D5C6 /* SortAndFilterBuilder.swift in Sources */,
 				B1C6AACD24F25E440085D5C6 /* URLSessionTask.swift in Sources */,
 				B1C2BA2924EFCF59005C036B /* MarvelDTO.swift in Sources */,
+				B1347E8D24F2A93300F71946 /* CGRect.swift in Sources */,
 				B1C2BA3924EFF3C5005C036B /* CharacterListViewController.swift in Sources */,
 				B1C6AADA24F275DD0085D5C6 /* SortFilterSection.swift in Sources */,
 				B1C6AAD424F272FB0085D5C6 /* SimpleOptionCollectionViewCell.swift in Sources */,

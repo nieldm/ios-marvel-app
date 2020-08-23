@@ -10,8 +10,7 @@ class SortAndFilterViewController: UIViewController {
     let builder: SortAndFilterBuilderProtocol
     
     init(viewModel: SortAndFilterViewModelViewProtocol, builder: SortAndFilterBuilderProtocol) {
-        let sort = UIButton()
-        sort.setTitle("Sort", for: .normal)
+        let sort = UIButton(type: .roundedRect)
         stackView = UIStackView(arrangedSubviews: [sort])
         stackView.axis = .horizontal
         sortButton = sort
@@ -32,8 +31,12 @@ class SortAndFilterViewController: UIViewController {
             make.width.equalToSuperview().multipliedBy(0.8)
         }
         
+        sortButton.backgroundColor = .primary
+        sortButton.tintColor = .secondary
+        sortButton.setTitle("Sort", for: .normal)
         sortButton.titleLabel?.subheadlineStyle()
         sortButton.addTarget(self, action: #selector(didTapSortOptionButton), for: .touchUpInside)
+        sortButton.layer.rounded(withCornerRadius: 10, andBorderWidth: 2)
     }
     
     @objc

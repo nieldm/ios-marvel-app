@@ -4,10 +4,7 @@ import UIKit
 extension UICollectionViewCell {
     func addBorderAndCornerToCell(withFrame frame: CGRect) {
         contentView.backgroundColor = .cellBackground
-        contentView.layer.cornerRadius = 6
-        contentView.layer.borderColor = UIColor.cellBackground.cgColor
-        contentView.layer.borderWidth = 1
-        contentView.layer.masksToBounds = true
+        contentView.layer.rounded()
         
         layer.shadowColor = UIColor.secondary.cgColor
         layer.shadowOpacity = 0.15
@@ -19,5 +16,14 @@ extension UICollectionViewCell {
             transform: nil
         )
         layer.shadowOffset = .zero
+    }
+}
+
+extension CALayer {
+    func rounded(withCornerRadius corner: CGFloat = 6, andBorderWidth border: CGFloat = 1) {
+        cornerRadius = corner
+        borderColor = UIColor.cellBackground.cgColor
+        borderWidth = border
+        masksToBounds = true
     }
 }
