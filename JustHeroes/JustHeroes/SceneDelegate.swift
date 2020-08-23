@@ -16,7 +16,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 //        let firstView = Assembler.shared.resolveCardListViewController_Test()
-        let firstView = try! Assembler.shared.resolveCharacterList()
+//        let firstView = try! Assembler.shared.resolveCharacterList()
+        let firstView = Assembler.shared.resolveSortFilterModule()
 
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)

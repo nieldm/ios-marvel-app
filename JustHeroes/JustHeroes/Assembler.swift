@@ -57,4 +57,14 @@ class Assembler {
         CollectionViewDelegate(dataSource: dataSource)
     }
     
+    func resolveSortFilterModule() -> SortAndFilterViewController {
+        let viewModel = SortAndFilterViewModel()
+        let builder = SortAndFilterBuilder()
+        let vc = SortAndFilterViewController(viewModel: viewModel, builder: builder)
+        
+        viewModel.view = vc
+        
+        return vc
+    }
+    
 }

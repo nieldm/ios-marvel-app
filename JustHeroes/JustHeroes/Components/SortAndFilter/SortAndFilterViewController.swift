@@ -1,0 +1,53 @@
+import UIKit
+import SnapKit
+
+class SortAndFilterViewController: UIViewController {
+
+    let stackView: UIStackView
+    let sortButton: UIButton
+    
+    let viewModel: SortAndFilterViewModelViewProtocol
+    let builder: SortAndFilterBuilderProtocol
+    
+    init(viewModel: SortAndFilterViewModelViewProtocol, builder: SortAndFilterBuilderProtocol) {
+        let sort = UIButton()
+        sort.setTitle("Sort", for: .normal)
+        stackView = UIStackView(arrangedSubviews: [sort])
+        stackView.axis = .horizontal
+        sortButton = sort
+        self.viewModel = viewModel
+        self.builder = builder
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        view.addSubview(stackView)
+        stackView.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.height.equalTo(44)
+            make.width.equalToSuperview().multipliedBy(0.8)
+        }
+        
+        sortButton.titleLabel?.subheadlineStyle()
+        sortButton.addTarget(self, action: #selector(didTapSortOptionButton), for: .touchUpInside)
+    }
+    
+    @objc
+    func didTapSortOptionButton() {
+        viewModel.didTapSortOption()
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension SortAndFilterViewController: SortAndFilterViewModelProtocol {
+    func showSortOptions(forItems items: [SortFilterModel]) {
+        let vc = builder.createSortModule(forItems: items)
+        vc.modalPresentationStyle = .popover
+        present(vc, animated: true)
+    }
+}
