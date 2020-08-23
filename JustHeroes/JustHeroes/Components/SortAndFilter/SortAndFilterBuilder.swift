@@ -4,7 +4,12 @@ protocol SortAndFilterBuilderProtocol {
     func createSortModule(forItems items: [SortFilterModel]) -> SortAndFilterListViewController
 }
 
-class SortAndFilterBuilder: SortAndFilterBuilderProtocol {
+class SortAndFilterBuilder<Delegate: CollectionViewDelegateOutput>: SortAndFilterBuilderProtocol where Delegate.Item == SortFilterItem {
+    let collectionViewDelegate: Delegate
+    
+    init(collectionViewDelegate: Delegate) {
+        self.collectionViewDelegate = collectionViewDelegate
+    }
     
     func createSortModule(forItems items: [SortFilterModel]) -> SortAndFilterListViewController {
         let sortOptions = items.map { given -> SortFilterItem in
@@ -18,7 +23,9 @@ class SortAndFilterBuilder: SortAndFilterBuilderProtocol {
         )
         
         let dataSource = CollectionViewDataSource<SortFilterSection>(sections: [sortSection])
-        let delegate = CollectionViewDelegate(dataSource: dataSource)
+        let delegate = CollectionViewDelegate<SortFilterSection, Delegate>(
+            dataSource: dataSource, delegate: collectionViewDelegate
+        )
         
         return SortAndFilterListViewController(
             style: .vertical(paginated: false),

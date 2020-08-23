@@ -24,3 +24,11 @@ class SortAndFilterViewModel: SortAndFilterViewModelViewProtocol {
     }
     
 }
+
+extension SortAndFilterViewModel: CollectionViewDelegateOutput {
+    typealias Item = SortFilterItem
+
+    func didSelect(_ item: SortFilterItem) {
+        print("👾", item.model.value)
+    }
+}

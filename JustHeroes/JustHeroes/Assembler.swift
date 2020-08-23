@@ -1,5 +1,13 @@
 import Foundation
 
+struct CardCollectionViewDelegateOutputMock: CollectionViewDelegateOutput {
+    typealias Item = CardCollectionItem
+    
+    func didSelect(_ item: CardCollectionItem) {
+        
+    }
+}
+
 class Assembler {
     
     static let shared = Assembler()
@@ -11,7 +19,7 @@ class Assembler {
         let repository = CharactersRepository(pageSize: 100, dataSource: dataSource, mapper: mapper)
         let viewModel = CharacterListViewModel(repository: repository)
         let collectionDataSource = CollectionViewDataSource<CharacterListSection>(sections: [])
-        let collectionDelegate = CollectionViewDelegate(dataSource: collectionDataSource)
+        let collectionDelegate = CollectionViewDelegate(dataSource: collectionDataSource, delegate: viewModel)
         let vc = CharacterListViewController(
             viewModel: viewModel,
             delegate: collectionDelegate,
@@ -40,7 +48,7 @@ class Assembler {
         
         let sections = [section1, section2]
         let dataSource = resolveCardListDataSource(sections: sections)
-        let delegate = resolveCardListDelegate(dataSource: dataSource)
+        let delegate = resolveCardListDelegate(dataSource: dataSource, output: CardCollectionViewDelegateOutputMock())
         
         return CardListViewController(
             style: .vertical(paginated: false),
@@ -53,13 +61,13 @@ class Assembler {
         CollectionViewDataSource(sections: sections)
     }
     
-    func resolveCardListDelegate<Section: CollectionViewSection>(dataSource: CollectionViewDataSource<Section>) -> CollectionViewDelegate<Section> {
-        CollectionViewDelegate(dataSource: dataSource)
+    func resolveCardListDelegate<Section: CollectionViewSection, Output: CollectionViewDelegateOutput>(dataSource: CollectionViewDataSource<Section>, output: Output) -> CollectionViewDelegate<Section, Output> {
+        CollectionViewDelegate(dataSource: dataSource, delegate: output)
     }
     
     func resolveSortFilterModule() -> SortAndFilterViewController {
         let viewModel = SortAndFilterViewModel()
-        let builder = SortAndFilterBuilder()
+        let builder = SortAndFilterBuilder(collectionViewDelegate: viewModel)
         let vc = SortAndFilterViewController(viewModel: viewModel, builder: builder)
         
         viewModel.view = vc

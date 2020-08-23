@@ -2,15 +2,17 @@ import Foundation
 import UIKit
 
 protocol CollectionViewDelegateOutput {
-    func didSelect<Item: CollectionViewItem>(_ item: Item)
+    associatedtype Item: CollectionViewItem
+    
+    func didSelect(_ item: Item)
 }
 
-class CollectionViewDelegate<SectionItem: CollectionViewSection>: NSObject, UICollectionViewDelegateFlowLayout {
+class CollectionViewDelegate<SectionItem: CollectionViewSection, Output: CollectionViewDelegateOutput>: NSObject, UICollectionViewDelegateFlowLayout where SectionItem.Item == Output.Item {
     
     private var dataSource: CollectionViewDataSource<SectionItem>
-    var delegate: CollectionViewDelegateOutput?
+    var delegate: Output?
     
-    init(dataSource: CollectionViewDataSource<SectionItem>, delegate: CollectionViewDelegateOutput? = nil) {
+    init(dataSource: CollectionViewDataSource<SectionItem>, delegate: Output? = nil) {
         self.dataSource = dataSource
         self.delegate = delegate
     }

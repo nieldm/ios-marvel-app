@@ -40,3 +40,11 @@ class CharacterListViewModel<Repository: CharactersRepository<MarvelDataSource, 
     
     func viewDidAppear() {}
 }
+
+extension CharacterListViewModel: CollectionViewDelegateOutput {
+    typealias Item = CharacterListItem
+    
+    func didSelect(_ item: CharacterListItem) {
+        print("👾", "did select \(item.model.name)")
+    }
+}
