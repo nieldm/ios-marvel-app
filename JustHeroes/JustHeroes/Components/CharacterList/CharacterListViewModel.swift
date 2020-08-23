@@ -48,3 +48,9 @@ extension CharacterListViewModel: CollectionViewDelegateOutput {
         print("👾", "did select \(item.model.name)")
     }
 }
+
+extension CharacterListViewModel: SortAndFilterViewModelOutput {
+    func didSelectSort(byOption option: SortOptions) {
+        print("👾", "did select sort by \(option.rawValue)")
+    }
+}

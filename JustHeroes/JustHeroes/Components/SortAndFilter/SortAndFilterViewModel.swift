@@ -1,16 +1,30 @@
 import Foundation
 
-protocol SortAndFilterViewModelProtocol {
+protocol SortAndFilterViewModelProtocol: class {
     func showSortOptions(forItems items: [SortFilterModel])
+    func hideSortOptions()
 }
 
 protocol SortAndFilterViewModelViewProtocol {
     func didTapSortOption()
 }
 
+protocol SortAndFilterViewModelOutput: class {
+    func didSelectSort(byOption option: SortOptions)
+}
+
+enum SortOptions: String {
+    case nameAsc = "name_asc"
+    case nameDesc = "name_desc"
+    case dateAsc = "date_asc"
+    case dateDesc = "date_desc"
+    case none
+}
+
 class SortAndFilterViewModel: SortAndFilterViewModelViewProtocol {
     
-    var view: SortAndFilterViewModelProtocol?
+    weak var view: SortAndFilterViewModelProtocol?
+    weak var output: SortAndFilterViewModelOutput?
     
     func didTapSortOption() {
         let items = [
@@ -29,6 +43,9 @@ extension SortAndFilterViewModel: CollectionViewDelegateOutput {
     typealias Item = SortFilterItem
 
     func didSelect(_ item: SortFilterItem) {
-        print("👾", item.model.value)
+        let option: SortOptions = SortOptions(rawValue: item.model.value) ?? .none
+        
+        output?.didSelectSort(byOption: option)
+        view?.hideSortOptions()
     }
 }

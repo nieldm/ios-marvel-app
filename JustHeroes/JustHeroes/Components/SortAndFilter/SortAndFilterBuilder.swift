@@ -1,6 +1,6 @@
 import Foundation
 
-protocol SortAndFilterBuilderProtocol {
+protocol SortAndFilterBuilderProtocol: class {
     func createSortModule(forItems items: [SortFilterModel]) -> SortAndFilterListViewController
 }
 

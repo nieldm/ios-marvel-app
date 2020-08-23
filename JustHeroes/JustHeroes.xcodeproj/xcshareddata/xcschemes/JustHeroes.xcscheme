@@ -87,7 +87,7 @@
          <EnvironmentVariable
             key = "START_VIEW"
             value = "sortFilter"
-            isEnabled = "YES">
+            isEnabled = "NO">
          </EnvironmentVariable>
          <EnvironmentVariable
             key = "MARVEL_PRIVATE_KEY"

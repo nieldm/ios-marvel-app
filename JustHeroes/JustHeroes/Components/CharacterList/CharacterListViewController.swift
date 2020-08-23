@@ -3,18 +3,32 @@ import UIKit
 
 class CharacterListViewController: CollectionViewController<CharacterListSection> {
     
-    let viewModel: ViewModelViewCycleEvents
+    typealias ViewModel = ViewModelViewCycleEvents & SortAndFilterViewModelOutput
+    
+    let viewModel: ViewModel
+    let sortAndFilterViewController: SortAndFilterViewController
     
     init(
-        viewModel: ViewModelViewCycleEvents,
+        viewModel: ViewModel,
         delegate: UICollectionViewDelegate,
         dataSource: CollectionViewDataSource<CharacterListSection>) {
         self.viewModel = viewModel
+        self.sortAndFilterViewController = Assembler.shared.resolveSortFilterModule(output: viewModel)
         super.init(style: .vertical(paginated: false), delegate: delegate, dataSource: dataSource)
     }
     
     override func prepareView(_ view: UIView) {
         view.backgroundColor = .primary
+        
+        view.addSubview(sortAndFilterViewController.view)
+        addChild(sortAndFilterViewController)
+        sortAndFilterViewController.didMove(toParent: self)
+        sortAndFilterViewController.view.snp.makeConstraints { make in
+            make.left.right.equalToSuperview()
+            make.bottomMargin.equalToSuperview().inset(12)
+            make.height.equalTo(60)
+        }
+        sortAndFilterViewController.view.backgroundColor = .clear
     }
     
     override func prepareCollectionView(_ collectionView: UICollectionView) {

@@ -51,6 +51,16 @@ extension SortAndFilterViewController: SortAndFilterViewModelProtocol {
         let vc = builder.createSortModule(forItems: items)
         vc.modalPresentationStyle = .popover
         vc.view.backgroundColor = .primary
+        if let parent = parent {
+            parent.present(vc, animated: true)
+            return
+        }
         present(vc, animated: true)
+    }
+    
+    func hideSortOptions() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
+            self?.presentedViewController?.dismiss(animated: true)
+        }
     }
 }
