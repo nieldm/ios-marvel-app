@@ -11,6 +11,6 @@ protocol CollectionViewItem {
     var model: Model {get set}
     
     func prepare(cell: Cell) -> UICollectionViewCell
-    func getSize() -> CGSize
+    func getSize(_ collectionView: UICollectionView?) -> CGSize
     
 }

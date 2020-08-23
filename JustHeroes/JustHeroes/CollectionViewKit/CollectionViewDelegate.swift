@@ -2,21 +2,23 @@ import Foundation
 import UIKit
 
 protocol CollectionViewDelegateOutput {
-    func didSelect<Item: CollectionViewItem>(_ item: Item)
+    associatedtype Item: CollectionViewItem
+    
+    func didSelect(_ item: Item)
 }
 
-class CollectionViewDelegate<SectionItem: CollectionViewSection>: NSObject, UICollectionViewDelegateFlowLayout {
+class CollectionViewDelegate<SectionItem: CollectionViewSection, Output: CollectionViewDelegateOutput>: NSObject, UICollectionViewDelegateFlowLayout where SectionItem.Item == Output.Item {
     
     private var dataSource: CollectionViewDataSource<SectionItem>
-    var delegate: CollectionViewDelegateOutput?
+    var delegate: Output?
     
-    init(dataSource: CollectionViewDataSource<SectionItem>, delegate: CollectionViewDelegateOutput? = nil) {
+    init(dataSource: CollectionViewDataSource<SectionItem>, delegate: Output? = nil) {
         self.dataSource = dataSource
         self.delegate = delegate
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        dataSource.getSections()[indexPath.section].items[indexPath.row].getSize()
+        dataSource.getSections()[indexPath.section].items[indexPath.row].getSize(collectionView)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -34,5 +36,9 @@ class CollectionViewDelegate<SectionItem: CollectionViewSection>: NSObject, UICo
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         dataSource.getSections()[section].getFooterSize(collectionView)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        .init(top: 12, left: 0, bottom: 12, right: 0)
     }
 }

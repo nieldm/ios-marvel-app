@@ -60,7 +60,7 @@ class CollectionViewController<SectionItem: CollectionViewSection>: UIViewContro
 
         view.addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.margins.equalToSuperview()
         }
         
         prepareView(view)

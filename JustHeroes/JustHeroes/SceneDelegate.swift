@@ -9,14 +9,31 @@
 import UIKit
 import SwiftUI
 
+enum StartView: String {
+    case test
+    case characterList
+    case sortFilter
+    case none = ""
+}
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-//        let firstView = Assembler.shared.resolveCardListViewController_Test()
-        let firstView = try! Assembler.shared.resolveCharacterList()
+        let startViewOption = ProcessInfo.processInfo.environment["START_VIEW"] ?? ""
+        
+        let firstView: UIViewController
+        switch StartView(rawValue: startViewOption) {
+        case .test:
+            firstView = Assembler.shared.resolveCardListViewController_Test()
+        case .sortFilter:
+            firstView = Assembler.shared.resolveSortFilterModule()
+        case .characterList:
+            firstView = try! Assembler.shared.resolveCharacterList()
+        default:
+            firstView = try! Assembler.shared.resolveCharacterList()
+        }
 
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
