@@ -1,6 +1,23 @@
 import Foundation
 import CryptoSwift
 
+private extension SortOptions {
+    func toMarvelParameter() -> String? {
+        switch self {
+        case .dateAsc:
+            return "modified"
+        case .dateDesc:
+            return "-modified"
+        case .nameAsc:
+            return "name"
+        case .nameDesc:
+            return "-name"
+        case .none:
+            return nil
+        }
+    }
+}
+
 class MarvelDataSource: CharactersRepositoryDataSource {
     
     typealias DTO = MarvelDTO
@@ -22,20 +39,25 @@ class MarvelDataSource: CharactersRepositoryDataSource {
     static let baseURL = "https://gateway.marvel.com:443/v1/public/"
     
     enum Operation {
-        case character(limit: Int, offset: Int)
+        case character(limit: Int, offset: Int, sort: SortOptions?)
         
         var properties: (path: String, method: HTTPMethod, parameters: Parameters) {
             switch self {
-            case .character(let limit, let offset):
+            case .character(let limit, let offset, let sort):
                 let now = Date().timeIntervalSince1970
                 
-                let parameters: Parameters = [
+                var parameters: Parameters = [
                     "apikey": MarvelDataSource.apiKey,
                     "limit": limit,
                     "offset": offset,
                     "ts": now,
                     "hash": "\(now)\(MarvelDataSource.privateKey)\(MarvelDataSource.apiKey)".md5()
                 ]
+                
+                if let sortBy = sort?.toMarvelParameter() {
+                    parameters["orderBy"] = sortBy
+                }
+                
                 return (path: "characters", method: .GET, parameters: parameters)
             }
         }
@@ -46,9 +68,9 @@ class MarvelDataSource: CharactersRepositoryDataSource {
     init(api: BaseAPI) {
         self.api = api
     }
-    
-    func fetchCharacters(withLimit limit: Int, offset: Int, callback: @escaping (Result<MarvelDTO, Error>) -> Void) {
-        let properties = Operation.character(limit: limit, offset: offset).properties
+
+    func fetchCharacters(withLimit limit: Int, offset: Int, sortedBy sort: SortOptions, callback: @escaping (Result<MarvelDTO, Error>) -> Void) {
+        let properties = Operation.character(limit: limit, offset: offset, sort: sort).properties
         do {
             try api.request(forPath: properties.path,
                         method: properties.method,

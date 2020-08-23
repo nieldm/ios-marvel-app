@@ -7,6 +7,12 @@ protocol CharactersRepositoryProtocol {
         atPage page: Int,
         callback: @escaping (CharacterResult) -> Void
     )
+    
+    func fetchCharacters(
+        atPage page: Int,
+        sortedBy sort: SortOptions,
+        callback: @escaping (CharacterResult) -> Void
+    )
 }
 
 protocol CharactersRepositoryDataSource {
@@ -15,6 +21,7 @@ protocol CharactersRepositoryDataSource {
     func fetchCharacters(
         withLimit limit: Int,
         offset: Int,
+        sortedBy sort: SortOptions,
         callback: @escaping (Result<DTO, Error>) -> Void
     )
 }
@@ -30,6 +37,7 @@ enum RepositoryError: Error {
 }
 
 class CharactersRepository<DataSource: CharactersRepositoryDataSource, Mapper: CharactersRepositoryMapper>: CharactersRepositoryProtocol where DataSource.DTO == Mapper.DTO {
+    
     let pageSize: Int
     let dataSource: DataSource
     let mapper: Mapper
@@ -43,7 +51,12 @@ class CharactersRepository<DataSource: CharactersRepositoryDataSource, Mapper: C
     }
     
     func fetchCharacters(atPage page: Int, callback: @escaping (CharacterResult) -> Void) {
-        dataSource.fetchCharacters(withLimit: pageSize, offset: pageSize * page) { [weak self] result in
+        self.fetchCharacters(atPage: page, sortedBy: .none, callback: callback)
+    }
+    
+    
+    func fetchCharacters(atPage page: Int, sortedBy sort: SortOptions, callback: @escaping (CharacterResult) -> Void) {
+        dataSource.fetchCharacters(withLimit: pageSize, offset: pageSize * page, sortedBy: sort) { [weak self] result in
             guard let strongSelf = self else {
                 callback(.failure(RepositoryError.loseContext))
                 return
@@ -54,9 +67,7 @@ class CharactersRepository<DataSource: CharactersRepositoryDataSource, Mapper: C
             } catch {
                 callback(.failure(error))
             }
-
         }
-        
     }
     
 }

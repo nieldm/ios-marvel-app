@@ -28,13 +28,17 @@ class CharacterListViewModel<Repository: CharactersRepository<MarvelDataSource, 
     func viewDidLoad() {
         view?.transition(toState: .loading)
         repository.fetchCharacters(atPage: 0) { [weak self] (result) in
-            do {
-                let characters = try result.get()
-                self?.view?.didReceive(characters: characters)
-                self?.view?.transition(toState: .idle)
-            } catch {
-                self?.view?.transition(toState: .error(error.localizedDescription))
-            }
+            self?.didReceive(result)
+        }
+    }
+    
+    func didReceive(_ result: CharacterResult) {
+        do {
+            let characters = try result.get()
+            self.view?.didReceive(characters: characters)
+            self.view?.transition(toState: .idle)
+        } catch {
+            self.view?.transition(toState: .error(error.localizedDescription))
         }
     }
     
@@ -51,6 +55,8 @@ extension CharacterListViewModel: CollectionViewDelegateOutput {
 
 extension CharacterListViewModel: SortAndFilterViewModelOutput {
     func didSelectSort(byOption option: SortOptions) {
-        print("👾", "did select sort by \(option.rawValue)")
+        repository.fetchCharacters(atPage: 0, sortedBy: option) { [weak self] result in
+            self?.didReceive(result)
+        }
     }
 }

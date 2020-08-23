@@ -15,6 +15,6 @@ class MarvelCharacterMapper: CharactersRepositoryMapper {
     }
     
     private func getImageURL(withPath path: String, ext: String) -> URL? {
-        URL(string: "\(path)/portrait_medium.\(ext)")
+        URL(string: "\(path)/portrait_fantastic.\(ext)")
     }
 }
