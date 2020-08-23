@@ -4,20 +4,24 @@ import SnapshotTesting
 
 class CardListViewControllerSnapshotTest: XCTestCase {
 
+    var sut: CardListViewController!
+    
+    override func setUpWithError() throws {
+        sut = Assembler.shared.resolveCardListViewController_Test()
+    }
+    
     func testLigthMode() {
-        let vc = Assembler.shared.resolveCardListViewController_Test()
-        vc.overrideUserInterfaceStyle = .light
+        sut.overrideUserInterfaceStyle = .light
         assertSnapshot(
-            matching: vc.view,
+            matching: sut.view,
             as: .image
         )
     }
     
     func testDarkMode() {
-        let vc = Assembler.shared.resolveCardListViewController_Test()
-        vc.overrideUserInterfaceStyle = .dark
+        sut.overrideUserInterfaceStyle = .dark
         assertSnapshot(
-            matching: vc.view,
+            matching: sut.view,
             as: .image
         )
     }

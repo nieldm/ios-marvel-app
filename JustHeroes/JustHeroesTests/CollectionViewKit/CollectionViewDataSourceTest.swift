@@ -14,7 +14,7 @@ class CollectionViewItemMock: CollectionViewItem {
         return UICollectionViewCell()
     }
     
-    func getSize() -> CGSize {
+    func getSize(_ collectionView: UICollectionView?) -> CGSize {
         CGSize(width: 250, height: 265)
     }
 }

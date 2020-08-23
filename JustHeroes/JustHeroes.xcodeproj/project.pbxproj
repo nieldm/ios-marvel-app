@@ -21,6 +21,7 @@
 		B123A33D24EDD97C008EABC3 /* CardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B123A33C24EDD97C008EABC3 /* CardListViewController.swift */; };
 		B123A34024EDDA85008EABC3 /* Assembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B123A33F24EDDA85008EABC3 /* Assembler.swift */; };
 		B123A34824EDDDA7008EABC3 /* CardListViewControllerSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B123A34724EDDDA7008EABC3 /* CardListViewControllerSnapshotTest.swift */; };
+		B1347CB124F28DBC00F71946 /* SortAndFilterViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1347CB024F28DBC00F71946 /* SortAndFilterViewControllerTest.swift */; };
 		B146698A24EC4FEB0009FF15 /* CollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B146698924EC4FEB0009FF15 /* CollectionViewDataSource.swift */; };
 		B17F51E324EC4D0B00ECEAA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17F51E224EC4D0B00ECEAA6 /* AppDelegate.swift */; };
 		B17F51E524EC4D0B00ECEAA6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17F51E424EC4D0B00ECEAA6 /* SceneDelegate.swift */; };
@@ -102,6 +103,7 @@
 		B123A34524EDDDA7008EABC3 /* JustHerosSnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JustHerosSnapshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B123A34724EDDDA7008EABC3 /* CardListViewControllerSnapshotTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListViewControllerSnapshotTest.swift; sourceTree = "<group>"; };
 		B123A34924EDDDA7008EABC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B1347CB024F28DBC00F71946 /* SortAndFilterViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortAndFilterViewControllerTest.swift; sourceTree = "<group>"; };
 		B146698924EC4FEB0009FF15 /* CollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewDataSource.swift; sourceTree = "<group>"; };
 		B17F51DF24EC4D0B00ECEAA6 /* JustHeroes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustHeroes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B17F51E224EC4D0B00ECEAA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				B123A34724EDDDA7008EABC3 /* CardListViewControllerSnapshotTest.swift */,
+				B1347CB024F28DBC00F71946 /* SortAndFilterViewControllerTest.swift */,
 				B123A34924EDDDA7008EABC3 /* Info.plist */,
 			);
 			path = JustHerosSnapshotTests;
@@ -711,6 +714,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1347CB124F28DBC00F71946 /* SortAndFilterViewControllerTest.swift in Sources */,
 				B123A34824EDDDA7008EABC3 /* CardListViewControllerSnapshotTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
