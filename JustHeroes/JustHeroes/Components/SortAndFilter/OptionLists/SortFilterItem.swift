@@ -16,9 +16,18 @@ class SortFilterItem: CollectionViewItem {
         return cell
     }
     
-    func getSize() -> CGSize {
-        .init(width: 200, height: 44)
+    func getSize(_ collectionView: UICollectionView?) -> CGSize {
+        .init(
+            width: collectionView?.frame.width.multipliedBy(0.9) ?? 200,
+            height: 44
+        )
     }
 }
 
 extension SortFilterModel: CollectioViewModel {}
+
+extension CGFloat {
+    func multipliedBy(_ number: CGFloat) -> CGFloat {
+        self * number
+    }
+}

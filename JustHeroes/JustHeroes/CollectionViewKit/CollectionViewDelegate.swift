@@ -16,7 +16,7 @@ class CollectionViewDelegate<SectionItem: CollectionViewSection>: NSObject, UICo
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        dataSource.getSections()[indexPath.section].items[indexPath.row].getSize()
+        dataSource.getSections()[indexPath.section].items[indexPath.row].getSize(collectionView)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -34,5 +34,9 @@ class CollectionViewDelegate<SectionItem: CollectionViewSection>: NSObject, UICo
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         dataSource.getSections()[section].getFooterSize(collectionView)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        .init(top: 12, left: 0, bottom: 12, right: 0)
     }
 }

@@ -10,7 +10,7 @@ class SortFilterSection: CollectionViewSection {
     let title: String
     let identifier: String
     let items: [SortFilterItem]
-    var spacing: CGFloat = 0
+    var spacing: CGFloat = 12
     
     init(title: String, identifier: String, items: [SortFilterItem]) {
         self.title = title

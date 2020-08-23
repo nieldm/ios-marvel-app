@@ -30,7 +30,7 @@ class CharacterListItem: CollectionViewItem {
         self.image = image
     }
     
-    func getSize() -> CGSize {
+    func getSize(_ collectionView: UICollectionView?) -> CGSize {
         CGSize(width: 120, height: 250)
     }
     

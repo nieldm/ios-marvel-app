@@ -1,3 +1,4 @@
+import Foundation
 import UIKit
 
 class SimpleOptionCollectionViewCell: UICollectionViewCell {
@@ -29,12 +30,14 @@ class SimpleOptionCollectionViewCell: UICollectionViewCell {
     }
     
     private func matchSelectedState() {
-        if isSelected {
-            titleLabel.textColor = .secondary
-            contentView.backgroundColor = .primary
-        } else {
-            titleLabel.textColor = .primary
-            contentView.backgroundColor = .secondary
+        UIView.animate(withDuration: 0.3) {
+            if self.isSelected {
+                self.titleLabel.textColor = .secondary
+                self.contentView.backgroundColor = .primary
+            } else {
+                self.titleLabel.textColor = .primary
+                self.contentView.backgroundColor = .secondary
+            }
         }
     }
 

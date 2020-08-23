@@ -24,11 +24,12 @@ class CharacterListSection: CollectionViewSection {
         let model = item.model
         print("👾", "Preload item \(index)")
         
-        let size = Float(max(item.getSize().height, item.getSize().width))
+        let itemSize = item.getSize(nil)
+        let maxSize = Float(max(itemSize.height, itemSize.width))
         if let characterImageURL = model.imageURL {
             item.imageDownloadTask = ImageRepository.shared.get(
                 imageFrom: characterImageURL,
-                withSize: size,
+                withSize: maxSize,
                 onSuccess: item.setImage(image:)
             )
         }

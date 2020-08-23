@@ -18,6 +18,6 @@ class SortAndFilterListViewController: CollectionViewController<SortFilterSectio
             withReuseIdentifier: "FullTitleCollectionReusableView"
         )
         collectionView.backgroundColor = .primary
-        collectionView.contentInset = UIEdgeInsets(top: 0, left: 12, bottom: 24, right: 12)
+        collectionView.contentInset = UIEdgeInsets(top: 24, left: 12, bottom: 24, right: 12)
     }
 }

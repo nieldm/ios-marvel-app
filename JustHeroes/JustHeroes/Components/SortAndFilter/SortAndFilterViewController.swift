@@ -23,6 +23,8 @@ class SortAndFilterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        view.backgroundColor = .primary
+        
         view.addSubview(stackView)
         stackView.snp.makeConstraints { make in
             make.center.equalToSuperview()
@@ -48,6 +50,7 @@ extension SortAndFilterViewController: SortAndFilterViewModelProtocol {
     func showSortOptions(forItems items: [SortFilterModel]) {
         let vc = builder.createSortModule(forItems: items)
         vc.modalPresentationStyle = .popover
+        vc.view.backgroundColor = .primary
         present(vc, animated: true)
     }
 }
