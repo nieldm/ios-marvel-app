@@ -19,7 +19,6 @@ private extension SortOptions {
 }
 
 class MarvelDataSource: CharactersRepositoryDataSource {
-    
     typealias DTO = MarvelDTO
     
     static var apiKey: String {
@@ -39,11 +38,11 @@ class MarvelDataSource: CharactersRepositoryDataSource {
     static let baseURL = "https://gateway.marvel.com:443/v1/public/"
     
     enum Operation {
-        case character(limit: Int, offset: Int, sort: SortOptions?)
+        case character(limit: Int, offset: Int, sort: SortOptions?, term: String?)
         
         var properties: (path: String, method: HTTPMethod, parameters: Parameters) {
             switch self {
-            case .character(let limit, let offset, let sort):
+            case .character(let limit, let offset, let sort, let term):
                 let now = Date().timeIntervalSince1970
                 
                 var parameters: Parameters = [
@@ -58,6 +57,10 @@ class MarvelDataSource: CharactersRepositoryDataSource {
                     parameters["orderBy"] = sortBy
                 }
                 
+                if let term = term {
+                    parameters["nameStartsWith"] = term
+                }
+                
                 return (path: "characters", method: .GET, parameters: parameters)
             }
         }
@@ -69,8 +72,13 @@ class MarvelDataSource: CharactersRepositoryDataSource {
         self.api = api
     }
 
-    func fetchCharacters(withLimit limit: Int, offset: Int, sortedBy sort: SortOptions, callback: @escaping (Result<MarvelDTO, Error>) -> Void) {
-        let properties = Operation.character(limit: limit, offset: offset, sort: sort).properties
+    func fetchCharacters(
+        withLimit limit: Int,
+        offset: Int,
+        sortedBy sort: SortOptions,
+        withTerm term: String?,
+        callback: @escaping (Result<MarvelDTO, Error>) -> Void) {
+        let properties = Operation.character(limit: limit, offset: offset, sort: sort, term: term).properties
         do {
             try api.request(forPath: properties.path,
                         method: properties.method,

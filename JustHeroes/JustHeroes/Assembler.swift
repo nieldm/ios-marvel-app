@@ -1,13 +1,5 @@
 import Foundation
 
-struct CardCollectionViewDelegateOutputMock: CollectionViewDelegateOutput {
-    typealias Item = CardCollectionItem
-    
-    func didSelect(_ item: CardCollectionItem) {
-        
-    }
-}
-
 class Assembler {
     
     static let shared = Assembler()

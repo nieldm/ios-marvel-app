@@ -56,6 +56,7 @@
 		B1C6AADC24F276F20085D5C6 /* SortAndFilterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C6AADB24F276F20085D5C6 /* SortAndFilterListViewController.swift */; };
 		B1C6AADE24F27EF00085D5C6 /* SortAndFilterBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C6AADD24F27EF00085D5C6 /* SortAndFilterBuilder.swift */; };
 		B1C6ACBA24F2840B0085D5C6 /* SortFilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C6ACB924F2840B0085D5C6 /* SortFilterModel.swift */; };
+		B1E07D1424F2B8050044919A /* CardCollectionViewDelegateOutputMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E07D1324F2B8050044919A /* CardCollectionViewDelegateOutputMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,6 +146,7 @@
 		B1C6AADB24F276F20085D5C6 /* SortAndFilterListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortAndFilterListViewController.swift; sourceTree = "<group>"; };
 		B1C6AADD24F27EF00085D5C6 /* SortAndFilterBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortAndFilterBuilder.swift; sourceTree = "<group>"; };
 		B1C6ACB924F2840B0085D5C6 /* SortFilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortFilterModel.swift; sourceTree = "<group>"; };
+		B1E07D1324F2B8050044919A /* CardCollectionViewDelegateOutputMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewDelegateOutputMock.swift; sourceTree = "<group>"; };
 		B7F89263EC855665A5827AD2 /* Pods-JustHeroesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustHeroesUITests.release.xcconfig"; path = "Target Support Files/Pods-JustHeroesUITests/Pods-JustHeroesUITests.release.xcconfig"; sourceTree = "<group>"; };
 		EA846486557CBF5A71B0B89B /* Pods-JustHeroesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustHeroesUITests.debug.xcconfig"; path = "Target Support Files/Pods-JustHeroesUITests/Pods-JustHeroesUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F2784812CD5483FC1DD1192D /* Pods-JustHeroesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustHeroesTests.release.xcconfig"; path = "Target Support Files/Pods-JustHeroesTests/Pods-JustHeroesTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				B123A33C24EDD97C008EABC3 /* CardListViewController.swift */,
+				B1E07D1324F2B8050044919A /* CardCollectionViewDelegateOutputMock.swift */,
 				B1B2990024EECFAF00921709 /* Item */,
 				B1B2990124EECFB800921709 /* Section */,
 			);
@@ -762,6 +765,7 @@
 				B1B298FF24EEC55600921709 /* CollectionViewDelegate.swift in Sources */,
 				B123A33B24EDD8ED008EABC3 /* CardCollectionSection.swift in Sources */,
 				B123A14724ED87F2008EABC3 /* CollectionViewSection.swift in Sources */,
+				B1E07D1424F2B8050044919A /* CardCollectionViewDelegateOutputMock.swift in Sources */,
 				B1C2BA3724EFEF72005C036B /* CharacterListSection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

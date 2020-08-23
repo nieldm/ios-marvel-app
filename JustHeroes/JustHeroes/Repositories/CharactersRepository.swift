@@ -11,6 +11,7 @@ protocol CharactersRepositoryProtocol {
     func fetchCharacters(
         atPage page: Int,
         sortedBy sort: SortOptions,
+        withTerm term: String?,
         callback: @escaping (CharacterResult) -> Void
     )
 }
@@ -22,6 +23,7 @@ protocol CharactersRepositoryDataSource {
         withLimit limit: Int,
         offset: Int,
         sortedBy sort: SortOptions,
+        withTerm term: String?,
         callback: @escaping (Result<DTO, Error>) -> Void
     )
 }
@@ -51,22 +53,29 @@ class CharactersRepository<DataSource: CharactersRepositoryDataSource, Mapper: C
     }
     
     func fetchCharacters(atPage page: Int, callback: @escaping (CharacterResult) -> Void) {
-        self.fetchCharacters(atPage: page, sortedBy: .none, callback: callback)
+        self.fetchCharacters(atPage: page, sortedBy: .none, withTerm: nil, callback: callback)
     }
     
-    
-    func fetchCharacters(atPage page: Int, sortedBy sort: SortOptions, callback: @escaping (CharacterResult) -> Void) {
-        dataSource.fetchCharacters(withLimit: pageSize, offset: pageSize * page, sortedBy: sort) { [weak self] result in
-            guard let strongSelf = self else {
-                callback(.failure(RepositoryError.loseContext))
-                return
-            }
-            do {
-                let characters = strongSelf.mapper.map(fromObject: try result.get())
-                callback(.success(characters))
-            } catch {
-                callback(.failure(error))
-            }
+    func fetchCharacters(
+        atPage page: Int,
+        sortedBy sort: SortOptions,
+        withTerm term: String?,
+        callback: @escaping (CharacterResult) -> Void) {
+        dataSource.fetchCharacters(
+            withLimit: pageSize,
+            offset: pageSize * page,
+            sortedBy: sort,
+            withTerm: term) { [weak self] result in
+                guard let strongSelf = self else {
+                    callback(.failure(RepositoryError.loseContext))
+                    return
+                }
+                do {
+                    let characters = strongSelf.mapper.map(fromObject: try result.get())
+                    callback(.success(characters))
+                } catch {
+                    callback(.failure(error))
+                }
         }
     }
     

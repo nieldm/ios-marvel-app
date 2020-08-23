@@ -32,7 +32,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         case .characterList:
             firstView = try! Assembler.shared.resolveCharacterList()
         default:
-            firstView = try! Assembler.shared.resolveCharacterList()
+            let navController = UINavigationController(
+                rootViewController: try! Assembler.shared.resolveCharacterList()
+            )
+            navController.navigationBar.tintColor = .secondary
+            firstView = navController
         }
 
         if let windowScene = scene as? UIWindowScene {

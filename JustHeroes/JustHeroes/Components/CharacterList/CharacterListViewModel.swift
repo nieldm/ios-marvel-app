@@ -10,6 +10,10 @@ protocol ViewModelViewCycleEvents {
     func viewDidAppear()
 }
 
+protocol CharacterListViewModelViewProtocol {
+    func didSearch(withTerm term: String)
+}
+
 enum ViewState {
     case loading
     case error(String)
@@ -20,12 +24,14 @@ class CharacterListViewModel<Repository: CharactersRepository<MarvelDataSource, 
     
     var view: CardListViewModelViewProtocol?
     var repository: Repository
+    private var lastSearchTerm: String?
     
     init(repository: Repository) {
         self.repository = repository
     }
     
     func viewDidLoad() {
+        lastSearchTerm = nil
         view?.transition(toState: .loading)
         repository.fetchCharacters(atPage: 0) { [weak self] (result) in
             self?.didReceive(result)
@@ -55,7 +61,16 @@ extension CharacterListViewModel: CollectionViewDelegateOutput {
 
 extension CharacterListViewModel: SortAndFilterViewModelOutput {
     func didSelectSort(byOption option: SortOptions) {
-        repository.fetchCharacters(atPage: 0, sortedBy: option) { [weak self] result in
+        repository.fetchCharacters(atPage: 0, sortedBy: option, withTerm: self.lastSearchTerm ) { [weak self] result in
+            self?.didReceive(result)
+        }
+    }
+}
+
+extension CharacterListViewModel: CharacterListViewModelViewProtocol {
+    func didSearch(withTerm term: String) {
+        repository.fetchCharacters(atPage: 0, sortedBy: .none, withTerm: term) { [weak self] result in
+            self?.lastSearchTerm = term
             self?.didReceive(result)
         }
     }

@@ -3,10 +3,12 @@ import UIKit
 
 class CharacterListViewController: CollectionViewController<CharacterListSection> {
     
-    typealias ViewModel = ViewModelViewCycleEvents & SortAndFilterViewModelOutput
+    typealias ViewModel = ViewModelViewCycleEvents & SortAndFilterViewModelOutput & CharacterListViewModelViewProtocol
     
     let viewModel: ViewModel
     let sortAndFilterViewController: SortAndFilterViewController
+    
+    private var throttleTimer: Timer?
     
     init(
         viewModel: ViewModel,
@@ -18,6 +20,8 @@ class CharacterListViewController: CollectionViewController<CharacterListSection
     }
     
     override func prepareView(_ view: UIView) {
+        addSearchController()
+        
         view.backgroundColor = .primary
         
         view.addSubview(sortAndFilterViewController.view)
@@ -51,6 +55,14 @@ class CharacterListViewController: CollectionViewController<CharacterListSection
         super.viewDidLoad()
     }
     
+    private func addSearchController() {
+        let search = UISearchController()
+        search.searchBar.delegate = self
+        search.searchResultsUpdater = self
+        search.obscuresBackgroundDuringPresentation = false
+        self.navigationItem.searchController = search
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -71,4 +83,28 @@ extension CharacterListViewController: CardListViewModelViewProtocol {
         
     }
     
+}
+
+extension CharacterListViewController: UISearchBarDelegate {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.viewModel.viewDidLoad()
+    }
+}
+
+extension CharacterListViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        self.throttleTimer?.invalidate()
+        guard let term = searchController.searchBar.text else {
+            return
+        }
+        guard !term.isEmpty else {
+            return self.viewModel.viewDidLoad()
+        }
+        guard term.count > 3 else {
+            return
+        }
+        throttleTimer = Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false) { [weak self] _ in
+            self?.viewModel.didSearch(withTerm: term)
+        }
+    }
 }
