@@ -85,6 +85,11 @@
       </BuildableProductRunnable>
       <EnvironmentVariables>
          <EnvironmentVariable
+            key = "START_VIEW"
+            value = "sortFilter"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
             key = "MARVEL_PRIVATE_KEY"
             value = "08b5e01b1697c99d25d7f59b0b2f2d252f109edd"
             isEnabled = "YES">
