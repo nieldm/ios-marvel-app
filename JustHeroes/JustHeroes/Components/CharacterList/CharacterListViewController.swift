@@ -5,17 +5,19 @@ class CharacterListViewController: CollectionViewController<CharacterListSection
     
     typealias ViewModel = ViewModelViewCycleEvents & SortAndFilterViewModelOutput & CharacterListViewModelViewProtocol
     
-    let viewModel: ViewModel
-    let sortAndFilterViewController: SortAndFilterViewController
-    
+    private let viewModel: ViewModel
+    private let sortAndFilterViewController: SortAndFilterViewController
     private var throttleTimer: Timer?
+    private let builder: DetailViewBuilderProtocol
     
     init(
         viewModel: ViewModel,
         delegate: UICollectionViewDelegate,
-        dataSource: CollectionViewDataSource<CharacterListSection>) {
+        dataSource: CollectionViewDataSource<CharacterListSection>,
+        builder: DetailViewBuilderProtocol) {
         self.viewModel = viewModel
         self.sortAndFilterViewController = Assembler.shared.resolveSortFilterModule(output: viewModel)
+        self.builder = builder
         super.init(style: .vertical(paginated: false), delegate: delegate, dataSource: dataSource)
     }
     
@@ -55,6 +57,11 @@ class CharacterListViewController: CollectionViewController<CharacterListSection
         super.viewDidLoad()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        viewModel.viewDidDisappear()
+        super.viewDidDisappear(animated)
+    }
+    
     private func addSearchController() {
         let search = UISearchController()
         search.searchBar.delegate = self
@@ -69,13 +76,22 @@ class CharacterListViewController: CollectionViewController<CharacterListSection
     
 }
 
-extension CharacterListViewController: CardListViewModelViewProtocol {
-    func didReceive(characters: [CharacterModel]) {
+extension CharacterListViewController: CharacterListViewModelView {
+    func presentDetail(forModel model: BaseModel) {
+        let vc = builder.getDetailViewController(forModel: model)
+        
+        DispatchQueue.main.async {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    func didReceive(characters: [BaseModel]) {
         //TODO: move map logic to the viewModel
         let items = characters.map { given -> CharacterListItem in
             CharacterListItem(model: given)
         }
-        self.dataSource.updateSections(sections: [CharacterListSection(items: items)])
+        //TODO: add a builder to manage the sections titles
+        self.dataSource.updateSections(sections: [CharacterListSection(title: "Comics", items: items)])
         self.reload()
     }
     

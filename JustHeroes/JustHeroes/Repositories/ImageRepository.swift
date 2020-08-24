@@ -8,10 +8,10 @@ enum ImageError: Error {
 }
 
 protocol ImageRepositoryProtocol {
-    func get(imageFrom urlString: String, withSize size: Float?, onSuccess: @escaping (UIImage) -> Void) -> URLSessionDataTask
+    func get(imageFrom url: URL, withSize size: Float?, onSuccess: @escaping (UIImage) -> Void) -> URLSessionDataTask
 }
 
-public class ImageRepository {
+public class ImageRepository: ImageRepositoryProtocol {
     
     static let shared = ImageRepository()
     

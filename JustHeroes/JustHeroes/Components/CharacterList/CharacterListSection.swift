@@ -6,11 +6,13 @@ class CharacterListSection: CollectionViewSection {
     typealias Footer = UICollectionReusableView
     typealias Item = CharacterListItem
     
+    private let title: String
     var items: [CharacterListItem]
     var spacing: CGFloat = 12.0
     
-    init(items: [CharacterListItem]) {
+    init(title: String, items: [CharacterListItem]) {
         self.items = items
+        self.title = title
     }
     
     func preload(itemAt index: Int) {
@@ -40,7 +42,7 @@ class CharacterListSection: CollectionViewSection {
     }
     
     func getHeaderSize(_ collectionView: UICollectionView) -> CGSize {
-        .init(width: collectionView.frame.width, height: 100)
+        .init(width: collectionView.frame.width, height: 44)
     }
     
     func getFooterSize(_ collectionView: UICollectionView) -> CGSize {
@@ -48,7 +50,7 @@ class CharacterListSection: CollectionViewSection {
     }
     
     func getHeader(header: FullTitleCollectionReusableView) -> FullTitleCollectionReusableView {
-        header.titleLabel.text = "Characters"
+        header.titleLabel.text = self.title
         return header
     }
     

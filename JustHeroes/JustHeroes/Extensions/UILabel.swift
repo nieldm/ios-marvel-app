@@ -30,4 +30,5 @@ extension UILabel {
         self.textColor = .secondary
         self.textAlignment = .left
     }
+    
 }

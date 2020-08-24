@@ -1,13 +1,13 @@
 import Foundation
 
-struct MarvelDTO: Codable {
-    let data: MarvelDataDTO
+struct MarvelDTO<Type: Codable>: Codable {
+    let data: MarvelDataDTO<Type>
 }
 
-struct MarvelDataDTO: Codable {
+struct MarvelDataDTO<Type: Codable>: Codable {
     let total: Int
     let count: Int
-    let results: [MarvelCharacterDTO]
+    let results: [Type]
 }
 
 struct MarvelCharacterDTO: Codable {
@@ -17,7 +17,15 @@ struct MarvelCharacterDTO: Codable {
     let thumbnail: MarvelImageDTO
     let resourceURI: String
     let urls: [MarvelUrlDTO]
-//    let comics: [MarvelComicSummaryDTO]
+    let comics: MarvelSummaryDTO?
+}
+
+struct MarvelComicDTO: Codable {
+    let id: UInt
+    let title: String
+    let description: String?
+    let variantDescription: String?
+    let thumbnail: MarvelImageDTO
 }
 
 struct MarvelImageDTO: Codable {
@@ -30,7 +38,7 @@ struct MarvelUrlDTO: Codable {
     let url: String
 }
 
-struct MarvelComicSummaryDTO: Codable {
-    let resourceURI: String
-    let name: String
+struct MarvelSummaryDTO: Codable {
+    let collectionURI: String
+    let available: Int
 }

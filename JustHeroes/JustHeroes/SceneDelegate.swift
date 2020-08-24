@@ -13,6 +13,7 @@ enum StartView: String {
     case test
     case characterList
     case sortFilter
+    case comics
     case none = ""
 }
 
@@ -31,11 +32,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             firstView = Assembler.shared.resolveSortFilterModule()
         case .characterList:
             firstView = try! Assembler.shared.resolveCharacterList()
+        case .comics:
+            firstView = try! Assembler.shared.resolveComicList(
+                collectionURL: "http://gateway.marvel.com/v1/public/characters/1009351/comics"
+            )
         default:
             let navController = UINavigationController(
                 rootViewController: try! Assembler.shared.resolveCharacterList()
             )
-            navController.navigationBar.tintColor = .secondary
+            UINavigationBar.appearance().tintColor = .secondary
             firstView = navController
         }
 

@@ -7,15 +7,36 @@ class Assembler {
     func resolveCharacterList() throws -> CharacterListViewController {
         let api = try BaseAPI(baseURL: MarvelDataSource.baseURL, session: .init(configuration: .default))
         let mapper = MarvelCharacterMapper()
-        let dataSource = MarvelDataSource(api: api)
+        let dataSource = MarverlCharacterDataSource(api: api)
         let repository = CharactersRepository(pageSize: 100, dataSource: dataSource, mapper: mapper)
         let viewModel = CharacterListViewModel(repository: repository)
         let collectionDataSource = CollectionViewDataSource<CharacterListSection>(sections: [])
         let collectionDelegate = CollectionViewDelegate(dataSource: collectionDataSource, delegate: viewModel)
+        let builder = DetailViewBuilder()
         let vc = CharacterListViewController(
             viewModel: viewModel,
             delegate: collectionDelegate,
-            dataSource: collectionDataSource
+            dataSource: collectionDataSource,
+            builder: builder
+        )
+        viewModel.view = vc
+        return vc
+    }
+    
+    func resolveComicList(collectionURL: String) throws -> CharacterListViewController {
+        let api = try BaseAPI(baseURL: MarvelDataSource.baseURL, session: .init(configuration: .default))
+        let mapper = MarvelComicMapper()
+        let dataSource = MarverlComicsDataSource(collectionURL: collectionURL, api: api)
+        let repository = CharactersRepository(pageSize: 50, dataSource: dataSource, mapper: mapper)
+        let viewModel = CharacterListViewModel(repository: repository)
+        let collectionDataSource = CollectionViewDataSource<CharacterListSection>(sections: [])
+        let collectionDelegate = CollectionViewDelegate(dataSource: collectionDataSource, delegate: viewModel)
+        let builder = DetailViewBuilder()
+        let vc = CharacterListViewController(
+            viewModel: viewModel,
+            delegate: collectionDelegate,
+            dataSource: collectionDataSource,
+            builder: builder
         )
         viewModel.view = vc
         return vc
