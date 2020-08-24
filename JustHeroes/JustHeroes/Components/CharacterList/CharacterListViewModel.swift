@@ -35,12 +35,12 @@ class CharacterListViewModel: ViewModelViewCycleEvents {
     func viewDidLoad() {
         lastSearchTerm = nil
         view?.transition(toState: .loading)
-        repository.fetchCharacters(atPage: 0) { [weak self] (result) in
+        repository.fetch(atPage: 0) { [weak self] (result) in
             self?.didReceive(result)
         }
     }
     
-    func didReceive(_ result: CharacterResult) {
+    func didReceive(_ result: BaseResult) {
         do {
             let characters = try result.get()
             self.view?.didReceive(characters: characters)
@@ -66,7 +66,7 @@ extension CharacterListViewModel: CollectionViewDelegateOutput {
 
 extension CharacterListViewModel: SortAndFilterViewModelOutput {
     func didSelectSort(byOption option: SortOptions) {
-        repository.fetchCharacters(atPage: 0, sortedBy: option, withTerm: self.lastSearchTerm ) { [weak self] result in
+        repository.fetch(atPage: 0, sortedBy: option, withTerm: self.lastSearchTerm ) { [weak self] result in
             self?.didReceive(result)
         }
     }
@@ -74,7 +74,7 @@ extension CharacterListViewModel: SortAndFilterViewModelOutput {
 
 extension CharacterListViewModel: CharacterListViewModelViewProtocol {
     func didSearch(withTerm term: String) {
-        repository.fetchCharacters(atPage: 0, sortedBy: .none, withTerm: term) { [weak self] result in
+        repository.fetch(atPage: 0, sortedBy: .none, withTerm: term) { [weak self] result in
             self?.lastSearchTerm = term
             self?.didReceive(result)
         }

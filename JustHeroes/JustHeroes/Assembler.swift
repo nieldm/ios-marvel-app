@@ -23,6 +23,25 @@ class Assembler {
         return vc
     }
     
+    func resolveComicList(collectionURL: String) throws -> CharacterListViewController {
+        let api = try BaseAPI(baseURL: MarvelDataSource.baseURL, session: .init(configuration: .default))
+        let mapper = MarvelComicMapper()
+        let dataSource = MarverlComicsDataSource(collectionURL: collectionURL, api: api)
+        let repository = CharactersRepository(pageSize: 50, dataSource: dataSource, mapper: mapper)
+        let viewModel = CharacterListViewModel(repository: repository)
+        let collectionDataSource = CollectionViewDataSource<CharacterListSection>(sections: [])
+        let collectionDelegate = CollectionViewDelegate(dataSource: collectionDataSource, delegate: viewModel)
+        let builder = DetailViewBuilder()
+        let vc = CharacterListViewController(
+            viewModel: viewModel,
+            delegate: collectionDelegate,
+            dataSource: collectionDataSource,
+            builder: builder
+        )
+        viewModel.view = vc
+        return vc
+    }
+    
     func resolveCardListViewController_Test() -> CardListViewController {
         let section1 = CardCollectionSection(
             items: [

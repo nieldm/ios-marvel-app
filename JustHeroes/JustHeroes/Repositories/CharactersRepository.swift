@@ -1,18 +1,18 @@
 import Foundation
 
-typealias CharacterResult = Result<[BaseModel], Error>
+typealias BaseResult = Result<[BaseModel], Error>
 
 protocol CharactersRepositoryProtocol {
-    func fetchCharacters(
+    func fetch(
         atPage page: Int,
-        callback: @escaping (CharacterResult) -> Void
+        callback: @escaping (BaseResult) -> Void
     )
     
-    func fetchCharacters(
+    func fetch(
         atPage page: Int,
         sortedBy sort: SortOptions,
         withTerm term: String?,
-        callback: @escaping (CharacterResult) -> Void
+        callback: @escaping (BaseResult) -> Void
     )
 }
 
@@ -39,7 +39,7 @@ enum RepositoryError: Error {
 }
 
 class CharactersRepository<DataSource: CharactersRepositoryDataSource, Mapper: CharactersRepositoryMapper>: CharactersRepositoryProtocol
-    where DataSource.DTO == Mapper.DTO, DataSource.DTO == MarvelDTO<MarvelCharacterDTO> {
+    where DataSource.DTO == Mapper.DTO {
     
     let pageSize: Int
     let dataSource: DataSource
@@ -53,15 +53,15 @@ class CharactersRepository<DataSource: CharactersRepositoryDataSource, Mapper: C
         self.mapper = mapper
     }
     
-    func fetchCharacters(atPage page: Int, callback: @escaping (CharacterResult) -> Void) {
-        self.fetchCharacters(atPage: page, sortedBy: .none, withTerm: nil, callback: callback)
+    func fetch(atPage page: Int, callback: @escaping (BaseResult) -> Void) {
+        self.fetch(atPage: page, sortedBy: .none, withTerm: nil, callback: callback)
     }
     
-    func fetchCharacters(
+    func fetch(
         atPage page: Int,
         sortedBy sort: SortOptions,
         withTerm term: String?,
-        callback: @escaping (CharacterResult) -> Void) {
+        callback: @escaping (BaseResult) -> Void) {
         dataSource.fetch(
             withLimit: pageSize,
             offset: pageSize * page,

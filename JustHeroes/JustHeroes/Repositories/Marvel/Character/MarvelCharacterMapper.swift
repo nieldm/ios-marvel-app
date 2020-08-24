@@ -1,10 +1,5 @@
 import Foundation
 
-private enum ImageResolution: String {
-    case portraitFantastic = "/portrait_fantastic"
-    case fullSize = ""
-}
-
 class MarvelCharacterMapper: CharactersRepositoryMapper {
     typealias DTO = MarvelDTO<MarvelCharacterDTO>
     
@@ -14,22 +9,17 @@ class MarvelCharacterMapper: CharactersRepositoryMapper {
                 name: given.name,
                 description: given.description
             )
-            characterModel.imageURL = getImageURL(
+            characterModel.imageURL = MarvelImageURLBuilder.getImageURL(
                 withPath: given.thumbnail.path,
                 ext: given.thumbnail.`extension`,
                 resolution: .portraitFantastic
             )
-            characterModel.highResImageURL = getImageURL(
+            characterModel.highResImageURL = MarvelImageURLBuilder.getImageURL(
                 withPath: given.thumbnail.path,
                 ext: given.thumbnail.`extension`,
                 resolution: .fullSize
             )
             return characterModel
         }
-    }
-    
-    private func getImageURL(withPath path: String, ext: String, resolution: ImageResolution) -> URL? {
-        let urlString = "\(path)\(resolution.rawValue).\(ext)"
-        return URL(string: urlString)
     }
 }

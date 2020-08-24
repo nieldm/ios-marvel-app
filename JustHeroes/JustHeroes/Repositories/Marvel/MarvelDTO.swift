@@ -21,9 +21,10 @@ struct MarvelCharacterDTO: Codable {
 }
 
 struct MarvelComicDTO: Codable {
-    let id: String
+    let id: UInt
     let title: String
-    let description: String
+    let description: String?
+    let variantDescription: String?
     let thumbnail: MarvelImageDTO
 }
 

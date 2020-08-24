@@ -90,7 +90,8 @@ extension CharacterListViewController: CharacterListViewModelView {
         let items = characters.map { given -> CharacterListItem in
             CharacterListItem(model: given)
         }
-        self.dataSource.updateSections(sections: [CharacterListSection(items: items)])
+        //TODO: add a builder to manage the sections titles
+        self.dataSource.updateSections(sections: [CharacterListSection(title: "Comics", items: items)])
         self.reload()
     }
     
