@@ -1,23 +1,25 @@
 import Foundation
 import UIKit
 
-class CharacterListViewController: CollectionViewController<CharacterListSection> {
+class ModelListCollectionViewController: CollectionViewController<ModelListSection> {
     
-    typealias ViewModel = ViewModelViewCycleEvents & SortAndFilterViewModelOutput & CharacterListViewModelViewProtocol
+    typealias ViewModel = ViewModelViewCycleEvents & SortAndFilterViewModelOutput & ModelListViewModelViewProtocol
     
     private let viewModel: ViewModel
     private let sortAndFilterViewController: SortAndFilterViewController
     private var throttleTimer: Timer?
     private let builder: DetailViewBuilderProtocol
+    private let noContentView: NoContentView
     
     init(
         viewModel: ViewModel,
         delegate: UICollectionViewDelegate,
-        dataSource: CollectionViewDataSource<CharacterListSection>,
+        dataSource: CollectionViewDataSource<ModelListSection>,
         builder: DetailViewBuilderProtocol) {
         self.viewModel = viewModel
         self.sortAndFilterViewController = Assembler.shared.resolveSortFilterModule(output: viewModel)
         self.builder = builder
+        self.noContentView = NoContentView()
         super.init(style: .vertical(paginated: false), delegate: delegate, dataSource: dataSource)
     }
     
@@ -35,6 +37,13 @@ class CharacterListViewController: CollectionViewController<CharacterListSection
             make.height.equalTo(60)
         }
         sortAndFilterViewController.view.backgroundColor = .clear
+        
+        noContentView.isHidden = true
+        noContentView.backgroundColor = .primary
+        view.addSubview(noContentView)
+        noContentView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
     }
     
     override func prepareCollectionView(_ collectionView: UICollectionView) {
@@ -76,7 +85,7 @@ class CharacterListViewController: CollectionViewController<CharacterListSection
     
 }
 
-extension CharacterListViewController: CharacterListViewModelView {
+extension ModelListCollectionViewController: CharacterListViewModelView {
     func presentDetail(forModel model: BaseModel) {
         let vc = builder.getDetailViewController(forModel: model)
         
@@ -91,23 +100,31 @@ extension CharacterListViewController: CharacterListViewModelView {
             CharacterListItem(model: given)
         }
         //TODO: add a builder to manage the sections titles
-        self.dataSource.updateSections(sections: [CharacterListSection(title: "Comics", items: items)])
+        self.dataSource.updateSections(sections: [ModelListSection(title: "Comics", items: items)])
         self.reload()
     }
     
-    func transition(toState: ViewState) {
-        
+    func transition(toState state: ViewState) {
+        DispatchQueue.main.async {
+            self.noContentView.isHidden = true
+            switch state {
+            case .loading:
+                self.noContentView.isHidden = false
+            default: ()
+                
+            }
+        }
     }
     
 }
 
-extension CharacterListViewController: UISearchBarDelegate {
+extension ModelListCollectionViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         self.viewModel.viewDidLoad()
     }
 }
 
-extension CharacterListViewController: UISearchResultsUpdating {
+extension ModelListCollectionViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         self.throttleTimer?.invalidate()
         guard let term = searchController.searchBar.text else {

@@ -2,7 +2,7 @@ import Foundation
 
 protocol CharacterListViewModelView {
     func didReceive(characters: [BaseModel])
-    func transition(toState: ViewState)
+    func transition(toState state: ViewState)
     func presentDetail(forModel model: BaseModel)
 }
 
@@ -12,7 +12,7 @@ protocol ViewModelViewCycleEvents {
     func viewDidDisappear()
 }
 
-protocol CharacterListViewModelViewProtocol {
+protocol ModelListViewModelViewProtocol {
     func didSearch(withTerm term: String)
 }
 
@@ -72,7 +72,7 @@ extension CharacterListViewModel: SortAndFilterViewModelOutput {
     }
 }
 
-extension CharacterListViewModel: CharacterListViewModelViewProtocol {
+extension CharacterListViewModel: ModelListViewModelViewProtocol {
     func didSearch(withTerm term: String) {
         repository.fetch(atPage: 0, sortedBy: .none, withTerm: term) { [weak self] result in
             self?.lastSearchTerm = term
