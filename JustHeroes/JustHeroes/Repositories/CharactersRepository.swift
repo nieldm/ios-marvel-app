@@ -19,7 +19,7 @@ protocol CharactersRepositoryProtocol {
 protocol CharactersRepositoryDataSource {
     associatedtype DTO: Codable
     
-    func fetchCharacters(
+    func fetch(
         withLimit limit: Int,
         offset: Int,
         sortedBy sort: SortOptions,
@@ -62,7 +62,7 @@ class CharactersRepository<DataSource: CharactersRepositoryDataSource, Mapper: C
         sortedBy sort: SortOptions,
         withTerm term: String?,
         callback: @escaping (CharacterResult) -> Void) {
-        dataSource.fetchCharacters(
+        dataSource.fetch(
             withLimit: pageSize,
             offset: pageSize * page,
             sortedBy: sort,
