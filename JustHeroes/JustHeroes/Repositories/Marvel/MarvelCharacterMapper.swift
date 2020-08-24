@@ -6,9 +6,9 @@ private enum ImageResolution: String {
 }
 
 class MarvelCharacterMapper: CharactersRepositoryMapper {
-    typealias DTO = MarvelDTO
+    typealias DTO = MarvelDTO<MarvelCharacterDTO>
     
-    func map(fromObject object: MarvelDTO) -> [BaseModel] {
+    func map(fromObject object: DTO) -> [BaseModel] {
         object.data.results.map { given -> BaseModel in
             let characterModel = BaseModel(
                 name: given.name,

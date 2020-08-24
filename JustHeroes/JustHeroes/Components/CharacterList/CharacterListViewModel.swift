@@ -22,13 +22,13 @@ enum ViewState {
     case idle
 }
 
-class CharacterListViewModel<Repository: CharactersRepository<MarvelDataSource, MarvelCharacterMapper>>: ViewModelViewCycleEvents {
+class CharacterListViewModel: ViewModelViewCycleEvents {
 
     var view: CharacterListViewModelView?
-    var repository: Repository
+    var repository: CharactersRepositoryProtocol
     private var lastSearchTerm: String?
     
-    init(repository: Repository) {
+    init(repository: CharactersRepositoryProtocol) {
         self.repository = repository
     }
     

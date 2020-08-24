@@ -18,8 +18,7 @@ private extension SortOptions {
     }
 }
 
-class MarvelDataSource: CharactersRepositoryDataSource {
-    typealias DTO = MarvelDTO
+class MarvelDataSource {
     
     static var apiKey: String {
         guard let apiKey = ProcessInfo.processInfo.environment["MARVEL_API_KEY"] else {
@@ -71,13 +70,18 @@ class MarvelDataSource: CharactersRepositoryDataSource {
     init(api: BaseAPI) {
         self.api = api
     }
+    
+}
 
+class MarverlCharacterDataSource: MarvelDataSource, CharactersRepositoryDataSource {
+    typealias DTO = MarvelDTO<MarvelCharacterDTO>
+    
     func fetchCharacters(
         withLimit limit: Int,
         offset: Int,
         sortedBy sort: SortOptions,
         withTerm term: String?,
-        callback: @escaping (Result<MarvelDTO, Error>) -> Void) {
+        callback: @escaping (Result<DTO, Error>) -> Void) {
         let properties = Operation.character(limit: limit, offset: offset, sort: sort, term: term).properties
         do {
             try api.request(forPath: properties.path,
@@ -89,5 +93,26 @@ class MarvelDataSource: CharactersRepositoryDataSource {
             callback(.failure(error))
         }
     }
+}
+
+class MarverlComicsDataSource: MarvelDataSource, CharactersRepositoryDataSource {
+    typealias DTO = MarvelDTO<MarvelComicDTO>
     
+    func fetchCharacters(
+        withLimit limit: Int,
+        offset: Int,
+        sortedBy sort: SortOptions,
+        withTerm term: String?,
+        callback: @escaping (Result<DTO, Error>) -> Void) {
+        let properties = Operation.character(limit: limit, offset: offset, sort: sort, term: term).properties
+        do {
+            try api.request(forPath: properties.path,
+                        method: properties.method,
+                        withParameters: properties.parameters) { (result: Result<MarvelDTO, Error>) in
+                callback(result)
+            }
+        } catch {
+            callback(.failure(error))
+        }
+    }
 }

@@ -38,7 +38,8 @@ enum RepositoryError: Error {
     case loseContext
 }
 
-class CharactersRepository<DataSource: CharactersRepositoryDataSource, Mapper: CharactersRepositoryMapper>: CharactersRepositoryProtocol where DataSource.DTO == Mapper.DTO {
+class CharactersRepository<DataSource: CharactersRepositoryDataSource, Mapper: CharactersRepositoryMapper>: CharactersRepositoryProtocol
+    where DataSource.DTO == Mapper.DTO, DataSource.DTO == MarvelDTO<MarvelCharacterDTO> {
     
     let pageSize: Int
     let dataSource: DataSource

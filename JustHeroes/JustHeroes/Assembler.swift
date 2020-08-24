@@ -7,7 +7,7 @@ class Assembler {
     func resolveCharacterList() throws -> CharacterListViewController {
         let api = try BaseAPI(baseURL: MarvelDataSource.baseURL, session: .init(configuration: .default))
         let mapper = MarvelCharacterMapper()
-        let dataSource = MarvelDataSource(api: api)
+        let dataSource = MarverlCharacterDataSource(api: api)
         let repository = CharactersRepository(pageSize: 100, dataSource: dataSource, mapper: mapper)
         let viewModel = CharacterListViewModel(repository: repository)
         let collectionDataSource = CollectionViewDataSource<CharacterListSection>(sections: [])
