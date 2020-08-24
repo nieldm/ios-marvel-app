@@ -6,16 +6,7 @@ extension UICollectionViewCell {
         contentView.backgroundColor = .cellBackground
         contentView.layer.rounded()
         
-        layer.shadowColor = UIColor.secondary.cgColor
-        layer.shadowOpacity = 0.15
-        layer.masksToBounds = false
-        layer.shadowPath = CGPath(
-            roundedRect: CGRect(origin: .init(x: -1, y: -1), size: frame.size),
-            cornerWidth: 6,
-            cornerHeight: 0,
-            transform: nil
-        )
-        layer.shadowOffset = .zero
+        layer.shadow()
     }
 }
 
@@ -25,5 +16,18 @@ extension CALayer {
         borderColor = UIColor.cellBackground.cgColor
         borderWidth = border
         masksToBounds = true
+    }
+    
+    func shadow() {
+        shadowColor = UIColor.secondary.cgColor
+        shadowOpacity = 0.15
+        masksToBounds = false
+        shadowPath = CGPath(
+            roundedRect: CGRect(origin: .init(x: -1, y: -1), size: frame.size),
+            cornerWidth: 6,
+            cornerHeight: 0,
+            transform: nil
+        )
+        shadowOffset = .zero
     }
 }

@@ -35,7 +35,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let navController = UINavigationController(
                 rootViewController: try! Assembler.shared.resolveCharacterList()
             )
-            navController.navigationBar.tintColor = .secondary
+            UINavigationBar.appearance().tintColor = .secondary
             firstView = navController
         }
 

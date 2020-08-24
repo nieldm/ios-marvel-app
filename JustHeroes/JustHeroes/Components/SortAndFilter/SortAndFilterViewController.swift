@@ -28,7 +28,7 @@ class SortAndFilterViewController: UIViewController {
         stackView.snp.makeConstraints { make in
             make.center.equalToSuperview()
             make.height.equalTo(44)
-            make.width.equalToSuperview().multipliedBy(0.8)
+            make.width.equalTo(240)
         }
         
         sortButton.backgroundColor = .primary

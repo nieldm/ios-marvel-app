@@ -5,6 +5,7 @@ class CharacterModel {
     let description: String
     
     var imageURL: URL?
+    var highResImageURL: URL?
     
     init(name: String, description: String) {
         self.name = name

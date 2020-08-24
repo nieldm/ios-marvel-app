@@ -1,13 +1,15 @@
 import Foundation
 
-protocol CardListViewModelViewProtocol {
+protocol CharacterListViewModelView {
     func didReceive(characters: [CharacterModel])
     func transition(toState: ViewState)
+    func presentDetail(forModel model: CharacterModel)
 }
 
 protocol ViewModelViewCycleEvents {
     func viewDidLoad()
     func viewDidAppear()
+    func viewDidDisappear()
 }
 
 protocol CharacterListViewModelViewProtocol {
@@ -21,8 +23,8 @@ enum ViewState {
 }
 
 class CharacterListViewModel<Repository: CharactersRepository<MarvelDataSource, MarvelCharacterMapper>>: ViewModelViewCycleEvents {
-    
-    var view: CardListViewModelViewProtocol?
+
+    var view: CharacterListViewModelView?
     var repository: Repository
     private var lastSearchTerm: String?
     
@@ -49,13 +51,16 @@ class CharacterListViewModel<Repository: CharactersRepository<MarvelDataSource, 
     }
     
     func viewDidAppear() {}
+    
+    func viewDidDisappear() {}
+    
 }
 
 extension CharacterListViewModel: CollectionViewDelegateOutput {
     typealias Item = CharacterListItem
     
     func didSelect(_ item: CharacterListItem) {
-        print("👾", "did select \(item.model.name)")
+        view?.presentDetail(forModel: item.model)
     }
 }
 
