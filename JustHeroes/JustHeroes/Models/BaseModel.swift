@@ -1,6 +1,6 @@
 import Foundation
 
-class CharacterModel {
+class BaseModel {
     let name: String
     let description: String
     

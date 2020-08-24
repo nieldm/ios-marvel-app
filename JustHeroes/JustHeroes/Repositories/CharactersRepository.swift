@@ -1,6 +1,6 @@
 import Foundation
 
-typealias CharacterResult = Result<[CharacterModel], Error>
+typealias CharacterResult = Result<[BaseModel], Error>
 
 protocol CharactersRepositoryProtocol {
     func fetchCharacters(
@@ -31,7 +31,7 @@ protocol CharactersRepositoryDataSource {
 protocol CharactersRepositoryMapper {
     associatedtype DTO: Codable
     
-    func map(fromObject object: DTO) -> [CharacterModel]
+    func map(fromObject object: DTO) -> [BaseModel]
 }
 
 enum RepositoryError: Error {

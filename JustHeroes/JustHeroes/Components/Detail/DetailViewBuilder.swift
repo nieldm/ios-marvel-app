@@ -1,12 +1,12 @@
 import Foundation
 
 protocol DetailViewBuilderProtocol {
-    func getDetailViewController(forModel model: CharacterModel) -> DetailViewController
+    func getDetailViewController(forModel model: BaseModel) -> DetailViewController
 }
 
 class DetailViewBuilder: DetailViewBuilderProtocol {
     
-    func getDetailViewController(forModel model: CharacterModel) -> DetailViewController {
+    func getDetailViewController(forModel model: BaseModel) -> DetailViewController {
         let viewModel = DetailViewModel(characterModel: model, imageRepository: ImageRepository.shared)
         let vc = DetailViewController(viewModel: viewModel)
         

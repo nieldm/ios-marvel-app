@@ -77,7 +77,7 @@ class CharacterListViewController: CollectionViewController<CharacterListSection
 }
 
 extension CharacterListViewController: CharacterListViewModelView {
-    func presentDetail(forModel model: CharacterModel) {
+    func presentDetail(forModel model: BaseModel) {
         let vc = builder.getDetailViewController(forModel: model)
         
         DispatchQueue.main.async {
@@ -85,7 +85,7 @@ extension CharacterListViewController: CharacterListViewModelView {
         }
     }
     
-    func didReceive(characters: [CharacterModel]) {
+    func didReceive(characters: [BaseModel]) {
         //TODO: move map logic to the viewModel
         let items = characters.map { given -> CharacterListItem in
             CharacterListItem(model: given)

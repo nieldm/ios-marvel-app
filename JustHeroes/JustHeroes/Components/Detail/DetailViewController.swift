@@ -62,7 +62,7 @@ extension DetailViewController: DetailViewModelView {
         }
     }
     
-    func set(model: CharacterModel) {
+    func set(model: BaseModel) {
         descriptionLabel.text = model.description
     }
 }

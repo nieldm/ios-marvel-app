@@ -1,9 +1,9 @@
 import Foundation
 
 protocol CharacterListViewModelView {
-    func didReceive(characters: [CharacterModel])
+    func didReceive(characters: [BaseModel])
     func transition(toState: ViewState)
-    func presentDetail(forModel model: CharacterModel)
+    func presentDetail(forModel model: BaseModel)
 }
 
 protocol ViewModelViewCycleEvents {

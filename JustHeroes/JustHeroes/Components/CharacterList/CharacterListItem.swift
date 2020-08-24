@@ -1,16 +1,16 @@
 import Foundation
 import UIKit
 
-extension CharacterModel: CollectioViewModel {}
+extension BaseModel: CollectioViewModel {}
 
 class CharacterListItem: CollectionViewItem {
-    var model: CharacterModel
+    var model: BaseModel
     weak var cell: CardCollectionViewCell?
     
     var image: UIImage?
     var imageDownloadTask: URLSessionTask?
     
-    init(model: CharacterModel) {
+    init(model: BaseModel) {
         self.model = model
     }
     
@@ -44,6 +44,6 @@ class CharacterListItem: CollectionViewItem {
     }
     
     typealias Cell = CardCollectionViewCell
-    typealias Model = CharacterModel
+    typealias Model = BaseModel
     
 }
