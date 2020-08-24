@@ -19,6 +19,7 @@ class MarvelCharacterMapper: CharactersRepositoryMapper {
                 ext: given.thumbnail.`extension`,
                 resolution: .fullSize
             )
+            characterModel.collectionURL = given.comics?.collectionURI
             return characterModel
         }
     }

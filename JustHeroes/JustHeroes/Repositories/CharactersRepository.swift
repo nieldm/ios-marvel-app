@@ -54,7 +54,7 @@ class CharactersRepository<DataSource: CharactersRepositoryDataSource, Mapper: C
     }
     
     func fetch(atPage page: Int, callback: @escaping (BaseResult) -> Void) {
-        self.fetch(atPage: page, sortedBy: .none, withTerm: nil, callback: callback)
+        self.fetch(atPage: page, sortedBy: .dateDesc, withTerm: nil, callback: callback)
     }
     
     func fetch(

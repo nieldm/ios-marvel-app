@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewController" customModule="JustHeroes" customModuleProvider="target">
+            <connections>
+                <outlet property="descriptionTextView" destination="lyV-YG-9fk" id="tgC-Jc-wVb"/>
+                <outlet property="headerImageView" destination="Y7s-h8-cLy" id="Ugg-oe-FF2"/>
+                <outlet property="view" destination="iN0-l3-epB" id="ZmT-Wx-VxU"/>
+                <outlet property="viewContainer" destination="v2L-G0-oti" id="T30-pm-GZC"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="aYZ-um-nzR">
+                    <rect key="frame" x="12" y="52" width="390" height="818"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OAe-Oa-EPj">
+                            <rect key="frame" x="0.0" y="0.0" width="390" height="124"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Y7s-h8-cLy">
+                                    <rect key="frame" x="0.0" y="0.0" width="124" height="124"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="Y7s-h8-cLy" secondAttribute="height" id="rf8-lW-Zc5"/>
+                                    </constraints>
+                                </imageView>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lyV-YG-9fk">
+                                    <rect key="frame" x="124" y="0.0" width="266" height="124"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                    <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                </textView>
+                            </subviews>
+                            <variation key="widthClass=regular" axis="vertical"/>
+                        </stackView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v2L-G0-oti">
+                            <rect key="frame" x="0.0" y="132" width="390" height="686"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                    </subviews>
+                    <variation key="widthClass=regular" axis="horizontal"/>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="Y7s-h8-cLy" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.3" id="G8K-bX-awM"/>
+                <constraint firstItem="Y7s-h8-cLy" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.25" id="GTz-zy-wgn"/>
+                <constraint firstItem="aYZ-um-nzR" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" constant="8" id="N1I-jh-r4M"/>
+                <constraint firstItem="aYZ-um-nzR" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="12" id="bik-c8-7Wn"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="aYZ-um-nzR" secondAttribute="trailing" constant="12" id="hVK-fJ-z4t"/>
+                <constraint firstItem="aYZ-um-nzR" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="tTN-TM-mjZ"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="GTz-zy-wgn"/>
+                </mask>
+            </variation>
+            <variation key="widthClass=regular">
+                <mask key="constraints">
+                    <exclude reference="G8K-bX-awM"/>
+                    <include reference="GTz-zy-wgn"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="132" y="154"/>
+        </view>
+    </objects>
+</document>

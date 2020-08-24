@@ -42,7 +42,7 @@ class CharacterListSection: CollectionViewSection {
     }
     
     func getHeaderSize(_ collectionView: UICollectionView) -> CGSize {
-        .init(width: collectionView.frame.width, height: 100)
+        .init(width: collectionView.frame.width, height: 44)
     }
     
     func getFooterSize(_ collectionView: UICollectionView) -> CGSize {

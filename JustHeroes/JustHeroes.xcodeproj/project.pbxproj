@@ -66,6 +66,8 @@
 		B1E07D2324F423B50044919A /* MarvelOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E07D2224F423B40044919A /* MarvelOperation.swift */; };
 		B1E07D2524F4257F0044919A /* MarvelImageURLBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E07D2424F4257F0044919A /* MarvelImageURLBuilder.swift */; };
 		B1E07D2724F4259A0044919A /* MarvelComicMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E07D2624F4259A0044919A /* MarvelComicMapper.swift */; };
+		B1E07D2B24F440830044919A /* DetailViewControllerWithChild.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1E07D2A24F440830044919A /* DetailViewControllerWithChild.xib */; };
+		B1E07D2D24F4471E0044919A /* UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E07D2C24F4471E0044919A /* UITextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -165,6 +167,8 @@
 		B1E07D2224F423B40044919A /* MarvelOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelOperation.swift; sourceTree = "<group>"; };
 		B1E07D2424F4257F0044919A /* MarvelImageURLBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelImageURLBuilder.swift; sourceTree = "<group>"; };
 		B1E07D2624F4259A0044919A /* MarvelComicMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelComicMapper.swift; sourceTree = "<group>"; };
+		B1E07D2A24F440830044919A /* DetailViewControllerWithChild.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewControllerWithChild.xib; sourceTree = "<group>"; };
+		B1E07D2C24F4471E0044919A /* UITextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextView.swift; sourceTree = "<group>"; };
 		B7F89263EC855665A5827AD2 /* Pods-JustHeroesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustHeroesUITests.release.xcconfig"; path = "Target Support Files/Pods-JustHeroesUITests/Pods-JustHeroesUITests.release.xcconfig"; sourceTree = "<group>"; };
 		EA846486557CBF5A71B0B89B /* Pods-JustHeroesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustHeroesUITests.debug.xcconfig"; path = "Target Support Files/Pods-JustHeroesUITests/Pods-JustHeroesUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F2784812CD5483FC1DD1192D /* Pods-JustHeroesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustHeroesTests.release.xcconfig"; path = "Target Support Files/Pods-JustHeroesTests/Pods-JustHeroesTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -236,6 +240,7 @@
 			children = (
 				B123A33324EDD7BE008EABC3 /* UIColor.swift */,
 				B123A33624EDD805008EABC3 /* UILabel.swift */,
+				B1E07D2C24F4471E0044919A /* UITextView.swift */,
 				B1C6AACC24F25E440085D5C6 /* URLSessionTask.swift */,
 				B1C6AAD524F2736A0085D5C6 /* UICollectionViewCell.swift */,
 				B1347E8C24F2A93300F71946 /* CGRect.swift */,
@@ -429,6 +434,7 @@
 			children = (
 				B1E07D1524F3B1570044919A /* DetailViewController.swift */,
 				B1E07D1C24F3EBF40044919A /* DetailViewController.xib */,
+				B1E07D2A24F440830044919A /* DetailViewControllerWithChild.xib */,
 				B1E07D1824F3B1EB0044919A /* DetailViewModel.swift */,
 				B1E07D1A24F3C6830044919A /* DetailViewBuilder.swift */,
 			);
@@ -620,6 +626,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B17F51EF24EC4D0C00ECEAA6 /* LaunchScreen.storyboard in Resources */,
+				B1E07D2B24F440830044919A /* DetailViewControllerWithChild.xib in Resources */,
 				B17F51EC24EC4D0C00ECEAA6 /* Preview Assets.xcassets in Resources */,
 				B17F51E924EC4D0C00ECEAA6 /* Assets.xcassets in Resources */,
 				B1E07D1D24F3EBF40044919A /* DetailViewController.xib in Resources */,
@@ -821,6 +828,7 @@
 				B1C2BA3B24F12993005C036B /* ImageRepository.swift in Sources */,
 				B1B298FF24EEC55600921709 /* CollectionViewDelegate.swift in Sources */,
 				B1E07D2124F4238E0044919A /* MarverlComicsDataSource.swift in Sources */,
+				B1E07D2D24F4471E0044919A /* UITextView.swift in Sources */,
 				B123A33B24EDD8ED008EABC3 /* CardCollectionSection.swift in Sources */,
 				B123A14724ED87F2008EABC3 /* CollectionViewSection.swift in Sources */,
 				B1E07D1424F2B8050044919A /* CardCollectionViewDelegateOutputMock.swift in Sources */,

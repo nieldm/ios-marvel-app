@@ -31,11 +31,4 @@ extension UILabel {
         self.textAlignment = .left
     }
     
-    func descriptionStyle() {
-        self.numberOfLines = 0
-        self.adjustsFontSizeToFitWidth = false
-        self.font = UIFont.preferredFont(forTextStyle: .body)
-        self.textColor = .secondary
-        self.textAlignment = .left
-    }
 }

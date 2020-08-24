@@ -10,39 +10,39 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
-    private let viewModel: ViewModelViewCycleEvents
     @IBOutlet private var headerImageView: UIImageView!
-    @IBOutlet private var descriptionLabel: UILabel!
+    @IBOutlet private var descriptionTextView: UITextView!
+    @IBOutlet private var viewContainer: UIView!
+    
+    private let viewModel: ViewModelViewCycleEvents
+    private var childViewController: UIViewController?
 
-    init(viewModel: ViewModelViewCycleEvents) {
+    init(viewModel: ViewModelViewCycleEvents, childViewController: UIViewController? = nil) {
         self.viewModel = viewModel
-//        self.headerImageView = UIImageView()
-//        self.descriptionLabel = UILabel()
-        super.init(nibName: "DetailViewController", bundle: nil)
+        self.childViewController = childViewController
+        if childViewController == nil {
+            super.init(nibName: "DetailViewController", bundle: nil)
+        } else {
+            super.init(nibName: "DetailViewControllerWithChild", bundle: nil)
+        }
+        
     }
     
     override func viewDidLoad() {
+        if let childViewController = childViewController {
+            viewContainer.addSubview(childViewController.view)
+            addChild(childViewController)
+            childViewController.didMove(toParent: self)
+            childViewController.view.snp.makeConstraints { make in
+                make.edges.equalToSuperview()
+            }
+        }
         viewModel.viewDidLoad()
         super.viewDidLoad()
         
+        headerImageView.layer.rounded()
         view.backgroundColor = .primary
-        
-//        view.addSubview(headerImageView)
-        headerImageView.clipsToBounds = true
-        headerImageView.contentMode = .scaleAspectFill
-//        headerImageView.snp.makeConstraints { make in
-//            make.top.equalTo(view.snp.topMargin)
-//            make.left.right.equalToSuperview()
-//            make.height.equalToSuperview().multipliedBy(0.45)
-//        }
-        
-//        view.addSubview(descriptionLabel)
-//        descriptionLabel.snp.makeConstraints { make in
-//            make.top.equalTo(headerImageView.snp.bottom).offset(8)
-//            make.left.equalToSuperview().offset(12)
-//            make.right.equalToSuperview().inset(12)
-//        }
-        descriptionLabel.descriptionStyle()
+        descriptionTextView.descriptionStyle()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -63,6 +63,6 @@ extension DetailViewController: DetailViewModelView {
     }
     
     func set(model: BaseModel) {
-        descriptionLabel.text = model.description
+        descriptionTextView.text = model.description
     }
 }
