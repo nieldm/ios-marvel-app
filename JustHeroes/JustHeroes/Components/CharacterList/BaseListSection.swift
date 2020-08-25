@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-class CharacterListSection: CollectionViewSection {
+class BaseListSection: CollectionViewSection {
     typealias Header = FullTitleCollectionReusableView
     typealias Footer = UICollectionReusableView
     typealias Item = CharacterListItem

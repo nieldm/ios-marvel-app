@@ -1,8 +1,8 @@
 import Foundation
 
-protocol CharacterListViewModelView {
+protocol BaseListViewModelView {
     func didReceive(characters: [BaseModel])
-    func transition(toState: ViewState)
+    func transition(toState state: ViewState)
     func presentDetail(forModel model: BaseModel)
 }
 
@@ -12,7 +12,7 @@ protocol ViewModelViewCycleEvents {
     func viewDidDisappear()
 }
 
-protocol CharacterListViewModelViewProtocol {
+protocol BaseListViewModelViewProtocol {
     func didSearch(withTerm term: String)
 }
 
@@ -22,13 +22,13 @@ enum ViewState {
     case idle
 }
 
-class CharacterListViewModel: ViewModelViewCycleEvents {
+class BaseListViewModel: ViewModelViewCycleEvents {
 
-    var view: CharacterListViewModelView?
-    var repository: CharactersRepositoryProtocol
+    var view: BaseListViewModelView?
+    var repository: BaseRepositoryProtocol
     private var lastSearchTerm: String?
     
-    init(repository: CharactersRepositoryProtocol) {
+    init(repository: BaseRepositoryProtocol) {
         self.repository = repository
     }
     
@@ -56,7 +56,7 @@ class CharacterListViewModel: ViewModelViewCycleEvents {
     
 }
 
-extension CharacterListViewModel: CollectionViewDelegateOutput {
+extension BaseListViewModel: CollectionViewDelegateOutput {
     typealias Item = CharacterListItem
     
     func didSelect(_ item: CharacterListItem) {
@@ -64,16 +64,18 @@ extension CharacterListViewModel: CollectionViewDelegateOutput {
     }
 }
 
-extension CharacterListViewModel: SortAndFilterViewModelOutput {
+extension BaseListViewModel: SortAndFilterViewModelOutput {
     func didSelectSort(byOption option: SortOptions) {
+        self.view?.transition(toState: .loading)
         repository.fetch(atPage: 0, sortedBy: option, withTerm: self.lastSearchTerm ) { [weak self] result in
             self?.didReceive(result)
         }
     }
 }
 
-extension CharacterListViewModel: CharacterListViewModelViewProtocol {
+extension BaseListViewModel: BaseListViewModelViewProtocol {
     func didSearch(withTerm term: String) {
+        self.view?.transition(toState: .loading)
         repository.fetch(atPage: 0, sortedBy: .none, withTerm: term) { [weak self] result in
             self?.lastSearchTerm = term
             self?.didReceive(result)

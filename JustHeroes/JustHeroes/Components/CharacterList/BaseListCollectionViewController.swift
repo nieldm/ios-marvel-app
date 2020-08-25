@@ -1,23 +1,25 @@
 import Foundation
 import UIKit
 
-class CharacterListViewController: CollectionViewController<CharacterListSection> {
+class BaseListCollectionViewController: CollectionViewController<BaseListSection> {
     
-    typealias ViewModel = ViewModelViewCycleEvents & SortAndFilterViewModelOutput & CharacterListViewModelViewProtocol
+    typealias ViewModel = ViewModelViewCycleEvents & SortAndFilterViewModelOutput & BaseListViewModelViewProtocol
     
     private let viewModel: ViewModel
     private let sortAndFilterViewController: SortAndFilterViewController
     private var throttleTimer: Timer?
     private let builder: DetailViewBuilderProtocol
+    private let noContentView: NoContentView
     
     init(
         viewModel: ViewModel,
         delegate: UICollectionViewDelegate,
-        dataSource: CollectionViewDataSource<CharacterListSection>,
+        dataSource: CollectionViewDataSource<BaseListSection>,
         builder: DetailViewBuilderProtocol) {
         self.viewModel = viewModel
         self.sortAndFilterViewController = Assembler.shared.resolveSortFilterModule(output: viewModel)
         self.builder = builder
+        self.noContentView = NoContentView()
         super.init(style: .vertical(paginated: false), delegate: delegate, dataSource: dataSource)
     }
     
@@ -35,6 +37,13 @@ class CharacterListViewController: CollectionViewController<CharacterListSection
             make.height.equalTo(60)
         }
         sortAndFilterViewController.view.backgroundColor = .clear
+        
+        noContentView.isHidden = true
+        noContentView.backgroundColor = .primary
+        view.addSubview(noContentView)
+        noContentView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
     }
     
     override func prepareCollectionView(_ collectionView: UICollectionView) {
@@ -76,7 +85,7 @@ class CharacterListViewController: CollectionViewController<CharacterListSection
     
 }
 
-extension CharacterListViewController: CharacterListViewModelView {
+extension BaseListCollectionViewController: BaseListViewModelView {
     func presentDetail(forModel model: BaseModel) {
         let vc = builder.getDetailViewController(forModel: model)
         
@@ -91,23 +100,37 @@ extension CharacterListViewController: CharacterListViewModelView {
             CharacterListItem(model: given)
         }
         //TODO: add a builder to manage the sections titles
-        self.dataSource.updateSections(sections: [CharacterListSection(title: "Comics", items: items)])
+        self.dataSource.updateSections(sections: [BaseListSection(title: "Comics", items: items)])
         self.reload()
     }
     
-    func transition(toState: ViewState) {
-        
+    func transition(toState state: ViewState) {
+        DispatchQueue.main.async {
+            switch state {
+            case .loading:
+                self.noContentView.startLoading()
+            case .idle:
+                self.noContentView.stopLoading()
+            case .error(_):
+                self.noContentView.stopLoading()
+            }
+        }
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        self.noContentView.changeSize(size)
+        super.viewWillTransition(to: size, with: coordinator)
     }
     
 }
 
-extension CharacterListViewController: UISearchBarDelegate {
+extension BaseListCollectionViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         self.viewModel.viewDidLoad()
     }
 }
 
-extension CharacterListViewController: UISearchResultsUpdating {
+extension BaseListCollectionViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         self.throttleTimer?.invalidate()
         guard let term = searchController.searchBar.text else {

@@ -1,6 +1,6 @@
 import Foundation
 
-class MarvelCharacterMapper: CharactersRepositoryMapper {
+class MarvelCharacterMapper: BaseRepositoryMapper {
     typealias DTO = MarvelDTO<MarvelCharacterDTO>
     
     func map(fromObject object: DTO) -> [BaseModel] {

@@ -2,43 +2,25 @@ import Foundation
 
 typealias BaseResult = Result<[BaseModel], Error>
 
-protocol CharactersRepositoryProtocol {
-    func fetch(
-        atPage page: Int,
-        callback: @escaping (BaseResult) -> Void
-    )
-    
-    func fetch(
-        atPage page: Int,
-        sortedBy sort: SortOptions,
-        withTerm term: String?,
-        callback: @escaping (BaseResult) -> Void
-    )
-}
-
-protocol CharactersRepositoryDataSource {
-    associatedtype DTO: Codable
-    
-    func fetch(
-        withLimit limit: Int,
-        offset: Int,
-        sortedBy sort: SortOptions,
-        withTerm term: String?,
-        callback: @escaping (Result<DTO, Error>) -> Void
-    )
-}
-
-protocol CharactersRepositoryMapper {
-    associatedtype DTO: Codable
-    
-    func map(fromObject object: DTO) -> [BaseModel]
-}
-
 enum RepositoryError: Error {
     case loseContext
 }
 
-class CharactersRepository<DataSource: CharactersRepositoryDataSource, Mapper: CharactersRepositoryMapper>: CharactersRepositoryProtocol
+protocol BaseRepositoryProtocol {
+    func fetch(
+        atPage page: Int,
+        callback: @escaping (BaseResult) -> Void
+    )
+    
+    func fetch(
+        atPage page: Int,
+        sortedBy sort: SortOptions,
+        withTerm term: String?,
+        callback: @escaping (BaseResult) -> Void
+    )
+}
+
+class BaseRepository<DataSource: BaseRepositoryDataSource, Mapper: BaseRepositoryMapper>: BaseRepositoryProtocol
     where DataSource.DTO == Mapper.DTO {
     
     let pageSize: Int
