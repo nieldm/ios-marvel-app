@@ -36,6 +36,7 @@
 		B1814BE824EF2F36008840DB /* MarvelDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1814BE724EF2F36008840DB /* MarvelDataSource.swift */; };
 		B1814DC724EF3FAD008840DB /* CharactersRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1814DC624EF3FAD008840DB /* CharactersRepositoryTest.swift */; };
 		B196113624F515AB00EFC573 /* LoadCharactersFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B196113524F515AB00EFC573 /* LoadCharactersFlow.swift */; };
+		B196113824F5253300EFC573 /* MockedBaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B196113724F5253300EFC573 /* MockedBaseAPI.swift */; };
 		B1B298FF24EEC55600921709 /* CollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B298FE24EEC55600921709 /* CollectionViewDelegate.swift */; };
 		B1C2BA2924EFCF59005C036B /* MarvelDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C2BA2824EFCF59005C036B /* MarvelDTO.swift */; };
 		B1C2BA2B24EFCF7E005C036B /* BaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C2BA2A24EFCF7E005C036B /* BaseAPI.swift */; };
@@ -57,6 +58,8 @@
 		B1C6AADC24F276F20085D5C6 /* SortAndFilterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C6AADB24F276F20085D5C6 /* SortAndFilterListViewController.swift */; };
 		B1C6AADE24F27EF00085D5C6 /* SortAndFilterBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C6AADD24F27EF00085D5C6 /* SortAndFilterBuilder.swift */; };
 		B1C6ACBA24F2840B0085D5C6 /* SortFilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C6ACB924F2840B0085D5C6 /* SortFilterModel.swift */; };
+		B1CCC71624F52D4C0039EB21 /* MockImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CCC71524F52D4C0039EB21 /* MockImageRepository.swift */; };
+		B1CCC71824F52FF70039EB21 /* placeHolder.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B1CCC71724F52FF70039EB21 /* placeHolder.jpg */; };
 		B1E07D1424F2B8050044919A /* CardCollectionViewDelegateOutputMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E07D1324F2B8050044919A /* CardCollectionViewDelegateOutputMock.swift */; };
 		B1E07D1624F3B1570044919A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E07D1524F3B1570044919A /* DetailViewController.swift */; };
 		B1E07D1924F3B1EB0044919A /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E07D1824F3B1EB0044919A /* DetailViewModel.swift */; };
@@ -72,6 +75,8 @@
 		B1E07D2F24F471720044919A /* NoContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E07D2E24F471720044919A /* NoContentView.swift */; };
 		B1E07D3324F494280044919A /* BaseRepositoryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E07D3224F494280044919A /* BaseRepositoryDataSource.swift */; };
 		B1E07D3524F494430044919A /* BaseRepositoryMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E07D3424F494430044919A /* BaseRepositoryMapper.swift */; };
+		B1FCE80324F5298B002573D0 /* comics.json in Resources */ = {isa = PBXBuildFile; fileRef = B1FCE80224F5298B002573D0 /* comics.json */; };
+		B1FCE80524F52994002573D0 /* characters.json in Resources */ = {isa = PBXBuildFile; fileRef = B1FCE80424F52994002573D0 /* characters.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,6 +146,7 @@
 		B1814BE724EF2F36008840DB /* MarvelDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelDataSource.swift; sourceTree = "<group>"; };
 		B1814DC624EF3FAD008840DB /* CharactersRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersRepositoryTest.swift; sourceTree = "<group>"; };
 		B196113524F515AB00EFC573 /* LoadCharactersFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadCharactersFlow.swift; sourceTree = "<group>"; };
+		B196113724F5253300EFC573 /* MockedBaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedBaseAPI.swift; sourceTree = "<group>"; };
 		B1B298FE24EEC55600921709 /* CollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewDelegate.swift; sourceTree = "<group>"; };
 		B1C2BA2824EFCF59005C036B /* MarvelDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelDTO.swift; sourceTree = "<group>"; };
 		B1C2BA2A24EFCF7E005C036B /* BaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPI.swift; sourceTree = "<group>"; };
@@ -162,6 +168,8 @@
 		B1C6AADB24F276F20085D5C6 /* SortAndFilterListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortAndFilterListViewController.swift; sourceTree = "<group>"; };
 		B1C6AADD24F27EF00085D5C6 /* SortAndFilterBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortAndFilterBuilder.swift; sourceTree = "<group>"; };
 		B1C6ACB924F2840B0085D5C6 /* SortFilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortFilterModel.swift; sourceTree = "<group>"; };
+		B1CCC71524F52D4C0039EB21 /* MockImageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockImageRepository.swift; sourceTree = "<group>"; };
+		B1CCC71724F52FF70039EB21 /* placeHolder.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = placeHolder.jpg; sourceTree = "<group>"; };
 		B1E07D1324F2B8050044919A /* CardCollectionViewDelegateOutputMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewDelegateOutputMock.swift; sourceTree = "<group>"; };
 		B1E07D1524F3B1570044919A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		B1E07D1824F3B1EB0044919A /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
@@ -178,6 +186,8 @@
 		B1E07D3224F494280044919A /* BaseRepositoryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRepositoryDataSource.swift; sourceTree = "<group>"; };
 		B1E07D3424F494430044919A /* BaseRepositoryMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRepositoryMapper.swift; sourceTree = "<group>"; };
 		B1E07D3724F4A0400044919A /* JustHeroes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JustHeroes.entitlements; sourceTree = "<group>"; };
+		B1FCE80224F5298B002573D0 /* comics.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = comics.json; sourceTree = "<group>"; };
+		B1FCE80424F52994002573D0 /* characters.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = characters.json; sourceTree = "<group>"; };
 		B7F89263EC855665A5827AD2 /* Pods-JustHeroesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustHeroesUITests.release.xcconfig"; path = "Target Support Files/Pods-JustHeroesUITests/Pods-JustHeroesUITests.release.xcconfig"; sourceTree = "<group>"; };
 		EA846486557CBF5A71B0B89B /* Pods-JustHeroesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustHeroesUITests.debug.xcconfig"; path = "Target Support Files/Pods-JustHeroesUITests/Pods-JustHeroesUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F2784812CD5483FC1DD1192D /* Pods-JustHeroesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustHeroesTests.release.xcconfig"; path = "Target Support Files/Pods-JustHeroesTests/Pods-JustHeroesTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -394,6 +404,8 @@
 			isa = PBXGroup;
 			children = (
 				B1C2BA3A24F12993005C036B /* ImageRepository.swift */,
+				B1CCC71524F52D4C0039EB21 /* MockImageRepository.swift */,
+				B1CCC71724F52FF70039EB21 /* placeHolder.jpg */,
 				B1814BE524EF20F6008840DB /* BaseRepository.swift */,
 				B1E07D3224F494280044919A /* BaseRepositoryDataSource.swift */,
 				B1E07D3424F494430044919A /* BaseRepositoryMapper.swift */,
@@ -477,8 +489,19 @@
 			isa = PBXGroup;
 			children = (
 				B1C2BA2A24EFCF7E005C036B /* BaseAPI.swift */,
+				B196113724F5253300EFC573 /* MockedBaseAPI.swift */,
+				B1FCE80624F5299A002573D0 /* MockFiles */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		B1FCE80624F5299A002573D0 /* MockFiles */ = {
+			isa = PBXGroup;
+			children = (
+				B1FCE80424F52994002573D0 /* characters.json */,
+				B1FCE80224F5298B002573D0 /* comics.json */,
+			);
+			path = MockFiles;
 			sourceTree = "<group>";
 		};
 		D14F5198151D77715DE3BE82 /* Frameworks */ = {
@@ -649,6 +672,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B17F51EF24EC4D0C00ECEAA6 /* LaunchScreen.storyboard in Resources */,
+				B1CCC71824F52FF70039EB21 /* placeHolder.jpg in Resources */,
+				B1FCE80524F52994002573D0 /* characters.json in Resources */,
+				B1FCE80324F5298B002573D0 /* comics.json in Resources */,
 				B1E07D2B24F440830044919A /* DetailViewControllerWithChild.xib in Resources */,
 				B17F51EC24EC4D0C00ECEAA6 /* Preview Assets.xcassets in Resources */,
 				B17F51E924EC4D0C00ECEAA6 /* Assets.xcassets in Resources */,
@@ -839,6 +865,7 @@
 				B1C2BA3224EFE3F6005C036B /* MarvelCharacterMapper.swift in Sources */,
 				B1C6AACF24F25ECB0085D5C6 /* SortAndFilterViewController.swift in Sources */,
 				B1C2BA2B24EFCF7E005C036B /* BaseAPI.swift in Sources */,
+				B196113824F5253300EFC573 /* MockedBaseAPI.swift in Sources */,
 				B1814BE824EF2F36008840DB /* MarvelDataSource.swift in Sources */,
 				B1C6AAD624F2736A0085D5C6 /* UICollectionViewCell.swift in Sources */,
 				B1C2BA3D24F142E2005C036B /* FullTitleCollectionReusableView.swift in Sources */,
@@ -852,6 +879,7 @@
 				B1C6AADE24F27EF00085D5C6 /* SortAndFilterBuilder.swift in Sources */,
 				B1C6AACD24F25E440085D5C6 /* URLSessionTask.swift in Sources */,
 				B1C2BA2924EFCF59005C036B /* MarvelDTO.swift in Sources */,
+				B1CCC71624F52D4C0039EB21 /* MockImageRepository.swift in Sources */,
 				B1347E8D24F2A93300F71946 /* CGRect.swift in Sources */,
 				B1C2BA3924EFF3C5005C036B /* BaseListCollectionViewController.swift in Sources */,
 				B1C6AADA24F275DD0085D5C6 /* SortFilterSection.swift in Sources */,

@@ -13,7 +13,18 @@ enum APIError: Error {
     case unableToParse
 }
 
-class BaseAPI {
+protocol BaseAPIProtocol {
+    func request<T: Decodable>(forPath path: String,
+                               method: HTTPMethod,
+                               withParameters parameters: Parameters,
+                               callback: @escaping (Result<T, Error>) -> Void) throws
+    func request<T: Decodable>(forURLString urlString: String,
+                               method: HTTPMethod,
+                               withParameters parameters: Parameters,
+                               callback: @escaping (Result<T, Error>) -> Void) throws
+}
+
+class BaseAPI: BaseAPIProtocol {
     
     let baseURL: URL
     let session: URLSession
@@ -128,8 +139,11 @@ class BaseAPI {
         
         return request
     }
-    
-    private func processData<T: Decodable>(data: Data?, callback: @escaping (Result<T, Error>) -> Void) {
+
+}
+
+extension BaseAPIProtocol {
+    func processData<T: Decodable>(data: Data?, callback: @escaping (Result<T, Error>) -> Void) {
         do {
             guard let data = data else {
                 throw APIError.noData

@@ -8,8 +8,9 @@ class JustHeroesBaseUITests: XCTestCase {
         continueAfterFailure = false
         app = XCUIApplication()
         app.launchEnvironment = [
-            "MARVEL_PRIVATE_KEY": "08b5e01b1697c99d25d7f59b0b2f2d252f109edd",
-            "MARVEL_API_KEY": "885d2218c82dce59c8159ef7d42823fe"
+            "MARVEL_PRIVATE_KEY": "0",
+            "MARVEL_API_KEY": "0",
+            "MOCK_SERVER": "YES"
         ]
         app.launch()
         try super.setUpWithError()

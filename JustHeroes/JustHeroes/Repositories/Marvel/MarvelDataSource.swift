@@ -19,9 +19,9 @@ class MarvelDataSource {
     
     static let baseURL = "https://gateway.marvel.com:443/v1/public/"
     
-    let api: BaseAPI
+    let api: BaseAPIProtocol
     
-    init(api: BaseAPI) {
+    init(api: BaseAPIProtocol) {
         self.api = api
     }
     

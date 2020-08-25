@@ -3,7 +3,7 @@ import Foundation
 class MarverlComicsDataSource: MarvelDataSource, BaseRepositoryDataSource {
     private let collectionURL: String
     
-    init(collectionURL: String, api: BaseAPI) {
+    init(collectionURL: String, api: BaseAPIProtocol) {
         self.collectionURL = collectionURL
         super.init(api: api)
     }

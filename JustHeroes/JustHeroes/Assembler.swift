@@ -4,11 +4,27 @@ class Assembler {
     
     static let shared = Assembler()
     
+    func resolveImageRepository() -> ImageRepositoryProtocol {
+        let mockServer = ProcessInfo.processInfo.environment["MOCK_SERVER"] ?? "NO"
+        if mockServer == "YES" {
+            return MockImageRepository(delay: 0.0)
+        }
+        return ImageRepository()
+    }
+    
+    func resolveBaseAPI() throws -> BaseAPIProtocol {
+        let mockServer = ProcessInfo.processInfo.environment["MOCK_SERVER"] ?? "NO"
+        if mockServer == "YES" {
+            return MockedBaseAPI(delay: 0.0)
+        }
+        return try BaseAPI(baseURL: MarvelDataSource.baseURL, session: .init(configuration: .default))
+    }
+    
     func resolveCharacterList() throws -> BaseListCollectionViewController {
-        let api = try BaseAPI(baseURL: MarvelDataSource.baseURL, session: .init(configuration: .default))
+        let api = try resolveBaseAPI()
         let mapper = MarvelCharacterMapper()
         let dataSource = MarverlCharacterDataSource(api: api)
-        let repository = BaseRepository(pageSize: 100, dataSource: dataSource, mapper: mapper)
+        let repository = BaseRepository(pageSize: 10, dataSource: dataSource, mapper: mapper)
         let viewModel = BaseListViewModel(repository: repository)
         let collectionDataSource = CollectionViewDataSource<BaseListSection>(sections: [])
         let collectionDelegate = CollectionViewDelegate(dataSource: collectionDataSource, delegate: viewModel)
@@ -24,10 +40,10 @@ class Assembler {
     }
     
     func resolveComicList(collectionURL: String) throws -> BaseListCollectionViewController {
-        let api = try BaseAPI(baseURL: MarvelDataSource.baseURL, session: .init(configuration: .default))
+        let api = try resolveBaseAPI()
         let mapper = MarvelComicMapper()
         let dataSource = MarverlComicsDataSource(collectionURL: collectionURL, api: api)
-        let repository = BaseRepository(pageSize: 50, dataSource: dataSource, mapper: mapper)
+        let repository = BaseRepository(pageSize: 5, dataSource: dataSource, mapper: mapper)
         let viewModel = BaseListViewModel(repository: repository)
         let collectionDataSource = CollectionViewDataSource<BaseListSection>(sections: [])
         let collectionDelegate = CollectionViewDelegate(dataSource: collectionDataSource, delegate: viewModel)

@@ -7,7 +7,9 @@ protocol DetailViewBuilderProtocol {
 class DetailViewBuilder: DetailViewBuilderProtocol {
     
     func getDetailViewController(forModel model: BaseModel) -> DetailViewController {
-        let viewModel = DetailViewModel(characterModel: model, imageRepository: ImageRepository.shared)
+        let imageRepository = Assembler.shared.resolveImageRepository()
+        
+        let viewModel = DetailViewModel(characterModel: model, imageRepository: imageRepository)
         let vc: DetailViewController
         if let collectionURL = model.collectionURL {
             vc = DetailViewController(

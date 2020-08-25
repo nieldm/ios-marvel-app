@@ -8,9 +8,11 @@ class BaseListSection: CollectionViewSection {
     
     var items: [BaseListItem]
     var spacing: CGFloat = 12.0
+    let imageRepository: ImageRepositoryProtocol
     
     init(items: [BaseListItem]) {
         self.items = items
+        self.imageRepository = Assembler.shared.resolveImageRepository()
     }
     
     func preload(itemAt index: Int) {
@@ -26,7 +28,7 @@ class BaseListSection: CollectionViewSection {
 
         //TODO: inject image repository
         if let characterImageURL = model.imageURL {
-            item.imageDownloadTask = ImageRepository.shared.get(
+            item.imageDownloadTask = imageRepository.get(
                 imageFrom: characterImageURL,
                 withSize: nil,
                 onSuccess: item.setImage(image:)

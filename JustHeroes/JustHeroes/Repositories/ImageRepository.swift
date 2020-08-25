@@ -13,8 +13,6 @@ protocol ImageRepositoryProtocol {
 
 public class ImageRepository: ImageRepositoryProtocol {
     
-    static let shared = ImageRepository()
-    
     public init() {}
     
     let queue = DispatchQueue(label: "image_decode_queue")
@@ -42,20 +40,6 @@ public class ImageRepository: ImageRepositoryProtocol {
         return task
     }
     
-    private func processImage(_ imageData: Data, withSize size: Float?, onSuccess: @escaping (UIImage) -> Void) {
-        do {
-           if let size = size {
-               let image = try self.downsampleImage(fromData: imageData, maxSize: size)
-               return onSuccess(image)
-           }
-        } catch {
-           print("👾", "Error downsampling the image")
-        }
-        if let originalImage = UIImage(data: imageData) {
-           onSuccess(originalImage)
-        }
-    }
-    
     private func getImageFromCache(
         forTask task: URLSessionDataTask,
         onSuccess: @escaping (Data) -> Void,
@@ -81,8 +65,24 @@ public class ImageRepository: ImageRepositoryProtocol {
         }
         return session.dataTask(with: url, completionHandler: completionHandler)
     }
+}
+
+extension ImageRepositoryProtocol {
+    func processImage(_ imageData: Data, withSize size: Float?, onSuccess: @escaping (UIImage) -> Void) {
+        do {
+           if let size = size {
+               let image = try self.downsampleImage(fromData: imageData, maxSize: size)
+               return onSuccess(image)
+           }
+        } catch {
+           print("👾", "Error downsampling the image")
+        }
+        if let originalImage = UIImage(data: imageData) {
+           onSuccess(originalImage)
+        }
+    }
     
-    private func downsampleImage(fromData data: Data, maxSize: Float) throws -> UIImage {
+    func downsampleImage(fromData data: Data, maxSize: Float) throws -> UIImage {
         let sourceOptions = [kCGImageSourceShouldCache: false] as CFDictionary
         guard let source = CGImageSourceCreateWithData(data as CFData, sourceOptions) else {
             throw ImageError.badData
