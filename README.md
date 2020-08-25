@@ -34,6 +34,8 @@ You can pass this variable to modify the behavior of the app
 
 The app contains a small set of test (i will like to increase the coverage) each one of the test was used at development time to increase the speed of the feedback.
 
+the SnapShotTest should be run on a **iPhone 11**
+
 Data provided by Marvel. © 2020 MARVEL
 
 ## Features
@@ -81,3 +83,5 @@ there is a lot to improve in a quick project like this one, this are some things
 - Implement a generic approach to the UITest to reflect the intention of the tests more easly
 
 - Improved UI
+
+- Pagination
