@@ -11,11 +11,11 @@ import XCTest
 
 class CharactersRepositoryTest: XCTestCase {
 
-    var sut: BaseRepository<MarvelDataSource, MarvelCharacterMapper>!
+    var sut: BaseRepository<MarverlCharacterDataSource, MarvelCharacterMapper>!
     
     override func setUpWithError() throws {
         let api = try! BaseAPI(baseURL: MarvelDataSource.baseURL, session: .init(configuration: .default))
-        let dataSource = MarvelDataSource(api: api)
+        let dataSource = MarverlCharacterDataSource(api: api)
         let mapper = MarvelCharacterMapper()
         sut = BaseRepository(pageSize: 20, dataSource: dataSource, mapper: mapper)
     }
@@ -23,7 +23,7 @@ class CharactersRepositoryTest: XCTestCase {
     func testExample() throws {
         let expect = expectation(description: "api call")
 
-        sut.fetchCharacters(atPage: 1) { (result) in
+        sut.fetch(atPage: 1, sortedBy: .none, withTerm: nil) { (result) in
             let characters = try! result.get()
             let first = characters.first!
             XCTAssertEqual(characters.count, 20)

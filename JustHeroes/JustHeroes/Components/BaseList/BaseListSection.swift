@@ -4,12 +4,12 @@ import UIKit
 class BaseListSection: CollectionViewSection {
     typealias Header = FullTitleCollectionReusableView
     typealias Footer = UICollectionReusableView
-    typealias Item = CharacterListItem
+    typealias Item = BaseListItem
     
-    var items: [CharacterListItem]
+    var items: [BaseListItem]
     var spacing: CGFloat = 12.0
     
-    init(items: [CharacterListItem]) {
+    init(items: [BaseListItem]) {
         self.items = items
     }
     

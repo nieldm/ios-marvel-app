@@ -3,7 +3,7 @@ import UIKit
 
 extension BaseModel: CollectioViewModel {}
 
-class CharacterListItem: CollectionViewItem {
+class BaseListItem: CollectionViewItem {
     var model: BaseModel
     weak var cell: CardCollectionViewCell?
     

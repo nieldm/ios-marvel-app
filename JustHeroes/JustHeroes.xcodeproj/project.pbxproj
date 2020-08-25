@@ -30,11 +30,12 @@
 		B17F51EC24EC4D0C00ECEAA6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B17F51EB24EC4D0C00ECEAA6 /* Preview Assets.xcassets */; };
 		B17F51EF24EC4D0C00ECEAA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B17F51ED24EC4D0C00ECEAA6 /* LaunchScreen.storyboard */; };
 		B17F51FA24EC4D0C00ECEAA6 /* CollectionViewDataSourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17F51F924EC4D0C00ECEAA6 /* CollectionViewDataSourceTest.swift */; };
-		B17F520524EC4D0C00ECEAA6 /* JustHeroesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17F520424EC4D0C00ECEAA6 /* JustHeroesUITests.swift */; };
+		B17F520524EC4D0C00ECEAA6 /* JustHeroesBaseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17F520424EC4D0C00ECEAA6 /* JustHeroesBaseUITests.swift */; };
 		B1814BE424EED36F008840DB /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1814BE324EED36F008840DB /* CollectionViewController.swift */; };
 		B1814BE624EF20F6008840DB /* BaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1814BE524EF20F6008840DB /* BaseRepository.swift */; };
 		B1814BE824EF2F36008840DB /* MarvelDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1814BE724EF2F36008840DB /* MarvelDataSource.swift */; };
 		B1814DC724EF3FAD008840DB /* CharactersRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1814DC624EF3FAD008840DB /* CharactersRepositoryTest.swift */; };
+		B196113624F515AB00EFC573 /* LoadCharactersFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B196113524F515AB00EFC573 /* LoadCharactersFlow.swift */; };
 		B1B298FF24EEC55600921709 /* CollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B298FE24EEC55600921709 /* CollectionViewDelegate.swift */; };
 		B1C2BA2924EFCF59005C036B /* MarvelDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C2BA2824EFCF59005C036B /* MarvelDTO.swift */; };
 		B1C2BA2B24EFCF7E005C036B /* BaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C2BA2A24EFCF7E005C036B /* BaseAPI.swift */; };
@@ -45,7 +46,7 @@
 		B1C2BA3924EFF3C5005C036B /* BaseListCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C2BA3824EFF3C5005C036B /* BaseListCollectionViewController.swift */; };
 		B1C2BA3B24F12993005C036B /* ImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C2BA3A24F12993005C036B /* ImageRepository.swift */; };
 		B1C2BA3D24F142E2005C036B /* FullTitleCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C2BA3C24F142E2005C036B /* FullTitleCollectionReusableView.swift */; };
-		B1C6AACB24F25E210085D5C6 /* CharacterListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C6AACA24F25E210085D5C6 /* CharacterListItem.swift */; };
+		B1C6AACB24F25E210085D5C6 /* BaseListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C6AACA24F25E210085D5C6 /* BaseListItem.swift */; };
 		B1C6AACD24F25E440085D5C6 /* URLSessionTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C6AACC24F25E440085D5C6 /* URLSessionTask.swift */; };
 		B1C6AACF24F25ECB0085D5C6 /* SortAndFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C6AACE24F25ECB0085D5C6 /* SortAndFilterViewController.swift */; };
 		B1C6AAD224F2607A0085D5C6 /* SortAndFilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C6AAD124F2607A0085D5C6 /* SortAndFilterViewModel.swift */; };
@@ -133,12 +134,13 @@
 		B17F51F924EC4D0C00ECEAA6 /* CollectionViewDataSourceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewDataSourceTest.swift; sourceTree = "<group>"; };
 		B17F51FB24EC4D0C00ECEAA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B17F520024EC4D0C00ECEAA6 /* JustHeroesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JustHeroesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B17F520424EC4D0C00ECEAA6 /* JustHeroesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JustHeroesUITests.swift; sourceTree = "<group>"; };
+		B17F520424EC4D0C00ECEAA6 /* JustHeroesBaseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JustHeroesBaseUITests.swift; sourceTree = "<group>"; };
 		B17F520624EC4D0C00ECEAA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1814BE324EED36F008840DB /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		B1814BE524EF20F6008840DB /* BaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRepository.swift; sourceTree = "<group>"; };
 		B1814BE724EF2F36008840DB /* MarvelDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelDataSource.swift; sourceTree = "<group>"; };
 		B1814DC624EF3FAD008840DB /* CharactersRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersRepositoryTest.swift; sourceTree = "<group>"; };
+		B196113524F515AB00EFC573 /* LoadCharactersFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadCharactersFlow.swift; sourceTree = "<group>"; };
 		B1B298FE24EEC55600921709 /* CollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewDelegate.swift; sourceTree = "<group>"; };
 		B1C2BA2824EFCF59005C036B /* MarvelDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelDTO.swift; sourceTree = "<group>"; };
 		B1C2BA2A24EFCF7E005C036B /* BaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPI.swift; sourceTree = "<group>"; };
@@ -149,7 +151,7 @@
 		B1C2BA3824EFF3C5005C036B /* BaseListCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseListCollectionViewController.swift; sourceTree = "<group>"; };
 		B1C2BA3A24F12993005C036B /* ImageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRepository.swift; sourceTree = "<group>"; };
 		B1C2BA3C24F142E2005C036B /* FullTitleCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullTitleCollectionReusableView.swift; sourceTree = "<group>"; };
-		B1C6AACA24F25E210085D5C6 /* CharacterListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListItem.swift; sourceTree = "<group>"; };
+		B1C6AACA24F25E210085D5C6 /* BaseListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseListItem.swift; sourceTree = "<group>"; };
 		B1C6AACC24F25E440085D5C6 /* URLSessionTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionTask.swift; sourceTree = "<group>"; };
 		B1C6AACE24F25ECB0085D5C6 /* SortAndFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortAndFilterViewController.swift; sourceTree = "<group>"; };
 		B1C6AAD124F2607A0085D5C6 /* SortAndFilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortAndFilterViewModel.swift; sourceTree = "<group>"; };
@@ -232,7 +234,7 @@
 		B123A33224EDD74F008EABC3 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				B1C2BA3524EFEF5B005C036B /* CharacterList */,
+				B1C2BA3524EFEF5B005C036B /* BaseList */,
 				B1C6AAD024F2606A0085D5C6 /* SortAndFilter */,
 				B123A33E24EDD983008EABC3 /* CardList */,
 				B1C2BA3C24F142E2005C036B /* FullTitleCollectionReusableView.swift */,
@@ -343,7 +345,8 @@
 		B17F520324EC4D0C00ECEAA6 /* JustHeroesUITests */ = {
 			isa = PBXGroup;
 			children = (
-				B17F520424EC4D0C00ECEAA6 /* JustHeroesUITests.swift */,
+				B17F520424EC4D0C00ECEAA6 /* JustHeroesBaseUITests.swift */,
+				B196113524F515AB00EFC573 /* LoadCharactersFlow.swift */,
 				B17F520624EC4D0C00ECEAA6 /* Info.plist */,
 			);
 			path = JustHeroesUITests;
@@ -408,15 +411,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		B1C2BA3524EFEF5B005C036B /* CharacterList */ = {
+		B1C2BA3524EFEF5B005C036B /* BaseList */ = {
 			isa = PBXGroup;
 			children = (
 				B1C2BA3824EFF3C5005C036B /* BaseListCollectionViewController.swift */,
 				B1C2BA3324EFEB57005C036B /* BaseListViewModel.swift */,
 				B1C2BA3624EFEF72005C036B /* BaseListSection.swift */,
-				B1C6AACA24F25E210085D5C6 /* CharacterListItem.swift */,
+				B1C6AACA24F25E210085D5C6 /* BaseListItem.swift */,
 			);
-			path = CharacterList;
+			path = BaseList;
 			sourceTree = "<group>";
 		};
 		B1C6AAD024F2606A0085D5C6 /* SortAndFilter */ = {
@@ -573,6 +576,7 @@
 				B17F51FC24EC4D0C00ECEAA6 /* Sources */,
 				B17F51FD24EC4D0C00ECEAA6 /* Frameworks */,
 				B17F51FE24EC4D0C00ECEAA6 /* Resources */,
+				852E25A3B01181DE3445CC06 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -730,6 +734,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		852E25A3B01181DE3445CC06 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JustHeroesUITests/Pods-JustHeroesUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JustHeroesUITests/Pods-JustHeroesUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JustHeroesUITests/Pods-JustHeroesUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		8F3B8508528397ED0EE41414 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -824,7 +845,7 @@
 				B1E07D1B24F3C6830044919A /* DetailViewBuilder.swift in Sources */,
 				B1C2BA2F24EFE35A005C036B /* BaseModel.swift in Sources */,
 				B1E07D2724F4259A0044919A /* MarvelComicMapper.swift in Sources */,
-				B1C6AACB24F25E210085D5C6 /* CharacterListItem.swift in Sources */,
+				B1C6AACB24F25E210085D5C6 /* BaseListItem.swift in Sources */,
 				B123A32E24EDD5DA008EABC3 /* CollectionViewItem.swift in Sources */,
 				B1814BE424EED36F008840DB /* CollectionViewController.swift in Sources */,
 				B1C6ACBA24F2840B0085D5C6 /* SortFilterModel.swift in Sources */,
@@ -873,7 +894,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B17F520524EC4D0C00ECEAA6 /* JustHeroesUITests.swift in Sources */,
+				B17F520524EC4D0C00ECEAA6 /* JustHeroesBaseUITests.swift in Sources */,
+				B196113624F515AB00EFC573 /* LoadCharactersFlow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

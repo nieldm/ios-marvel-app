@@ -69,9 +69,9 @@ class BaseListViewModel: ViewModelViewCycleEvents {
 }
 
 extension BaseListViewModel: CollectionViewDelegateOutput {
-    typealias Item = CharacterListItem
+    typealias Item = BaseListItem
     
-    func didSelect(_ item: CharacterListItem) {
+    func didSelect(_ item: BaseListItem) {
         view?.presentDetail(forModel: item.model)
     }
 }

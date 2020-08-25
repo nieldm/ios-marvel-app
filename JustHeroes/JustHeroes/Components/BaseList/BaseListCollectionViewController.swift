@@ -96,8 +96,8 @@ extension BaseListCollectionViewController: BaseListViewModelView {
     
     func didReceive(characters: [BaseModel]) {
         //TODO: move map logic to the viewModel
-        let items = characters.map { given -> CharacterListItem in
-            CharacterListItem(model: given)
+        let items = characters.map { given -> BaseListItem in
+            BaseListItem(model: given)
         }
         //TODO: add a builder to manage the sections titles
         self.dataSource.updateSections(sections: [BaseListSection(items: items)])
