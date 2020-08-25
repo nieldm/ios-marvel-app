@@ -9,6 +9,29 @@
 import UIKit
 import SwiftUI
 
+enum EnviromentOption: String {
+    case startView = "START_VIEW"
+    case marvelAPIkey = "MARVEL_API_KEY"
+    case marvelAPIprivateKey = "MARVEL_PRIVATE_KEY"
+    case mockServer = "MOCK_SERVER"
+}
+
+extension ProcessInfo {
+    
+    func getEnviromentOption(_ option: EnviromentOption) -> String? {
+        return environment[option.rawValue]
+    }
+    
+    func getStartView() -> StartView {
+        let startView = getEnviromentOption(.startView) ?? ""
+        return StartView(rawValue: startView) ?? StartView.none
+    }
+    
+    func mockServer() -> Bool {
+        getEnviromentOption(.mockServer) == "YES"
+    }
+}
+
 enum StartView: String {
     case test
     case characterList
@@ -22,27 +45,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        let startViewOption = ProcessInfo.processInfo.environment["START_VIEW"] ?? ""
         
-        let firstView: UIViewController
-        switch StartView(rawValue: startViewOption) {
-        case .test:
-            firstView = Assembler.shared.resolveCardListViewController_Test()
-        case .sortFilter:
-            firstView = Assembler.shared.resolveSortFilterModule()
-        case .characterList:
-            firstView = try! Assembler.shared.resolveCharacterList()
-        case .comics:
-            firstView = try! Assembler.shared.resolveComicList(
-                collectionURL: "http://gateway.marvel.com/v1/public/characters/1009351/comics"
-            )
-        default:
-            let navController = UINavigationController(
-                rootViewController: try! Assembler.shared.resolveCharacterList()
-            )
-            UINavigationBar.appearance().tintColor = .secondary
-            firstView = navController
-        }
+        UINavigationBar.appearance().tintColor = .secondary
+        
+        let firstView: UIViewController = Assembler.shared.resolveStartViewController()
 
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)

@@ -1,20 +1,51 @@
 import Foundation
+import UIKit
 
 class Assembler {
     
     static let shared = Assembler()
     
+    func getMarvelAPIKey() -> String? {
+        ProcessInfo.processInfo.getEnviromentOption(.marvelAPIkey)
+    }
+    
+    func getMarvelAPIPrivateKey() -> String? {
+        ProcessInfo.processInfo.getEnviromentOption(.marvelAPIprivateKey)
+    }
+    
+    func resolveStartViewController() -> UIViewController {
+        let firstView: UIViewController
+        
+        switch ProcessInfo.processInfo.getStartView() {
+        case .test:
+            firstView = Assembler.shared.resolveCardListViewController_Test()
+        case .sortFilter:
+            firstView = Assembler.shared.resolveSortFilterModule()
+        case .characterList:
+            firstView = try! Assembler.shared.resolveCharacterList()
+        case .comics:
+            firstView = try! Assembler.shared.resolveComicList(
+                collectionURL: "http://gateway.marvel.com/v1/public/characters/1009351/comics"
+            )
+        default:
+            let navController = UINavigationController(
+                rootViewController: try! resolveCharacterList()
+            )
+            firstView = navController
+        }
+        
+        return firstView
+    }
+    
     func resolveImageRepository() -> ImageRepositoryProtocol {
-        let mockServer = ProcessInfo.processInfo.environment["MOCK_SERVER"] ?? "NO"
-        if mockServer == "YES" {
+        if ProcessInfo.processInfo.mockServer() {
             return MockImageRepository(delay: 0.0)
         }
         return ImageRepository()
     }
     
     func resolveBaseAPI() throws -> BaseAPIProtocol {
-        let mockServer = ProcessInfo.processInfo.environment["MOCK_SERVER"] ?? "NO"
-        if mockServer == "YES" {
+        if ProcessInfo.processInfo.mockServer() {
             return MockedBaseAPI(delay: 0.0)
         }
         return try BaseAPI(baseURL: MarvelDataSource.baseURL, session: .init(configuration: .default))

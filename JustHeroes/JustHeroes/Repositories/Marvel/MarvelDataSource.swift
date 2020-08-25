@@ -4,14 +4,14 @@ import CryptoSwift
 class MarvelDataSource {
     
     static var apiKey: String {
-        guard let apiKey = ProcessInfo.processInfo.environment["MARVEL_API_KEY"] else {
+        guard let apiKey = Assembler.shared.getMarvelAPIKey() else {
             fatalError("Missing api key at the enviroment")
         }
         return apiKey
     }
     
     static var privateKey: String {
-        guard let apiKey = ProcessInfo.processInfo.environment["MARVEL_PRIVATE_KEY"] else {
+        guard let apiKey = Assembler.shared.getMarvelAPIPrivateKey() else {
             fatalError("Missing api key at the enviroment")
         }
         return apiKey
