@@ -116,6 +116,11 @@ extension ModelListCollectionViewController: CharacterListViewModelView {
         }
     }
     
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        self.noContentView.changeSize(size)
+        super.viewWillTransition(to: size, with: coordinator)
+    }
+    
 }
 
 extension ModelListCollectionViewController: UISearchBarDelegate {
