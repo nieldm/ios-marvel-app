@@ -1,6 +1,6 @@
 import Foundation
 
-class MarverlComicsDataSource: MarvelDataSource, CharactersRepositoryDataSource {
+class MarverlComicsDataSource: MarvelDataSource, BaseRepositoryDataSource {
     private let collectionURL: String
     
     init(collectionURL: String, api: BaseAPI) {

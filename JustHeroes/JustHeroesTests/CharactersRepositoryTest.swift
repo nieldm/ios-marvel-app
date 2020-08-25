@@ -11,13 +11,13 @@ import XCTest
 
 class CharactersRepositoryTest: XCTestCase {
 
-    var sut: CharactersRepository<MarvelDataSource, MarvelCharacterMapper>!
+    var sut: BaseRepository<MarvelDataSource, MarvelCharacterMapper>!
     
     override func setUpWithError() throws {
         let api = try! BaseAPI(baseURL: MarvelDataSource.baseURL, session: .init(configuration: .default))
         let dataSource = MarvelDataSource(api: api)
         let mapper = MarvelCharacterMapper()
-        sut = CharactersRepository(pageSize: 20, dataSource: dataSource, mapper: mapper)
+        sut = BaseRepository(pageSize: 20, dataSource: dataSource, mapper: mapper)
     }
 
     func testExample() throws {

@@ -1,6 +1,6 @@
 import Foundation
 
-class MarverlCharacterDataSource: MarvelDataSource, CharactersRepositoryDataSource {
+class MarverlCharacterDataSource: MarvelDataSource, BaseRepositoryDataSource {
     typealias DTO = MarvelDTO<MarvelCharacterDTO>
     
     func fetch(

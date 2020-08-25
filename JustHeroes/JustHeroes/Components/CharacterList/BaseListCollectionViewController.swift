@@ -1,9 +1,9 @@
 import Foundation
 import UIKit
 
-class ModelListCollectionViewController: CollectionViewController<ModelListSection> {
+class BaseListCollectionViewController: CollectionViewController<BaseListSection> {
     
-    typealias ViewModel = ViewModelViewCycleEvents & SortAndFilterViewModelOutput & ModelListViewModelViewProtocol
+    typealias ViewModel = ViewModelViewCycleEvents & SortAndFilterViewModelOutput & BaseListViewModelViewProtocol
     
     private let viewModel: ViewModel
     private let sortAndFilterViewController: SortAndFilterViewController
@@ -14,7 +14,7 @@ class ModelListCollectionViewController: CollectionViewController<ModelListSecti
     init(
         viewModel: ViewModel,
         delegate: UICollectionViewDelegate,
-        dataSource: CollectionViewDataSource<ModelListSection>,
+        dataSource: CollectionViewDataSource<BaseListSection>,
         builder: DetailViewBuilderProtocol) {
         self.viewModel = viewModel
         self.sortAndFilterViewController = Assembler.shared.resolveSortFilterModule(output: viewModel)
@@ -85,7 +85,7 @@ class ModelListCollectionViewController: CollectionViewController<ModelListSecti
     
 }
 
-extension ModelListCollectionViewController: CharacterListViewModelView {
+extension BaseListCollectionViewController: BaseListViewModelView {
     func presentDetail(forModel model: BaseModel) {
         let vc = builder.getDetailViewController(forModel: model)
         
@@ -100,7 +100,7 @@ extension ModelListCollectionViewController: CharacterListViewModelView {
             CharacterListItem(model: given)
         }
         //TODO: add a builder to manage the sections titles
-        self.dataSource.updateSections(sections: [ModelListSection(title: "Comics", items: items)])
+        self.dataSource.updateSections(sections: [BaseListSection(title: "Comics", items: items)])
         self.reload()
     }
     
@@ -124,13 +124,13 @@ extension ModelListCollectionViewController: CharacterListViewModelView {
     
 }
 
-extension ModelListCollectionViewController: UISearchBarDelegate {
+extension BaseListCollectionViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         self.viewModel.viewDidLoad()
     }
 }
 
-extension ModelListCollectionViewController: UISearchResultsUpdating {
+extension BaseListCollectionViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         self.throttleTimer?.invalidate()
         guard let term = searchController.searchBar.text else {
