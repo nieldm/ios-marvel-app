@@ -92,7 +92,7 @@
          <EnvironmentVariable
             key = "MOCK_SERVER"
             value = "YES"
-            isEnabled = "YES">
+            isEnabled = "NO">
          </EnvironmentVariable>
          <EnvironmentVariable
             key = "MARVEL_PRIVATE_KEY"
