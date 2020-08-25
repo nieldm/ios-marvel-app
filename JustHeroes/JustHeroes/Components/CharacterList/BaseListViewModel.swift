@@ -66,6 +66,7 @@ extension BaseListViewModel: CollectionViewDelegateOutput {
 
 extension BaseListViewModel: SortAndFilterViewModelOutput {
     func didSelectSort(byOption option: SortOptions) {
+        self.view?.transition(toState: .loading)
         repository.fetch(atPage: 0, sortedBy: option, withTerm: self.lastSearchTerm ) { [weak self] result in
             self?.didReceive(result)
         }
@@ -74,6 +75,7 @@ extension BaseListViewModel: SortAndFilterViewModelOutput {
 
 extension BaseListViewModel: BaseListViewModelViewProtocol {
     func didSearch(withTerm term: String) {
+        self.view?.transition(toState: .loading)
         repository.fetch(atPage: 0, sortedBy: .none, withTerm: term) { [weak self] result in
             self?.lastSearchTerm = term
             self?.didReceive(result)

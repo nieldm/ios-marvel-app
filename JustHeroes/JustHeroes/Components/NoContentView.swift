@@ -42,7 +42,7 @@ class NoContentView: UIView {
         )
         
         let loadingText = createLoadingTextLayer(rect)
-        loadingText.fadeInFadeOutAnimation(repeatCount: .infinity)
+        loadingText.fadeOutAnimation(repeatCount: .infinity)
         coverLayer.addSublayer(loadingText)
     
         coverLayer.mask = background
@@ -50,9 +50,21 @@ class NoContentView: UIView {
         self.coverLayer = coverLayer
     }
     
+    func startLoading() {
+        coverLayer?.removeFromSuperlayer()
+        coverLayer = nil
+        loadingLayer(bounds)
+        self.isHidden = false
+        self.layer.fadeInAnimation(repeatCount: 1, autoreverses: false) {
+            self.layer.opacity = 1
+        }
+    }
+    
     func stopLoading() {
-        self.layer.fadeInFadeOutAnimation(repeatCount: 1, autoreverses: false) {
+        self.layer.opacity = 0
+        self.layer.fadeOutAnimation(repeatCount: 1, autoreverses: false) {
             self.isHidden = true
+            self.layer.opacity = 1
         }
     }
     
@@ -102,14 +114,31 @@ private extension NoContentView {
 }
 
 private extension CALayer {
-    func fadeInFadeOutAnimation(repeatCount: Float, autoreverses: Bool = true, onComplete: (() -> Void)? = nil) {
+    func fadeOutAnimation(repeatCount: Float, autoreverses: Bool = true, onComplete: (() -> Void)? = nil) {
         let animation = CABasicAnimation(keyPath: "opacity")
         animation.fromValue = 1.0
-        animation.toValue = 0
+        animation.toValue = 0.0
         animation.duration = 0.75
         animation.timingFunction = .init(name: .easeInEaseOut)
         animation.repeatCount = repeatCount
         animation.autoreverses = autoreverses
+        animation.isRemovedOnCompletion = true
+        
+        CATransaction.begin()
+        CATransaction.setCompletionBlock(onComplete)
+        self.add(animation, forKey: "fadeInFadeOut")
+        CATransaction.commit()
+    }
+    
+    func fadeInAnimation(repeatCount: Float, autoreverses: Bool = true, onComplete: (() -> Void)? = nil) {
+        let animation = CABasicAnimation(keyPath: "opacity")
+        animation.fromValue = 0.0
+        animation.toValue = 1.0
+        animation.duration = 0.75
+        animation.timingFunction = .init(name: .easeInEaseOut)
+        animation.repeatCount = repeatCount
+        animation.autoreverses = autoreverses
+        animation.isRemovedOnCompletion = true
         
         CATransaction.begin()
         CATransaction.setCompletionBlock(onComplete)

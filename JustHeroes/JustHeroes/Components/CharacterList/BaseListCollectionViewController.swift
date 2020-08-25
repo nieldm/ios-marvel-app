@@ -108,7 +108,7 @@ extension BaseListCollectionViewController: BaseListViewModelView {
         DispatchQueue.main.async {
             switch state {
             case .loading:
-                self.noContentView.isHidden = false
+                self.noContentView.startLoading()
             case .idle:
                 self.noContentView.stopLoading()
             case .error(_):
