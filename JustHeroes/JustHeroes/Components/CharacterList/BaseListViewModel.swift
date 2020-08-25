@@ -22,22 +22,23 @@ enum ViewState {
     case idle
 }
 
+struct FetchProperties: Equatable {
+    let searchTerm: String?
+    let sort: SortOptions
+}
+
 class BaseListViewModel: ViewModelViewCycleEvents {
 
     var view: BaseListViewModelView?
     var repository: BaseRepositoryProtocol
-    private var lastSearchTerm: String?
-    
+    private var lastFetchProperties: FetchProperties?
     init(repository: BaseRepositoryProtocol) {
         self.repository = repository
     }
     
     func viewDidLoad() {
-        lastSearchTerm = nil
-        view?.transition(toState: .loading)
-        repository.fetch(atPage: 0) { [weak self] (result) in
-            self?.didReceive(result)
-        }
+        let props = FetchProperties(searchTerm: nil, sort: .dateDesc)
+        fetchIfNeeded(withProperties: props)
     }
     
     func didReceive(_ result: BaseResult) {
@@ -47,6 +48,17 @@ class BaseListViewModel: ViewModelViewCycleEvents {
             self.view?.transition(toState: .idle)
         } catch {
             self.view?.transition(toState: .error(error.localizedDescription))
+        }
+    }
+    
+    private func fetchIfNeeded(withProperties props: FetchProperties) {
+        guard props != lastFetchProperties else {
+            return
+        }
+        lastFetchProperties = props
+        view?.transition(toState: .loading)
+        repository.fetch(atPage: 0, sortedBy: props.sort, withTerm: props.searchTerm ) { [weak self] result in
+            self?.didReceive(result)
         }
     }
     
@@ -66,19 +78,20 @@ extension BaseListViewModel: CollectionViewDelegateOutput {
 
 extension BaseListViewModel: SortAndFilterViewModelOutput {
     func didSelectSort(byOption option: SortOptions) {
-        self.view?.transition(toState: .loading)
-        repository.fetch(atPage: 0, sortedBy: option, withTerm: self.lastSearchTerm ) { [weak self] result in
-            self?.didReceive(result)
-        }
+        let props = FetchProperties(
+            searchTerm: lastFetchProperties?.searchTerm,
+            sort: option
+        )
+        fetchIfNeeded(withProperties: props)
     }
 }
 
 extension BaseListViewModel: BaseListViewModelViewProtocol {
     func didSearch(withTerm term: String) {
-        self.view?.transition(toState: .loading)
-        repository.fetch(atPage: 0, sortedBy: .none, withTerm: term) { [weak self] result in
-            self?.lastSearchTerm = term
-            self?.didReceive(result)
-        }
+        let props = FetchProperties(
+            searchTerm: term,
+            sort: .none
+        )
+        fetchIfNeeded(withProperties: props)
     }
 }

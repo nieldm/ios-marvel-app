@@ -9,11 +9,6 @@ enum RepositoryError: Error {
 protocol BaseRepositoryProtocol {
     func fetch(
         atPage page: Int,
-        callback: @escaping (BaseResult) -> Void
-    )
-    
-    func fetch(
-        atPage page: Int,
         sortedBy sort: SortOptions,
         withTerm term: String?,
         callback: @escaping (BaseResult) -> Void
@@ -33,10 +28,6 @@ class BaseRepository<DataSource: BaseRepositoryDataSource, Mapper: BaseRepositor
         self.pageSize = pageSize
         self.dataSource = dataSource
         self.mapper = mapper
-    }
-    
-    func fetch(atPage page: Int, callback: @escaping (BaseResult) -> Void) {
-        self.fetch(atPage: page, sortedBy: .dateDesc, withTerm: nil, callback: callback)
     }
     
     func fetch(
