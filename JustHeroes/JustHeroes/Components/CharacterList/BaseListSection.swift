@@ -6,13 +6,11 @@ class BaseListSection: CollectionViewSection {
     typealias Footer = UICollectionReusableView
     typealias Item = CharacterListItem
     
-    private let title: String
     var items: [CharacterListItem]
     var spacing: CGFloat = 12.0
     
-    init(title: String, items: [CharacterListItem]) {
+    init(items: [CharacterListItem]) {
         self.items = items
-        self.title = title
     }
     
     func preload(itemAt index: Int) {
@@ -50,7 +48,7 @@ class BaseListSection: CollectionViewSection {
     }
     
     func getHeader(header: FullTitleCollectionReusableView) -> FullTitleCollectionReusableView {
-        header.titleLabel.text = self.title
+        header.titleLabel.text = "Results(\(items.count))"
         return header
     }
     

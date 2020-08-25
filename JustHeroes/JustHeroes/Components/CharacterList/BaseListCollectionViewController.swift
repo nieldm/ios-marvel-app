@@ -100,7 +100,7 @@ extension BaseListCollectionViewController: BaseListViewModelView {
             CharacterListItem(model: given)
         }
         //TODO: add a builder to manage the sections titles
-        self.dataSource.updateSections(sections: [BaseListSection(title: "Comics", items: items)])
+        self.dataSource.updateSections(sections: [BaseListSection(items: items)])
         self.reload()
     }
     
