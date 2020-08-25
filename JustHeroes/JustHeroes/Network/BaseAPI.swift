@@ -41,6 +41,13 @@ class BaseAPI: BaseAPIProtocol {
         [:]
     }
     
+    /// request with path using the baseURL
+    /// - Parameters:
+    ///   - path: path that will be added to the baseURL
+    ///   - method: HTTPMethod
+    ///   - parameters: HTTP headers
+    ///   - callback: return a codable or an error in a Result
+    /// - Throws: APIError
     func request<T: Decodable>(forPath path: String,
                  method: HTTPMethod,
                  withParameters parameters: Parameters,
@@ -72,6 +79,13 @@ class BaseAPI: BaseAPIProtocol {
         }
     }
     
+    /// request with the complete url
+    /// - Parameters:
+    ///   - urlString: complete url
+    ///   - method: HTTPMethod
+    ///   - parameters: HTTP headers
+    ///   - callback: return a codable or an error in a Result
+    /// - Throws: APIError
     func request<T: Decodable>(forURLString urlString: String,
                  method: HTTPMethod,
                  withParameters parameters: Parameters,
@@ -143,6 +157,10 @@ class BaseAPI: BaseAPIProtocol {
 }
 
 extension BaseAPIProtocol {
+    /// takes the data and try to convert into a Decodable object
+    /// - Parameters:
+    ///   - data: comming from the request
+    ///   - callback: return a codable or an error in a Result
     func processData<T: Decodable>(data: Data?, callback: @escaping (Result<T, Error>) -> Void) {
         do {
             guard let data = data else {

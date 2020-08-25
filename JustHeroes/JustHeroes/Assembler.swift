@@ -70,6 +70,10 @@ class Assembler {
         return vc
     }
     
+    /// Resolve the BaseListCollection with a comic collection list
+    /// - Parameter collectionURL: Comic Collection list return by the character service
+    /// - Throws: APIError
+    /// - Returns: BaseListCollection with MarvelComic dependencies
     func resolveComicList(collectionURL: String) throws -> BaseListCollectionViewController {
         let api = try resolveBaseAPI()
         let mapper = MarvelComicMapper()

@@ -20,6 +20,8 @@ private enum MockFiles: String {
 class MockedBaseAPI: BaseAPIProtocol {
     let delay: Double
     
+    /// Mock class to prevent hitting the server when testig or developing
+    /// - Parameter delay: add a delay to the response
     init(delay: Double) {
         self.delay = delay
     }
