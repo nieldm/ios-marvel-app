@@ -52,7 +52,7 @@ class SortAndFilterViewController: UIViewController {
 extension SortAndFilterViewController: SortAndFilterViewModelProtocol {
     func showSortOptions(forItems items: [SortFilterModel]) {
         let vc = builder.createSortModule(forItems: items)
-        vc.modalPresentationStyle = .popover
+        vc.modalPresentationStyle = .automatic
         vc.view.backgroundColor = .primary
         if let parent = parent {
             parent.present(vc, animated: true)

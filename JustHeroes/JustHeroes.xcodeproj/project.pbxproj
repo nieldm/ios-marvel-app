@@ -175,6 +175,7 @@
 		B1E07D2E24F471720044919A /* NoContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoContentView.swift; sourceTree = "<group>"; };
 		B1E07D3224F494280044919A /* BaseRepositoryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRepositoryDataSource.swift; sourceTree = "<group>"; };
 		B1E07D3424F494430044919A /* BaseRepositoryMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRepositoryMapper.swift; sourceTree = "<group>"; };
+		B1E07D3724F4A0400044919A /* JustHeroes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JustHeroes.entitlements; sourceTree = "<group>"; };
 		B7F89263EC855665A5827AD2 /* Pods-JustHeroesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustHeroesUITests.release.xcconfig"; path = "Target Support Files/Pods-JustHeroesUITests/Pods-JustHeroesUITests.release.xcconfig"; sourceTree = "<group>"; };
 		EA846486557CBF5A71B0B89B /* Pods-JustHeroesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustHeroesUITests.debug.xcconfig"; path = "Target Support Files/Pods-JustHeroesUITests/Pods-JustHeroesUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F2784812CD5483FC1DD1192D /* Pods-JustHeroesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustHeroesTests.release.xcconfig"; path = "Target Support Files/Pods-JustHeroesTests/Pods-JustHeroesTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -303,18 +304,19 @@
 		B17F51E124EC4D0B00ECEAA6 /* JustHeroes */ = {
 			isa = PBXGroup;
 			children = (
+				B1E07D3724F4A0400044919A /* JustHeroes.entitlements */,
 				B17F51E224EC4D0B00ECEAA6 /* AppDelegate.swift */,
 				B17F51E424EC4D0B00ECEAA6 /* SceneDelegate.swift */,
 				B17F51E824EC4D0C00ECEAA6 /* Assets.xcassets */,
 				B17F51ED24EC4D0C00ECEAA6 /* LaunchScreen.storyboard */,
 				B17F51F024EC4D0C00ECEAA6 /* Info.plist */,
 				B123A33F24EDDA85008EABC3 /* Assembler.swift */,
-				B1C2BA2A24EFCF7E005C036B /* BaseAPI.swift */,
+				B1E07D3624F49EDE0044919A /* Network */,
 				B1C2BA3024EFE3CB005C036B /* Models */,
 				B123A33524EDD7CD008EABC3 /* Extensions */,
 				B123A33224EDD74F008EABC3 /* Components */,
-				B123A32F24EDD720008EABC3 /* CollectionViewKit */,
 				B1C2BA2C24EFCFC7005C036B /* Repositories */,
+				B123A32F24EDD720008EABC3 /* CollectionViewKit */,
 				B17F51EA24EC4D0C00ECEAA6 /* Preview Content */,
 			);
 			path = JustHeroes;
@@ -466,6 +468,14 @@
 				B1E07D2624F4259A0044919A /* MarvelComicMapper.swift */,
 			);
 			path = Comic;
+			sourceTree = "<group>";
+		};
+		B1E07D3624F49EDE0044919A /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				B1C2BA2A24EFCF7E005C036B /* BaseAPI.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		D14F5198151D77715DE3BE82 /* Frameworks */ = {
@@ -1060,6 +1070,7 @@
 			baseConfigurationReference = 43E5A243D1075B20C01D55A7 /* Pods-JustHeroes.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = JustHeroes/JustHeroes.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"JustHeroes/Preview Content\"";
 				DEVELOPMENT_TEAM = XCD7YJUC25;
@@ -1071,6 +1082,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nieldm.JustHeroes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1081,6 +1093,7 @@
 			baseConfigurationReference = 488469E0400614BD07219B59 /* Pods-JustHeroes.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = JustHeroes/JustHeroes.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"JustHeroes/Preview Content\"";
 				DEVELOPMENT_TEAM = XCD7YJUC25;
@@ -1092,6 +1105,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nieldm.JustHeroes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
