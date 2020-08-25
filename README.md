@@ -4,11 +4,11 @@
 
 This an App exercise using the Marvel API that will show the character from marvel, with sort and search options, you can navigate into each character, to view the comics,  and also you can go to the comic detail.
 
-<img title="" src="file:///Users/nieldm/Winterfell/jobs_test/ios-marvel-app/images/logo.png" alt="" data-align="inline">
+<img title="" src="./images/logo.png" alt="" data-align="inline">
 
 ## UI
 
-<img src="file:///Users/nieldm/Winterfell/jobs_test/ios-marvel-app/images/darkHome.png" title="" alt="" width="179"><img title="" src="file:///Users/nieldm/Winterfell/jobs_test/ios-marvel-app/images/lightHome.png" alt="" width="178">
+<img src="./images/lightHome.png" title="" alt="" width="197"><img title="" src="./images/darkHome.png" alt="" width="198" data-align="inline">
 
 The UI is simple, you can find both options light and dark, this levarage the use of color inside the assets.
 
