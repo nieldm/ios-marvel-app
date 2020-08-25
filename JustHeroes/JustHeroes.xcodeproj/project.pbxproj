@@ -60,6 +60,7 @@
 		B1C6ACBA24F2840B0085D5C6 /* SortFilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C6ACB924F2840B0085D5C6 /* SortFilterModel.swift */; };
 		B1CCC71624F52D4C0039EB21 /* MockImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CCC71524F52D4C0039EB21 /* MockImageRepository.swift */; };
 		B1CCC71824F52FF70039EB21 /* placeHolder.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B1CCC71724F52FF70039EB21 /* placeHolder.jpg */; };
+		B1CCC71A24F54ABF0039EB21 /* ProcessInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CCC71924F54ABF0039EB21 /* ProcessInfo.swift */; };
 		B1E07D1424F2B8050044919A /* CardCollectionViewDelegateOutputMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E07D1324F2B8050044919A /* CardCollectionViewDelegateOutputMock.swift */; };
 		B1E07D1624F3B1570044919A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E07D1524F3B1570044919A /* DetailViewController.swift */; };
 		B1E07D1924F3B1EB0044919A /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E07D1824F3B1EB0044919A /* DetailViewModel.swift */; };
@@ -170,6 +171,7 @@
 		B1C6ACB924F2840B0085D5C6 /* SortFilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortFilterModel.swift; sourceTree = "<group>"; };
 		B1CCC71524F52D4C0039EB21 /* MockImageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockImageRepository.swift; sourceTree = "<group>"; };
 		B1CCC71724F52FF70039EB21 /* placeHolder.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = placeHolder.jpg; sourceTree = "<group>"; };
+		B1CCC71924F54ABF0039EB21 /* ProcessInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessInfo.swift; sourceTree = "<group>"; };
 		B1E07D1324F2B8050044919A /* CardCollectionViewDelegateOutputMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewDelegateOutputMock.swift; sourceTree = "<group>"; };
 		B1E07D1524F3B1570044919A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		B1E07D1824F3B1EB0044919A /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 				B1C6AACC24F25E440085D5C6 /* URLSessionTask.swift */,
 				B1C6AAD524F2736A0085D5C6 /* UICollectionViewCell.swift */,
 				B1347E8C24F2A93300F71946 /* CGRect.swift */,
+				B1CCC71924F54ABF0039EB21 /* ProcessInfo.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -903,6 +906,7 @@
 				B123A14724ED87F2008EABC3 /* CollectionViewSection.swift in Sources */,
 				B1E07D3524F494430044919A /* BaseRepositoryMapper.swift in Sources */,
 				B1E07D1424F2B8050044919A /* CardCollectionViewDelegateOutputMock.swift in Sources */,
+				B1CCC71A24F54ABF0039EB21 /* ProcessInfo.swift in Sources */,
 				B1E07D1F24F4236A0044919A /* MarverlCharacterDataSource.swift in Sources */,
 				B1E07D2524F4257F0044919A /* MarvelImageURLBuilder.swift in Sources */,
 				B1C2BA3724EFEF72005C036B /* BaseListSection.swift in Sources */,
