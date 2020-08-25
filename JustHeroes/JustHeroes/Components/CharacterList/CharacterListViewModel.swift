@@ -35,9 +35,9 @@ class CharacterListViewModel: ViewModelViewCycleEvents {
     func viewDidLoad() {
         lastSearchTerm = nil
         view?.transition(toState: .loading)
-//        repository.fetch(atPage: 0) { [weak self] (result) in
-//            self?.didReceive(result)
-//        }
+        repository.fetch(atPage: 0) { [weak self] (result) in
+            self?.didReceive(result)
+        }
     }
     
     func didReceive(_ result: BaseResult) {

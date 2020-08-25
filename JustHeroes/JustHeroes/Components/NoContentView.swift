@@ -15,6 +15,8 @@ class NoContentView: UIView {
     }
 
     override func draw(_ rect: CGRect) {
+        backgroundColor = .clear
+        
         addSubview(imageView)
         imageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -40,7 +42,7 @@ class NoContentView: UIView {
         )
         
         let loadingText = createLoadingTextLayer(rect)
-        loadingText.fadeInFadeOutAnimation()
+        loadingText.fadeInFadeOutAnimation(repeatCount: .infinity)
         coverLayer.addSublayer(loadingText)
     
         coverLayer.mask = background
@@ -48,9 +50,15 @@ class NoContentView: UIView {
         self.coverLayer = coverLayer
     }
     
+    func stopLoading() {
+        self.layer.fadeInFadeOutAnimation(repeatCount: 1, autoreverses: false) {
+            self.isHidden = true
+        }
+    }
+    
     func changeSize(_ size: CGSize) {
-        self.coverLayer?.removeFromSuperlayer()
-        self.coverLayer = nil
+        coverLayer?.removeFromSuperlayer()
+        coverLayer = nil
         loadingLayer(CGRect(x: 0, y: 0, width: size.width, height: size.height))
     }
     
@@ -94,14 +102,18 @@ private extension NoContentView {
 }
 
 private extension CALayer {
-    func fadeInFadeOutAnimation() {
-        let tryTextAnimation = CABasicAnimation(keyPath: "opacity")
-        tryTextAnimation.fromValue = 1.0
-        tryTextAnimation.toValue = 0
-        tryTextAnimation.duration = 0.75
-        tryTextAnimation.timingFunction = .init(name: .easeInEaseOut)
-        tryTextAnimation.repeatCount = .infinity
-        tryTextAnimation.autoreverses = true
-        self.add(tryTextAnimation, forKey: "fadeInFadeOut")
+    func fadeInFadeOutAnimation(repeatCount: Float, autoreverses: Bool = true, onComplete: (() -> Void)? = nil) {
+        let animation = CABasicAnimation(keyPath: "opacity")
+        animation.fromValue = 1.0
+        animation.toValue = 0
+        animation.duration = 0.75
+        animation.timingFunction = .init(name: .easeInEaseOut)
+        animation.repeatCount = repeatCount
+        animation.autoreverses = autoreverses
+        
+        CATransaction.begin()
+        CATransaction.setCompletionBlock(onComplete)
+        self.add(animation, forKey: "fadeInFadeOut")
+        CATransaction.commit()
     }
 }

@@ -106,12 +106,13 @@ extension ModelListCollectionViewController: CharacterListViewModelView {
     
     func transition(toState state: ViewState) {
         DispatchQueue.main.async {
-            self.noContentView.isHidden = true
             switch state {
             case .loading:
                 self.noContentView.isHidden = false
-            default: ()
-                
+            case .idle:
+                self.noContentView.stopLoading()
+            case .error(_):
+                self.noContentView.stopLoading()
             }
         }
     }
